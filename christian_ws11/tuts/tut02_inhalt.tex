@@ -1,0 +1,292 @@
+%%TODO: 1.3 unendliche mengen beschreiben,
+%%1.4 wie kommt man auf 16: 2^2 eingaben, verknüpfung also durch 4 bit definiert, sprich für jede eingabe eine ausgabe, sprich 2^4 mögliche verknüpfungen
+%%%beispiele für verknüpfungen: nicht A, und, oder, xor, nor, ..., 0, 1
+
+\section[Organisation]{Organisatorisches}
+% \subsection*{}
+\subsection*{}
+\begin{frame}
+\frametitle{Euer Tutor}
+        \begin{block}{Kontakt}
+                \begin{description}
+                        \item[Kontakt:] gbi-tutor@gmx.de
+                        \item[Homepage:] \url{http://gbi-tutor.blogspot.com}
+                \end{description}
+        \end{block}
+\end{frame}
+\section[Blatt 1]{Aufgabenblatt 1}
+\subsection*{}
+\begin{frame}
+	\frametitle{Ein Blick zurück}
+	\begin{block}{etwas Statistik}
+		\begin{itemize}
+			\item 23 Abgaben, weiter so!
+			\item durchschnittliche Punktzahl: $14,7$/$20$ Punkten 
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{häufige Fehler...}
+		\begin{itemize}
+			\item[1.1:] äquivalente Ausdrücke sind nicht $=$, besser $\equiv$ \pause
+			\item[1.1:] bei Wahrheitstabellen immer auch Wert der Eingabevariablen angeben \pause
+			\item[1.4:] denkt an die Klammern, selbst wenn in der Vorlesung Vorrangigkeit der Operatoren definiert ist!
+		 \end{itemize}
+	\end{block}
+\end{frame}
+
+\section[Blatt 2]{Aufgabenblatt 2}
+\subsection*{}
+\begin{frame}
+        \frametitle{Aufgabenblatt 2}
+        \begin{block}{Blatt 2}
+					\begin{itemize}
+						\item Abgabe: 04.11.2011 um 12:30 Uhr im Untergeschoss des Infobaus
+						\item Punkte: maximal 20
+					\end{itemize}
+        \end{block}
+        \begin{block}{Themen}
+        \begin{itemize}
+          \item Prädikatenlogik 
+        	\item Wörter
+        	\item Vollständige Induktion
+        	\item Mengen
+        \end{itemize}
+        \end{block}
+\end{frame}
+
+\subsection{Prädikatenlogik}
+\begin{frame}
+	\frametitle{Quantoren}
+	\begin{block}{$\exists$ und $\forall$}
+	Eine nützliche Notation, um zu unterscheiden, ob wir Aussagen für alle Elemente oder nur für eines machen sind Quantoren. Die gebräuchlichsten sind:
+	\begin{itemize}
+		\item[$\exists$] Existenzquantor (lies: "`Es existiert"')
+		\item[$\forall$] Allquantor (lies: "`Für alle"')
+	\end{itemize}
+	Bei den Quantoren kommt es auf die Reihenfolge an! Sie dürfen niemals hinter eine Formel stehen!
+	\end{block}
+	\only<2->{
+	\begin{block}{Einige Fragen...}
+	\begin{itemize}
+	\item Welche der beiden Formeln ist gemeint? \\ $\forall y \exists x : y > x$ \only<2>{oder $\exists y \forall x : y>x$}
+	\item Gilt $(\exists x A(x)) \land (\exists x B(x))\equiv \exists x: A(x) \land B(x)$? \only<3>{Nein!}
+	\end{itemize}
+	\end{block}
+	}
+\end{frame}
+
+\subsection{Definitionen}
+\begin{frame}
+	\frametitle{Aus der Vorlesung...}
+	\begin{block}{Alphabet}
+	Ein \textbf{Alphabet} ist eine endliche Menge von Zeichen.
+	\end{block}
+
+	\pause
+	\begin{block}{Wort}
+		\begin{itemize}
+			\item Ein \textbf{Wort} w über einem Alphabet A ist eine \textbf{Folge von Zeichen} aus A.	\pause
+			\item formal: surjektive Abbildung $w : \mathbb G_n \rightarrow A$ wobei $\mathbb G_n = \left\{i \in \mathbb N_0 | 0 \leq i < n\right\}$
+
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Aus der Vorlesung...}
+	\begin{block}{Menge aller Wörter}
+	Die Menge der Wörter der Länge \textbf{n} wird bezeichnet mit $A^n$. Die Menge aller Wörter $A^*$ ist definiert als $A^* = \bigcup^{\infty}_{i=0} A^i$.
+	\end{block}
+
+	\only<2->{
+	\begin{block}{Ihr seid dran...}
+		\begin{itemize}
+			\item Gegeben: Alphabet $A = \{a, b\}$ Gesucht: $A^*$
+			\only<3->{ \item $A^* = \{a, b, aa, ab, ba, bb, aaa, ...\}$
+				\item Beachtet: $\forall$ Alphabete A ist das \textbf{leere Wort} $\epsilon
+			\in A^*$.}
+		\end{itemize}
+	\end{block}}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Konkatenation}
+	\begin{block}{$A^*$}
+		\begin{itemize}
+			\item Gegeben: Alphabet $A = \{a, b\}$, Gesucht: $A^*$
+			\item $A^* = \{a, b, aa, ab, ba, bb, aaa, ...\}$
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{$w^n$}
+		\begin{itemize}
+			\item Gegeben: Wort $w = ab$, Gesucht: $w^n$ \pause
+			\item $w^n = ab \cdot (w^{n-1})$
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection{Mengenlehre}
+\begin{frame}
+	\frametitle{Mengenlehre}
+	\begin{block}{Indexmengen}
+		\begin{itemize}
+			\item Es sei gegeben $\mathbb G_n = \left\{i \in \mathbb N_0 | 0 \leq i < n\right\}$
+			\uncover<2->{\item Was ist $\bigcup^{\infty}_{i=0} \mathbb G_i$ ?}
+			\uncover<3->{ Es ist $\mathbb N_0$.} \uncover<4->{\item Wie beweist man das?}
+		\end{itemize}
+	\end{block}
+
+	\uncover<5->{
+	\begin{block}{Mengengleichheit}
+		\begin{itemize}
+			\item Wie beweist man allgemein, das zwei Mengen $M_1$ und $M_2$ gleich sind?
+			\uncover<6->{ \item	Man zeigt, dass
+										\begin{enumerate}
+											\item $M_1 \subseteq M_2$
+											\uncover<7->{ \item $M_2 \subseteq M_1$}
+										\end{enumerate}
+							 }
+		\end{itemize}
+	\end{block}}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Mengenlehre}
+	\begin{block}{Mengeninklusion}
+		\begin{itemize}
+			\item Wie beweist man $M_1 \subseteq M_2$?
+			\uncover<2->{\item Man zeigt, dass $\forall x \in M_1 : x \in M_2$ }
+		\end{itemize}
+	\end{block}
+
+	\uncover<3->{
+	\begin{block}{Ihr seid dran...}
+  	\begin{itemize}
+			\item Es sei $\mathbb G_n = \left\{i \in \mathbb N_0 | 0 \leq i < n\right\}$.\\
+				Zeigt nun:
+						\begin{displaymath}
+                        	\mathbb N_0 = \bigcup^{\infty}_{i=0} \mathbb G_i
+                        \end{displaymath}
+  	\end{itemize}
+  \end{block}}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Mengenlehre}
+		\begin{block}{$\subseteq$} \pause
+		Wähle ein beliebiges $n \in \mathbb N_0$. Dann gilt nach Definition von $\mathbb G_{n+1}$: $n \in \mathbb G_{n+1}$ und somit auch $n \in \bigcup^{\infty}_{i=0} \mathbb G_i$.
+		\end{block}
+	 \pause
+		\begin{block}{$\supseteq$}  \pause
+		Laut Definition enhält $\mathbb G_i$ nur Elemente aus $\mathbb N_0$. Somit $\mathbb G_i \subseteq \mathbb N_0$.
+  	\end{block}
+\end{frame}
+
+
+\section[VI]{Vollständig Induktion}
+\subsection*{}
+\begin{frame}
+	\frametitle{Vollständige Induktion tut nicht weh...}
+	\begin{block}{Ihr seid dran...}
+		\begin{itemize}
+			\item \only<1>{Wer}\only<2>{Ihr} kennt das Beweisverfahren der vollständige Induktion \only<1>{?}\only<2>{...} \\
+				\visible<2->{Erklärt den "`Unwissenden"' das Verfahren...}
+			\item \only<1>{Wer}\only<2>{Ihr} kennt das Verfahren nicht\only<1>{?}\only<2>{...} \\
+		 		\visible<2->{Hört gespannt zu...}
+		 \end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+	\frametitle{Beweisverfahren der vollständigen Induktion}
+	\begin{block}{Die Theorie}
+		Der Beweis erfolgt in folgenden Schritten:
+		\begin{enumerate}
+			\item Induktionsanfang: Die Aussage wird für $n=n_0$ gezeigt \pause
+			\item Induktionsvorraussetzung/-annahme: Die Aussage sei für \textbf{ein}
+			beliebiges  $n$ wahr. \pause
+			\item Induktionsschluss/-schritt: Aus dem Schluss von $n$ auf $n+1$ (in der Regel mit Hilfe der IV) folgt, dass die Aussage für alle natürlichen Zahlen $n>n_0$ gilt.
+		\end{enumerate}
+	\end{block}
+
+	\begin{block}{Ein Beispiel:}
+	Beweise durch vollständig Induktion: 
+	 $1+3+5+...+(2n-1)=n^2$
+	\end{block}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Beweisverfahren der vollständigen Induktion}
+	
+	\begin{block}{Ein Beispiel:}
+	Beweise durch vollständig Induktion $1+3+5+...+(2n-1)=n^2$
+	
+	\begin{itemize}
+		\item[IA] $n=1$: $1=1^2=1$ ist erfüllt
+		\item[IV]	$1+3+5+...+(2n-1)=n^2$ gilt für ein $n \in \mathbb{N}$
+		\item[IS] \begin{equation}
+				\begin{split}
+					 1+3&+5+...+(2(n+1)-1) \nonumber\\
+					&= 1+3+5+...+(2n+1) \nonumber\\
+					&=1+3+5+...+(2n-1)+(2n+1) \nonumber\\
+					&\overset{IV}{=} n^2+2n+1 \nonumber\\
+					&=(n+1)^2
+				\end{split}
+			\end{equation}
+    \end{itemize}
+    \end{block}
+	
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+	\frametitle{Ein etwas komplizierteres Beispiel...}
+	\only<1>{
+	\begin{block}{Ihr seid dran...}
+	Es sei $q\in \mathbb N_0$ und $q\geq 2$:
+		$s_0 = 1 $\\
+    $\forall k\in \mathbb N_0:\; s_{k+1} = s_k + q^{k+1}$ \\
+ 	Beweise durch vollständige Induktion:
+   $\forall k\in \mathbb N_0:\; s_k = \frac{q^{k+1}-1}{q-1}$
+  \end{block}}
+
+  \only<2->{
+  \begin{block}{Lösung}
+  \begin{itemize}
+	  \item[IA:] $k=0$: $\frac{q^{0+1}-1}{q-1} = \frac{q-1}{q-1} = 1 = s_0$
+	  \item[IV:] $s_k = \frac{q^{k+1}-1}{q-1}$ gelte für ein $n$
+	  \small
+	  \item[IS:]
+      \begin{align*}
+        s_{k+1} &= s_k + q^{k+1} \text{\qquad nach Definiton} \\
+        &= \frac{q^{k+1}-1}{q-1}+ q^{k+1} \text{\qquad nach Induktionsannahme} \\
+        &= \frac{q^{k+1}-1+ (q-1)q^{k+1}}{q-1} \\
+        &= \frac{q^{k+1}-1+ q*q^{k+1} - q^{k+1}}{q-1} \\
+        &= \frac{q^{k+2}-1}{q-1}
+				\end{align*}
+  \end{itemize}
+	\end{block}}
+\end{frame}
+
+\section{Abschluss}
+% Studis anzuregen darüber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachträglich stellen, dann kann in der nächsten Woche nochmal drauf eingegangen werden
+\subsection*{}
+\begin{frame}
+	\frametitle{Zum Schluss...}
+	\begin{block}{Was ihr nun wissen solltet!}
+	\begin{itemize}
+		\visible<2->{\item Wie beweise ich Mengengleichheit?}
+		\visible<3->{\item Was ist das Beweisverfahren der vollständigen Induktion?}
+		\visible<4->{\item Was kann ich alles tolles damit anstellen?}
+		\visible<5->{\item Wie kann ich meinen Tutor bei der Korrektur meines Übungsblattes positiv beeinflussen?}
+	\end{itemize}
+	\end{block}
+
+	\visible<6->{
+	\begin{block}{Ihr wisst was nicht?}
+		Stellt \textbf{jetzt} Fragen!
+	\end{block}}
+\end{frame}

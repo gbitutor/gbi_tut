@@ -1,0 +1,46 @@
+% !TeX root = ../tut10.tex
+% !TeX encoding = latin1
+
+% ----- ab hier eigentlicher Inhalt -------------------------------------------
+\section[Einstieg]{Aufwachen}
+\subsection*{}
+\begin{frame}{Zum Warmwerden...}
+   Algorithmen-Effizienz...
+    \begin{enumerate}
+    \item { \only<2->{ \color{green!50!black} }
+    ... wird häufig in Abhängigkeit der Eingeabelänge angegeben.
+    }
+    \item { \only<2->{ \color{red} }
+    ... ist unabhängig von der Struktur der eingegebenen Daten.
+    }
+    \item { \only<2->{ \color{red} }
+    ... muss für jede Rechenmaschine einzeln ermittelt werden.
+    }
+    \end{enumerate}
+
+  Das O-Kalkül ...
+    \begin{enumerate}
+    \item { \only<3->{ \color{red} }
+    ... eignet sich gut um einen Mindestaufwand anzugeben.
+    }
+    \item { \only<3->{ \color{green!50!black} }
+    ... ist unabhängig von einfachen Faktoren.
+    }
+    \item { \only<3->{ \color{green!50!black} }
+    ... beschreibt eine Menge von Funktionen.
+    }
+    \end{enumerate}
+
+  Das $\Theta$-Kalkül...
+    \begin{enumerate}
+    \item { \only<4>{ \color{green!50!black} }
+    ... gibt einen "`Korridor"' an, den der Algorithmus nie verlässt.
+    }
+    \item { \only<4>{ \color{red} }
+    ... $\Theta(f(n))$ entält alle Funktionen, die auch in $O(f(n))$ enthalten sind.
+    }
+    \item { \only<4>{ \color{green!50!black} }
+    ... ist reflexiv (Es gilt: $f(n) \in \Theta(f(n))$).
+    }
+    \end{enumerate}
+\end{frame}

@@ -1,0 +1,359 @@
+
+%WDH Mealy und Moore Definition->Unterschied, Verwandschaft
+\section{Endliche Automaten} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Endliche Automaten %%%%%%%%%%%%%%%%%%%%
+\subsection*{}
+\begin{frame}
+  \frametitle{Arten von Automaten}
+
+  Es gibt zwei Arten, wie ein Automat eine Ausgabe tätigen kann. Wir unterscheiden dabei:
+  \pause
+  \begin{block}{Mealy-Automat}
+    \begin{itemize}
+      \item Erzeugung einer Ausgabe bei jedem Zustandsübergang
+      \item Ausgabefunktion $g: Z \times X \rightarrow Y^*$
+      \item Markieren der Kanten mit $x_i|y_i$
+    \end{itemize}
+   \end{block}
+    \pause
+   \begin{block}{Moore-Automat}
+    \begin{itemize}
+      \item Erzeugung einer Ausgabe bei Erreichen eines Zustands
+      \item Ausgabefunktion $h: Z \rightarrow Y^*$
+      \item Markieren der Zustände mit $q_i|y_i$ ($q_i$ ist Zustandsname)
+    \end{itemize}
+  \end{block}
+
+  In beiden Fällen ist die Ausgabe ein Wort $y = y_0\ldots y_{n-1}$ über einem
+  Ausgabealphabet $Y$.
+\end{frame}
+
+
+\begin{frame}
+   \frametitle{Der Akzeptor}
+
+   \begin{itemize}
+     \item \vspace{-1.4em} Ist der häufigste \textbf{Spezialfall} eines Moore-Automaten
+     \item Eine Ausgabe findet nicht bei allen Zuständen statt \pause
+     \item Die Zustände $F \subseteq Z$, bei denen eine Ausgabe (immer ein Bit lang) erfolgt, heißen \texttt{akzeptierende Zustände} \\
+     Es gilt $F=\{z|h(z)=1\}$ \pause
+     \item graphisch werden diese durch Doppelkreise angegeben
+     		\begin{center}
+        \begin{tikzpicture}
+    			\draw(0,0) circle(1.4ex);
+      		\node[draw,circle] (qi) at (0,0) {$z_f$};
+      	\end{tikzpicture}
+      	\end{center} \pause
+     \item[]
+     \item Ein Wort $w\in X^*$ wird \texttt{akzeptiert}, wenn gilt $f^*(z_0,w)\in F$
+     \item Die von einem Akzeptor $A$ \texttt{akzeptierte formale Sprache} ist $L(A)=\{w \in X^* |f^*(z_0,w)\in F\}$
+   \end{itemize}
+ \end{frame}
+
+%%%%%%%%%%%%%%%%%%%Reguläre Ausdrücke%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Reguläre Ausdrücke}
+\subsection*{}
+
+\begin{frame}
+  \frametitle{Definition}
+
+  Reguläre Ausdrücke sind eine verbreitete und geeignete Notation, um reguläre
+  Sprachen (Typ-3) zu formalisieren.
+
+	\begin{block}{Die Regeln (= Metazeichen)}
+		\begin{tabular}{c p{0.7\textwidth}}
+				\xb{Metazeichen} & 	\xb{Bedeutung} \\
+				$( )$			& Klammerung von Alternativen\\
+				$*$			& n-maliges Vorkommen\\
+				$|$			& trennt Alternativen\\
+		\end{tabular}
+	\end{block}
+
+  \begin{block}{Es gelten folgende Vorrangregeln:}
+   \begin{itemize}
+      \item $*$ bindet stärker als Verkettung
+      \item Verkettung $(RS)$ bindet stärker als "`oder"' $(R|S)$
+      \item Überflüssige Klammern dürfen wir weglassen. \\
+      So sind $(RS),((RS)),\ldots$ und $RS$ äquivalent
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Definition}
+	\begin{block}{Die Sprache von R}
+		Wenn \textbf{R} ein regulärer Ausdruck ist, dann bezeichnen wir mit \textbf{$\langle R \rangle$} die Sprache, die dieser erzeugt.\\
+  		\begin{itemize}
+    			\item $\langle \emptyset \rangle =\{\}$
+			\item Für $a \in A$ ist $\langle a \rangle=\{a\}$
+			\item $\langle R_1 | R_2 \rangle = \langle R_1 \rangle \cup \langle R_2 \rangle$
+			\item $\langle R_1 R_2 \rangle = \langle R_1 \rangle \cdot \langle R_2 \rangle$
+  		\end{itemize}
+	$R_1$ und $R_2$ sind hier zwei beliebige reguläre Ausdrücke.
+
+
+	\end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Die Sprache von R}
+	\begin{block}{Beispiel 1}
+		Welche Wörter erzeugt der folgende reguläre Ausdruck R?
+  		\begin{itemize}
+			\item $R=(a|b)*abb(a|b)*$ ? \pause
+			\item $\langle R \rangle$ enthält genau die Wörter, in denen das Teilwort $abb$ vorkommt.
+  		\end{itemize}
+	\end{block}
+
+	
+	\begin{block}{Beispiel 2}
+		Gebe einen regulären Ausdruck für die Sprache aller Wörter die nicht $ab$
+		enthalten
+  		\begin{itemize} \pause
+			\item $ {b*} {a*}$
+  		\end{itemize}
+	\end{block}
+	
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Die Sprache von R}
+	\begin{block}{Beispiel 3}
+		Welcher reguläre Ausdruck R erzeugt die Sprache $\{\epsilon\}$?
+  		\begin{itemize}
+			\visible<2->{\item $\emptyset*$, denn $\langle \emptyset \rangle ^* =
+			\{\}^* = \{\epsilon\}$}
+  		\end{itemize}
+	\end{block}
+
+	\visible<3->{
+	\begin{block}{Beispiel 4}
+		Gebe einen regulären Ausdruck für die Sprache aller Wörter mit mindestens 3 b's an!
+  		\begin{itemize}
+			\visible<4->{\item $(a|b)*b(a|b)*b(a|b)*b(a|b)*$ oder
+			\visible<5->{\item $a*ba*ba*b(a|b)*$}}
+  		\end{itemize}
+	\end{block}
+	}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Reguläre Aufgabe}
+
+  Gegeben ist folgende Klasse von Sprachen über dem Alphabet $\Sigma = \{a,b,c\}$:
+  \begin{multline*}
+    L_n = \{w|
+      \text{Das Wort w enthält genau einmal}\\
+      \text{eine Folge von $a$ der Länge $n$, die nicht Teil}\\
+      \text{einer Folge von $a$ mit einer Länge $>n$ ist}
+          \}
+  \end{multline*}
+
+  Gebt einen regulären Ausdruck $R$ für $L_4$ an! (also: $\langle R \rangle = L_4$)
+
+  \hide
+
+  \begin{block}{Lösung a)}
+    Wir stellen sicher, dass die vier $a$ genau einmal vorkommen, und sonst nur 1,2,3 oder mehr als 4 am Stück.
+    \begin{multline*}
+      R = ( (b|c)* (\emptyset |a|aa|aaa|aaaaaa*)(b|c)(b|c)*)* \\ aaaa (
+      (b|c)(b|c)*(\emptyset |a|aa|aaa|aaaaaa* )(b|c)*)*
+    \end{multline*}
+  \end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Ihr seid dran... Regulär Einkaufen}
+  Gebt einen regulären Ausdruck an, der das Einkaufen in einem Supermarkt
+  beschreibt. Beschreibt den Einkauf mit diesen Zeichen:
+
+  \begin{description}
+    \item[$b$] Laden betreten
+    \item[$v$] Laden verlassen
+    \item[$s$] Einkaufswagen verschieben
+    \item[$p$] Produkt in den Einkaufswagen legen
+    \item[$z$] Einkäufe bezahlen
+  \end{description}
+
+\only<1>{
+  Den Einkaufswagen erhält man am Eingang beim Betreten des Ladens und gibt ihn
+  beim Verlassen am Ausgang zurück. Die Produkte sind im ganzen Laden verteilt
+  und nicht in Reichweite des Ein- oder Ausgangs -- aber an der Kasse gibt es Süßes!
+
+  Beachtet, dass nichts zu bezahlen ist, wenn keine Waren im
+  Einkaufswagen liegt (nur genau dann).
+
+  Zielloses Rumstöbern ist erlaubt!
+}
+\only<2>{
+  Eine mögliche Lösung ist:
+
+  \begin{equation*}
+    bss*(\emptyset | p(p|s)*zs)v
+  \end{equation*}
+}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{von $\langle R \rangle$ zu $R$}
+	\begin{block}{Und noch ein Beispiel...}
+		Wenn $R$ ein regulärer Ausdruck für eine formale Sprache $L=\langle R \rangle$ ist, wie sieht dann ein regulärer Ausdruck
+  		\begin{itemize}
+			\item für $L^*$ aus? \visible<2->{  Lösung: $(R)*$}
+			\item für $L^+$ aus? \visible<3->{  Lösung: $R(R)*$}
+  		\end{itemize}
+	\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%Rechtslineare Grammatiken%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Rechtslineare Grammatiken}
+
+\subsection*{}
+\begin{frame}
+\frametitle{Beziehung zwischen kontextfreien und rechtslinearen Grammatiken}
+	Wir können die Grammatiken in vier Klassen einteilen, Typ-0 bis Typ-3.\\
+	Dabei gilt:
+  	\begin{itemize}
+    		\item Typ-$n$ $\supsetneq$ Typ-$(n+1)$
+    		\item Je kleiner die Nummer, desto "`weniger eingeschränkt"' ist die Grammatik
+    		\item Auch die Sprachen werden in diese Klassen gepackt: \\
+    		Jede Sprache hat die Typ-Klasse der einfachsten Grammatik, die sie
+    		erzeugt. \\ (Einfach entspricht höherer Typ-Nummer)
+  	\end{itemize}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+	\frametitle{Übersicht über die Klassen}
+	\begin{block}{Die verschiedenen Klassen}
+  	\begin{description}
+    		\item[$Typ$ $0$ $\&$ $1$] Typ-0 und Typ-1 kamen noch nicht vor
+    		\item[$Typ$ $2$] Typ-2-Grammatiken sind die uns schon bekannten kontextfreien Grammatiken
+    		\item[$Typ$ $3$] Typ-3-Grammatiken sind die neu hinzukommenden rechtslinearen Grammatiken
+  	\end{description}
+  	\end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+	\frametitle{rechtslineare Grammatiken}
+	\begin{block}{etwas genauer...}
+  		Eine rechtslineare Grammatik ist eine kontextfreie Grammatik $G=(N,T,S,P)$ mit folgenden Einschränkungen. Jede Produktion ist entweder von der Form
+  		\begin{itemize}
+			\item $X \rightarrow w$ oder
+			\item $X \rightarrow wY$ mit $w \in T^*$ und $X,Y \in N$
+  		\end{itemize}
+	\end{block} \pause
+
+	\begin{block}{Regex}
+    Zu jeder rechtslinearen Grammatik gibt es:
+		\begin{itemize}
+			\item \ldots einen entsprechenden regulären Ausdruck und \pause
+			\item \ldots einen einen deterministischen endlichen Automaten
+        \end{itemize}
+    Zu jeder rechtslinearen gibt es äquivalente linkslineare Grammatiken. Diese
+    "`können"' nichts anderes als rechtslineare Grammatiken, daher ignorieren
+    wir sie in dieser Vorlesung.
+	\end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+	\frametitle{Semantik und Syntax regulärer Ausdrücke}
+	\begin{block}{Vorsicht!}
+		\begin{itemize}
+			\item die Bedeutung, also die Semantik,  eines regulären Ausdrucks kann
+			immer von einer rechtslinearen Grammatik angegeben werden \pause
+			\item die Syntax regulärer Ausdrücke ist aber Typ-2 \pause
+			\item d.h. eine Grammatik die alle regulären Ausdrücke zu einem Alphabet
+			erzeugen kann, muss mindestens kontextfrei sein!
+        \end{itemize}
+  	\end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+	\frametitle{rechtslineare Grammatiken}
+	\begin{block}{Ein Beispiel \only<2->{- oder auch nicht...}}
+  		Gegeben Sei die Grammatik $G=(\{X,Y\},\{a,b\},X,\{X \rightarrow aY | \epsilon, Y \rightarrow Xb\})$\\
+  		\begin{itemize}
+  		\item Ist diese Grammatik rechtslinear? \\
+		\visible<2->{$G$ ist offensichtlich nicht rechtslinear, denn die Produktion $Y \rightarrow Xb$ hat das Nichtterminalsymbol links vom Terminalsymbol \\
+		(Die Produktion ist linkslinear)!\\
+		\visible<3->{\item Die Grammatik erzeugt die Sprache $L(G)=\{a^k b^k | k \in \mathbb N_0 \}$}\\}
+		\visible<4->{\item Kann es eine rechtslineare Grammatik für diese Sprache
+		geben? \\ Ist diese Sprache regulär? \\ } 
+		\visible<5->{ Nein, ist sie nicht! }
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection*{}
+
+\begin{frame}
+\frametitle{von G zu L(G)}
+	\begin{block}{Aufgabe}
+		Betrachte $G=(\{X,Y,Z\},\{a,b\},X,P)$ mit $P=\{X \rightarrow aX | bY | \epsilon, Y \rightarrow aX | bZ | \epsilon, Z \rightarrow aZ | bZ \}$
+  		\begin{itemize}
+			\item Was ist $L(G)$?
+			\item Geben Sie einen endlichen Automaten an, der L(G) akzeptiert.
+			\item Lässt sich diese Grammatik noch vereinfachen?
+  		\end{itemize}
+	\end{block}
+	\visible<2->{
+	\begin{block}{Lösung}
+      		\begin{tikzpicture}[shorten >=1pt,node distance=2cm,auto,initial text=,>=stealth]
+        		\node[state,initial,accepting]  (q_0)                       {$0$};
+       			\node[state,accepting]          (q_1) [right of= q_0] {$1$};
+        		\node[state]                    (q_2) [right of= q_1] {$2$};
+        		\path[->] (q_0) edge [loop below]      node        {$a$} ()
+        		edge [bend right] node [swap] {$b$} (q_1)
+        		(q_1) edge              node        {$b$} (q_2)
+        		edge [bend right] node [swap] {$a$} (q_0)
+        		(q_2) edge [loop below] node        {$a,b$} ()
+        		;
+      		\end{tikzpicture}
+	\end{block}
+	}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Ist doch alles das Gleiche, oder?}
+	\begin{block}{Gleiche Sprache - andere Grammatik}
+	Folgende Grammatiken erzeugen die gleiche Sprache
+  	\begin{itemize}
+    		\item $G=(\{X,Y,Z\},\{a,b\},X,P)$ mit $P=\{X \rightarrow aX | bY | \epsilon, Y \rightarrow aX | bZ | \epsilon, Z \rightarrow aZ | bZ \}$
+		\visible<2->{\item $G=(\{X,Y\},\{a,b\},X,P)$ mit $P=\{X \rightarrow a X | b Y | \epsilon, Y \rightarrow aX | \epsilon \}$
+		\visible<3->{\item $G=(\{X\},\{a,b\},X,P)$ mit $P=\{X \rightarrow aX | baX |
+		b | \epsilon \}$}}
+  	\end{itemize}
+  	\end{block}
+\end{frame}
+
+
+\section{Abschluss}
+% Studis anzuregen darüber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachträglich stellen, dann kann in der nächsten Woche nochmal drauf eingegangen werden
+\subsection*{}
+\begin{frame}
+	\frametitle{Zum Schluss...}
+	\begin{block}{Was ihr nun wissen solltet!}
+	\begin{itemize}
+	  	\visible<2->{\item Worin unterscheiden sich Mealy- und Moore-Automaten?}
+		\visible<3->{\item Welcher der beiden ist näher mit einem Akzeptoren verwandt?}
+		\visible<4->{\item Wie setzt sich ein gültiger regulärer Ausdruck zusammen?}
+		\visible<5->{\item In welchem Verhältnis stehen reguläre Ausdrücke, rechtslineare Grammatiken und endliche Automaten?}
+		\visible<6->{\item Wie verhalten sich rechtslineare Grammatiken und kontextfreie Grammatiken zueinander?}
+    \end{itemize}
+   	\end{block}
+
+	\visible<7->{
+	\begin{block}{Ihr wisst was nicht?}
+		Stellt \textbf{jetzt} Fragen!
+	\end{block}}
+\end{frame}

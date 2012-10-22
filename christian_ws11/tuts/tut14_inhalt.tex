@@ -1,0 +1,420 @@
+\section[Halbordnungen]{Halbordnungen}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{WDH: Definition von Äquivalenzrelationen}
+
+	\begin{block}{Vorraussetzungen} \pause
+		\begin{description}
+			\item[reflexiv] $x R x$
+			\item[transitiv] Aus $x R y$ und $y R z$ folgt $x R z$
+			\item[symmetrisch] Aus $x R y$ folgt $y R x$
+		\end{description} \pause
+		Gelten alle diese Eigenschaften für alle $x,y,z \in M$, handelt es sich um eine \textbf{Äquivalenzrelation}.
+	\end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Definition einer Halbordnung}
+
+	\begin{block}{Vorraussetzungen}
+		\begin{description}
+			\item[reflexiv] $x R x$
+			\item[transitiv] Aus $x R y$ und $y R z$ folgt $x R z$ \pause
+			\item[antisymmetrisch] Aus $x R y$ und $y R x$ folgt $x = y$
+		\end{description} \pause
+\begin{itemize}
+	\item Gelten alle diese Eigenschaften für alle $x,y$, handelt es sich bei $R \subseteq M x M$ um eine \textbf{Halbordnung}. \pause
+	\item	Wenn R Halbordnung auf Menge M ist, nennt man M eine \textbf{halbgeordnete Menge}.
+\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Beispiel Mengeninklusion}
+
+	\begin{block}{Untersuchung der Mengeninklusion}
+      Handelt es sich bei der Relation $\subseteq$ (Mengeninklusion) um eine \textbf{Äquivalenzrelation oder Halbordnung} auf Potenzmenge $P = 2^M$? \pause
+\begin{itemize}
+	\item relfexiv: $\forall A \in P$: $A \subseteq A$ \pause
+	\item transitiv: $\forall A, B, C \in P$: $A \subseteq B$ und $B \subseteq C \Longrightarrow A \subseteq C$ \pause
+	\item symmetrisch: $\forall A, B \in P$: $A \subseteq B \Longrightarrow B \subseteq A$
+	\only<5->{ gilt nicht. \textbf{ABER:} Aus \textbf{keiner Symmetrie} folgt nicht notwendig die Antisymmetrie!
+	}
+	\only<6->{
+	\item antisymmetrisch: $\forall A, B \in P$: $A \subseteq B$ und $B \subseteq A \Longrightarrow A = B$ (Analogie zur Mengengleichheit)
+	}
+\end{itemize}
+	\only<7->{
+	\textbf{Die Mengeninklusion ist eine Halbordnung.}
+	}
+  \end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Ihr seid dran...}
+
+	\begin{block}{Aufgabe}
+	Überprüft, ob es sich bei folgenden Relationen um Halbordnungen handelt:
+  \begin{itemize}
+    \item  $\sqsubseteq_p$ auf $A^*$ mit $v\sqsubseteq_p w \Leftrightarrow \exists u: vu=w$ ?
+      \only<2->{
+      \begin{itemize}
+      \item \textbf{Reflexivität}: gilt wegen  $w_1\epsilon=w_1$
+      \item \textbf{Antisymmetrie}: wenn $w_1\sqsubseteq_p w_2$ und $w_2\sqsubseteq w_1$,
+        dann gibt es $u_1,u_2\in A^*$ mit $w_1u_1=w_2$ und
+        $w_2u_2=w_1$. Also ist $w_1u_1u_2=w_2u_2=w_1$. Also muss
+        $|u_1u_2|=0$ sein, also $u_1=u_2=\epsilon$, also $w_1=w_2$.
+      \item \textbf{Transitivität}: wenn $w_1\sqsubseteq_p w_2$ und $w_2\sqsubseteq w_3$,
+        dann gibt es $u_1,u_2\in A^*$ mit $w_1u_1=w_2$ und
+        $w_2u_2=w_3$.  Also ist $w_1(u_1u_2)=(w_1u_1)u_2=w_2u_2=w_3$,
+        also $w_1\sqsubseteq w_3$.
+      \end{itemize}
+      }
+   \only<3->{ \item $\sqsubseteq$ auf $A^*$ mit $w_1\sqsubseteq w_2 \Leftrightarrow |w_1| \leq |w_2|$ ? }
+    \only<4->{
+			\begin{itemize}
+				\item Antisymmetrie ist verletzt.
+				 \only<5->{ \item Reflexivität und Transitivität sind erfüllt. }
+			\end{itemize}
+		}
+   \end{itemize}
+
+  \end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Hassediagramm}
+  \begin{block}{Konstruktion}
+  Zur \textbf{Veranschaulichung einer Halbordnung} lassen sich Hassediagramme folgendermaßen erstellen: \pause
+    \begin{enumerate}
+    \item Darstellung der Halbordnung als Graph \pause
+    \item Entfernen aller reflexiven und transitiven Kanten
+    \end{enumerate}
+    	\end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Extreme "`Elemente"' I}
+  Sei $( M, \sqsubseteq )$ halbgeordnet und $T \subseteq M$ \pause
+  \begin{block}{minimale und maximale Elemente}
+    \begin{itemize}
+    \item $x \in T$ heißt \textbf{minimales Element} von T, wenn es kein $y \in T$ gibt mit $y \sqsubseteq x$ und $y \neq x$. \pause
+    \item $x \in T$ heißt \textbf{maximales Element} von T, wenn es kein $y \in T$ gibt mit $x \sqsubseteq y$ und $x \neq y$. \pause
+    \end{itemize}
+	\end{block}
+	\begin{block}{kleinstes und größtes Element}
+    \begin{itemize}
+    \item $x \in T$ heißt \textbf{kleinstes Element} von T, wenn für alle $y \in T$ gilt: $x \sqsubseteq y$. \pause
+    \item $x \in T$ heißt \textbf{größtes Element} von T, wenn für alle $y \in T$ gilt: $y \sqsubseteq x$.
+    \end{itemize}
+  \end{block}
+  \only<6->{
+  Eine Teilmenge T kann mehrere minimale (bzw. maximale) Elemente besitzen, aber nur ein kleinstes (bzw. größtes)!
+  }
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Beispiel mit Hassediagramm}
+  \begin{block}{Beispiel}
+    \begin{itemize}
+    \item Male das Hassediagramm zur Halbordnung $(\{ \{\}, a, b, c, ab, bc, ac\}, \subseteq)$ \pause
+    \item woran erkennt man Minima? \pause
+    \item woran Maxima?
+    \end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Extreme "`Elemente"' II}
+  Sei $( M, \sqsubseteq )$ halbgeordnet und $T \subseteq M$ \pause
+  \begin{block}{Untere und obere Schranken}
+    \begin{itemize}
+    \item $x \in M$ heißt \textbf{untere Schranke} von T, wenn für alle $y \in T$ gilt: $x \sqsubseteq y$. \pause
+    \item $x \in M$ heißt \textbf{obere Schranke} von T, wenn für alle $y \in T$ gilt: $y \sqsubseteq x$.  \pause
+    \end{itemize}
+    \only<4->{
+    Also: Schranken von T dürfen außerhalb von T liegen.
+    }
+	\end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Extreme "`Elemente"' III}
+	\begin{block}{Supremum und Infimum}
+    \begin{itemize}
+    \item Besitzt die Menge aller oberen Schranken einer Teilmenge T ein kleinstes Element, so heißt dies das \textbf{Supremum} von T ($sup(T)$) \pause
+    \item Besitzt die Menge aller unteren Schranken einer Teilmenge T ein größtes Element, so heißt dies das \textbf{Infimum} von T ($inf(T)$) \pause
+    \item \textbf{Achtung}: Existieren nicht, wenn
+			\begin{itemize}
+				\item überhaupt keine oberen (unteren) Schranken vorhanden \pause
+				\item keine eindeutig kleinste (größte) Schranke aller oberer (unterer) Schranken
+			\end{itemize}
+		\end{itemize}
+  \end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Vollständige Halbordnungen}
+  \begin{block}{aufsteigende Kette}
+  wird definiert als
+    \begin{itemize}
+    \item abzählbar unendliche Folge $(x_0, x_1, x_2, ... )$ von Elementen
+    \item mit Eigenschaft: $\forall i \in N_0$: $x_i \sqsubseteq x_{i+1}$
+    \end{itemize}
+	\end{block}
+	\pause
+	\begin{block}{vollständige Halbordnung}
+    Eine Halbordnung heißt \textbf{vollständig}, wenn
+    \begin{itemize}
+    \item sie ein kleinstes Element $\bot$ hat und
+    \item jede aufsteigende Kette $ x_0 \sqsubseteq x_1 \sqsubseteq x_2 \sqsubseteq ...$ ein Supremum $x_i$ besitzt
+    \end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Vollständige Halbordnungen II}
+  \begin{block}{Stetige Abbildungen auf vollständigen Halbordnungen}
+    \begin{itemize}
+    \item Beispiel aus dem Skript
+    \item Gegeben sei:
+    \item Terminalzeichenalphabet $T=\{a,b\}$, \pause
+    \item $D$ die halbgeordnete Potenzmenge $D=2^{T^*}$ der Menge aller Wörter
+    \item mit Inklusion als Halbordnungsrelation. \pause
+    \item Elemente der Halbordnung sind also Mengen von Wörtern, d.h. formale Sprachen. \pause
+    \item Kleinstes Element der Halbordnung ist die leere Menge $\emptyset$.  \pause
+    \item Wie weiter vorne erwähnt, ist diese Halbordnung vollständig.
+    \end{itemize}
+	\end{block}
+\end{frame}
+\subsection*{}
+\begin{frame}
+  \frametitle{Vollständige Halbordnungen III}
+  \begin{block}{Beweis}
+    \begin{itemize}
+    \item Es sei $v\in T^*$ ein Wort und $f_v:D\rightarrow D$ die Abbildung
+      $f_v(L)=\{v\}L$, die vor jedes Wort von $L$ vorne $v$
+      konkateniert.
+    \item Behauptung: $f_v$ ist stetig.
+    \item Beweis: Es sei $L_0\subseteq L_1\subseteq L_2\subseteq
+      \cdots$ eine Kette und $L=\bigcup L_i$ ihr Supremum.
+
+      $f_v(L_i)=\{ vw | w\in L_i \}$, also $\bigcup_i f_v(L_i)= \{ vw | \exists i\in N_0: w\in L_i\} = \{v\}\{w | \exists i \in N_0: w\in L_i\}$ $=\{v\}\bigcup_i L_i = f(\bigcup_i L_i)$.
+    \item analog für Konkatenation von rechts
+    \end{itemize}
+	\end{block}
+\end{frame}
+
+\section[Ordnungen]{Ordnungen}
+\subsection*{}
+\begin{frame}
+  \frametitle{Totale Ordnung}
+
+	\begin{block}{Definition}
+	Relation $R \subseteq M x M$ ist eine Ordnung oder genauer \textbf{totale Ordnung}, wenn
+\begin{itemize}
+	\item R Halbordnung ist \pause
+	\item und gilt: $\forall x ,y \in M$: $x R y \vee y R x$
+\end{itemize}
+	\end{block}
+\pause
+	\begin{block}{Anmerkungen}
+\begin{itemize}
+	\item $\Rightarrow$ : Es gibt keine unvergleichbaren Elemente.
+\end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Totale Ordnung}
+
+	\begin{block}{Beispiele}
+\begin{itemize}
+	\item $( N_0 , \leq )$ \pause
+	\item $( \{a, b\}^*, \sqsubseteq_1 )$ mit $w_1 \sqsubseteq_1 w_2$ "`wie im Wörterbuch"' \pause
+	\item $( \{a, b\}^*, \sqsubseteq_2 )$ mit $w_1 \sqsubseteq_2 w_2$ genau dann, wenn \pause
+		\begin{itemize}
+			\item entweder $|w_1| < |w_2|$ \pause
+			\item oder $|w_1| = |w_2|$ und $w_1 \sqsubseteq_1 w_2$ gilt
+		\end{itemize}
+\end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Ihr seid dran...}
+
+	\begin{block}{Beispiele für $\sqsubseteq_1$:}
+      \begin{itemize}
+        \item  Warum ist $aa \sqsubseteq_1 aabba$? \pause
+        \item  Warum ist $aa \sqsubseteq_1 bba$? \pause
+        \item  Warum ist $aaaaa \sqsubseteq_1 bba$? \pause
+        \item  Warum ist $aaaab \sqsubseteq_1 aab$? \pause
+      \end{itemize}
+  \end{block}
+  \begin{block}{Beispiele für $\sqsubseteq_2$:}
+      \begin{itemize}
+        \item  Warum ist $aa \sqsubseteq_2 aabba$? \pause
+        \item  Warum ist $aa \sqsubseteq_2 bba$? \pause
+        \item  Warum ist $bba \sqsubseteq_2 aaaaa$? (vergleiche $\sqsubseteq_1$!)\pause
+        \item  Warum ist $aab \sqsubseteq_2 aaaab$? (vergleiche $\sqsubseteq_1$!)
+      \end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Bleibt dran...}
+
+	\begin{block}{Aufgabe}
+		Relation $\sqsubseteq_p$ auf $ \{a, b\}^* $ eine totale Ordnung?
+	\end{block}
+	\only<2->{
+	\begin{block}{Lösung}
+		Es handelt sich um eine Halbordnung, allerdings mit unvergleichbaren Element wie z.B. $a, b$.
+		Daher ist die Relation $\sqsubseteq_p$ \textbf{keine} totale Ordnung.
+	\end{block}
+	}
+\end{frame}
+
+\section[Klausur]{Klausur am 01.03.11}
+\subsection*{}
+\begin{frame}
+	\frametitle{Klausur am Dienstag, 1. März '11}
+	\begin{block}{17:00 - 19:00}
+		\begin{itemize}
+			\item Aufgaben: 5 - 8
+			\item Gesamtpunktzahl: ?? (zum Bestehen: ??)
+			\item Anmeldebeginn: schon möglich
+			\item Anmeldeende: 26. Februar
+			\item Abmeldeende: 28. Februar
+		\end{itemize}
+  	\end{block}
+  	\textit{Alle Angaben sind wie immer ohne Gewähr.}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+  \frametitle{Themen}
+	\begin{block}{Themen}
+
+		\begin{itemize}
+		\item siehe Vorlesungshinweis XOR alles was behandelt wurde
+	  	\item z.B. :\pause
+		  	\item Mengenlehre, \textbf{Abbildungen}, Aussagenlogik, Quantoren, Wörter,
+		  	\item Palindrome, \textbf{Formale Sprachen}, Grammatiken,
+		  	\item Zahlensysteme, Huffman-Codes,
+		  	\item \textbf{Graphen}, Adjazenzliste, Adjazenzmatrix, Wegematrix,
+		  	\item Mealy- / Moore- \textbf{Automaten}, Akzeptor, Regulärer Ausdruck,
+		  	\item \textbf{Äquivalenzrelationen}, Nerode-Relation, Ordnungen
+	 	\end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+   \frametitle{Anmerkung}
+	\begin{block}{WICHTIG!}
+  	\begin{itemize}
+			\item Meldet Euch \textbf{rechtzeitig} zur Klausur an!
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\section{Grammatiken}
+\subsection*{}
+\begin{frame}
+	\frametitle{Aufgabe}
+	Gib zu den folgenden Sprachen $L_1$ ,$L_2$ jeweils eine Grammatik höchstmöglichen Typs 	an (das heißt Typ i mit i möglichst groß aus {0,1,2,3}), welche die Sprache erzeugt.
+	\begin{enumerate}
+		\item[(a)] $L_1=\{a^m (bc)^{2m}| m> 0 \}$
+		\item[(b)] $L_2=\{a^n b^m c^m d^n | m>=0, n>=1 \}$
+	\end{enumerate}
+	\visible<2->{
+	Lösung: \\
+	\begin{enumerate}
+		\item[(a)] $G=(\Sigma ,N,P,A)$ mit $\Sigma=\{a,b,c\}, N=\{A\}$ und $P = \{A \rightarrow aAbcbc|abcbc\}$ \pause
+		\item[(b)] $G=(\Sigma, N,P,A)$ mit $\Sigma=\{a,b,c,d \} N=\{ \}$ und \\
+		$P=\{ A \rightarrow ad|aAd|aBd$ \\
+		$  B \rightarrow bBc|bc \}$
+	\end{enumerate}}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+	\frametitle{Aufgabe}
+	Die hawaiianische Sprache kennt nur die folgenden Buchstaben:
+	\begin{itemize}
+		\item die Vokale a, e, i, o, u
+		\item die Konsonanten h, k, l, m, n, p, w
+	\end{itemize}
+Es gelten dabei folgende Regeln:
+Ein Wort beginnt mit einem Konsonanten oder einem Vokal. Auf einen Konsonanten muss
+mindestens ein Vokal folgen. Es können beliebig viele Vokale aufeinander folgen. Konsonanten
+dürfen nicht am Ende eines Wortes stehen. Ein Wort hat mindestens einen Buchstaben.
+	\small
+	\begin{enumerate}
+		\item[(a)] Gib eine Grammatik des Typs 2 an, die diese Sprache erzeugt. \\
+					\footnotesize
+					\textbf{Hinweis:} Es gibt hier auch eine Typ-3 Grammatik, aber diese ist recht umfangreich und daher als Lösung nicht sinnvoll.
+					\small
+		\item[(b)] Erzeuge mittels der Grammatik aus (a) das Wort kaiulani.
+		\item[(c)] Erstelle einen regulären Ausdruck für die hawaiianische Sprache.
+		\item[(d)] Erstelle einen Akzeptor, der die hawaiianische Sprache akzeptiert.
+	\end{enumerate}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+	\frametitle{Lösung}
+	\begin{enumerate}
+		\item[(a)] $G = (\Sigma, N, P, S)$ \\
+		$\Sigma=\{a,e,i,o,u,h,k,l,m,n,p,w\}$ \ $N=\{S,V,K \}$ \\
+		$P=\{ S \rightarrow V|VS|KV|KVS $ \\
+				$ V \rightarrow a|e|i|o|u$ \\
+				$ K \rightarrow h|k|l|m|n|p|w \}$
+		\pause
+		\item[(b)] $S \Rightarrow KVS \Rightarrow kVS \Rightarrow kaS \Rightarrow kaVS \Rightarrow kaiS \Rightarrow kaiVS \Rightarrow kaiuS \Rightarrow kaiuKVS \Rightarrow kaiulVS \Rightarrow kaiulaS \Rightarrow kaiulaKV \Rightarrow kaiulanV \Rightarrow kaiulani$
+		\pause
+		\item[(c)] $((a|e|i|o|u)|(h|k|l|m|n|p|w)(a|e|i|o|u)) 
+((a|e|i|o|u)|(h|k|l|m|n|p|w)(a|e|i|o|u))*$
+	\end{enumerate}
+\end{frame}
+
+
+
+\section{Abschluss}
+% Studis anzuregen darüber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachträglich stellen, dann kann in der nächsten Woche nochmal drauf eingegangen werden
+\subsection*{}
+\begin{frame}
+	\frametitle{Zum Schluss...}
+	\begin{block}{Was ihr nun wissen solltet!}
+	\begin{itemize}
+	  	\visible<2->{\item Wie unterscheiden sich Äquivalenzrelation und Halbordnung? Was sind typische Beispiele?}
+		\visible<3->{\item Warum Hassediagramme? Welche "`extremen"' Elemente treten bei Halbordnungen auf?}
+		\visible<4->{\item Was besagt eine totale Ordnung?}
+		\visible<5->{\item Meldet euch bitte für Schein und KLAUSUR an!\\
+						Solange ihr euch nicht für den Schein anmeldet, kann er euch auch nicht eingetragen werden.}
+    \end{itemize}
+   	\end{block}
+
+	\visible<6->{
+	\begin{block}{Ihr wisst was nicht?}
+		Stellt \textbf{jetzt} Fragen!
+	\end{block}}
+\end{frame}

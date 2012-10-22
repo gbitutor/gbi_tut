@@ -1,0 +1,28 @@
+% Hauptdatei zum Tutoriumsfolien-Kompilieren
+% Michael Nagel 2006
+
+% Bitte die folgenden Werte setzen:
+
+% Datum des Vortrags
+\newcommand{\presentationdate}{07. Dezember 2011}
+% Dateiname (für den Comic und den eigentlichen Inhalt)
+\newcommand{\contentfiles}{tut07}
+% Die Mitwirkenden (erwähnt auf der ersten Folie)
+\newcommand{\credits}{Quellennachweis \& Dank an: \\
+Martin Schadow, Susanne Putze, Tobias Dencker, Sebastian He\ss linger, Joachim
+Wilke}
+%
+
+% ------------------------------------------------------
+% ab hier sollte eigentlich nichts mehr verändert werden
+% ------------------------------------------------------
+
+\input{static/header}		% das ganze Vorgeplänkel
+\begin{document} 		% dieser Befehl muss anscheinend genau in der Hauptdatei stehen
+\input{static/titlepage}	% die Titelseite
+\input{tuts/\contentfiles_anfang}	% Eingangsfragen
+\input{tuts/\contentfiles_ubaltneu}	% Tutspezifisches zu altem und neuem üb
+\input{tuts/\contentfiles_inhalt}	% der eigentliche Inhalt
+\input{static/finalpage}	% die Schlussseite
+
+\end{document}

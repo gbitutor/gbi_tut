@@ -1,0 +1,45 @@
+
+% ----- ab hier eigentlicher Inhalt -----------------------------------------
+%Mal alter verwendbare Fragen gefunden ;) Erste muss noch erstetzt werden
+\section[Einstieg]{Guten Morgen...}
+\subsection*{}
+\begin{frame}{Zum Warmwerden...}
+  Eine formale Sprache $L$...
+    \begin{enumerate}
+    \item { \only<2->{ \color{green!50!black} }
+    ... ist eine Menge von Wörtern
+    }
+    \item { \only<2->{ \color{red} }
+    ... basiert immer auf einem endlichen Automaten $A$
+    }
+    \item { \only<2->{ \color{red} }
+    ... kann gleich einem Wort $w$ sein
+    }
+    \end{enumerate}
+	
+  Eine formale Grammatik $G$...
+    \begin{enumerate}
+    \item { \only<3->{ \color{green!50!black} }
+    ... lässt sich als Tupel (N,T,S,P) angeben.
+    }
+    \item { \only<3->{ \color{red} }
+    ... erzeugt die endlich große Sprache $L(G)$.
+    }
+    \item { \only<3->{ \color{red} }
+    ... ist immer kontextfrei und/oder regulär.
+    }
+    \end{enumerate}
+
+	 Gegeben $G_2=(\{A,B\}, \{a,b\}, A, \{A \to Ab|Ba|a, B \to Aa|b \})$. $L(G_2)$ ...
+	   \begin{enumerate}
+	   \item { \only<4->{ \color{green!50!black} }
+	   ... enthält unendlich viele Elemente.
+	   }
+	   \item { \only<4->{ \color{red} }
+	   ... kann nicht durch eine KFG beschrieben werden.
+	   }
+	   \item { \only<4->{ \color{green!50!black} }
+	   ... wird von einem endlichen Akzeptoren $A_2$ akzeptiert.
+	   }
+	   \end{enumerate}
+\end{frame}

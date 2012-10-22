@@ -1,0 +1,11 @@
+// Matrix A sei die Adjazenzmatrix
+// Matrix W wird am Ende die Wegematrix enthalten
+
+// Matrix M wird benutzt um $A^i$ zu berechnen
+W = 0 // Nullmatrix
+M = Id // Einheitsmatrix
+for i = 0 to n - 1 do
+	W = W + M // Matrixaddition
+	M = M $\cdot$ A // Matrixmultiplikation
+od
+W = sgn$(W)$

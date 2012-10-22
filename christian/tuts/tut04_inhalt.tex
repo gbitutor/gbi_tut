@@ -1,0 +1,281 @@
+\section[Definitionen]{Definitionen}
+\subsection*{}
+\begin{frame}
+\frametitle{Algorithmen}
+	\begin{block}{Aus der Vorlesung}
+	Algorithmen haben folgende Eigenschaften:
+	\begin{itemize}
+	  \item endliche Beschreibung (Wort über einem Alphabet)
+	  \item elementare Aussagen (effektiv in einem Schritt ausführbar)
+	  \item Determinismus (nächste Anweisung ist festgelegt)
+	  \item endliche Eingabe errechnet endliche Ausgabe
+	  \item endlich viele Schritte
+	  \item funktioniert für beliebig große Eingaben
+	  \item nachvollziehbar/verständlich
+	\end{itemize}
+	\end{block}
+	\begin{block}{DIV und MOD}
+	\begin{itemize}
+	  \item $a$ $div$ $b$ ist das Ergebnis der ganzzahligen Division $a/b$
+	  \item $a \mod b$ ist der Rest der ganzzahligen Division $a/b$
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+ 	\frametitle{Schleifen} 
+        \begin{block}{Ziel}
+        \begin{itemize}
+        	\item Bestimmte Berechnungen sollen wiederholt ausgeführt werden, bis eine bestimmte Bedingung eintritt.
+        	\item Dies wird u.a. durch eine for-Schleife (Zählschleife) erreicht.
+        \end{itemize}
+        \end{block}
+	\pause
+        \begin{block}{Syntax der for-Schleife in Pseudocode}
+		for $i \leftarrow 0$ to $10$ do  //zählt von 0 bis 10\\
+		     ... (Schleifeninhalt)
+        \end{block}
+	\pause
+        \begin{block}{Syntax der for-Schleife in Java}
+		for (int $i=0$; $i \leq 10$; i++)  //zählt von 0 bis 10\\
+		     ... (Schleifeninhalt)
+        \end{block}
+\end{frame}
+
+\begin{frame}
+ 	\frametitle{Schleifeninvariante}
+	Als Schleifeninvariante werden Eigenschaften einer Schleife bezeichnet, die zu einem bestimmten Punkt bei jedem Durchlauf gültig sind, unabhängig von der Zahl ihrer derzeitigen Durchläufe. Typischerweise enthalten Schleifeninvarianten Wertebereiche von Variablen und Beziehungen der Variablen untereinander.\\
+	\begin{block}{Sinn und Zweck}
+	Schleifeninvarianten...
+        \begin{itemize}
+        	\item sind Aussagen, die am Anfang und am Ende eines Schleifendurchlaufes gelten
+        	\item helfen, die Korrektheit eines Programmes zu beweisen
+        	\item beweist man meist durch Induktion
+        \end{itemize}		
+	\end{block}
+\end{frame}
+
+\begin{frame}
+ 	\frametitle{Schleifeninvariante-Beispiel}
+	\begin{block}{einfaches Beispiel}
+		//Eingaben $a,b \in N_0$ \\
+		$S \leftarrow a$ \\
+		$Y \leftarrow b$ \\
+		for $i \leftarrow 0$ to $b-1$ do \\
+		$\qquad S \leftarrow S + 1$ \\
+		$\qquad Y \leftarrow Y - 1$ \\
+		od \\
+		Output S //Ausgabe von S als Ergebnis
+	\end{block}
+	\begin{block}{Funktion}
+		Was macht dieses Programm? \\
+		\only<2->{Es berechnet die Summe von a und b.}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+ 	\frametitle{Schleifeninvariante Beispiel}
+	\begin{block}{einfaches Beispiel}
+		$S \leftarrow a$ \\
+		$Y \leftarrow b$ \\
+		for $i \leftarrow 0$ to $b-1$ do \\
+		$\qquad S \leftarrow S + 1$ \\
+		$\qquad Y \leftarrow Y - 1$ \\
+		od \\
+	\end{block}
+	\begin{block}{Wertetabelle für $a=6$ und $b=4$}
+		    \begin{tabular}{*{5}{>{$}r<{$}}}
+		      & S & Y  \\
+		       &  6 & 4    \\
+		      i=0 &  7 & 3    \\
+		      i=1 &  8 & 2 \\
+		      i=2 &  9 & 1 \\
+		      i=3 & 10 & 0
+		    \end{tabular}
+	\only<2->{$S+Y = a+b$}
+	\end{block}
+\end{frame}
+
+\section[Suchalgorithmen]{Suchalgorithmen für Wörter}
+\subsection*{}
+\begin{frame}
+	\frametitle{Suchalgorithmen}
+	\begin{block}{Suchalgorithmen sind}
+		Algorithmen, die etwas über das Vorkommen eines Zeichens $x \in A$ in einem Wort $w \in A$* aussagen.
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Algorithmenentwurf}
+	\begin{block}{Aufgabe 1}
+		Entwerfe einen Algorithmus, der berechnet, ob x in w vorkommt!
+	\end{block}
+	\visible<2->{
+	\begin{block}{Lösung}
+		$p \leftarrow -1$ \\
+		for $i \leftarrow 0$ to $n-1$ do \\
+		$p \leftarrow \begin {cases}
+		1 & \textnormal { falls } w(i)=\textnormal{x}\\
+		p & \textnormal { sonst} \end {cases}$
+	\end{block}
+	}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Algorithmenentwurf}
+	\begin{block}{Aufgabe 2}
+		Entwerfe einen Algorithmus, der die letzte Stelle im Wort, an der x in w vorkommt, berechnet!
+	\end{block}
+	\visible<2->{
+	\begin{block}{Lösung}
+		$p \leftarrow -1$ \\
+		for $i \leftarrow 0$ to $n-1$ do \\
+		$p \leftarrow \begin {cases}
+		i & \textnormal { falls } w(i)=\textnormal{x}\\
+		p & \textnormal { sonst} \end {cases}$
+	\end{block}
+	}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Algorithmenentwurf}
+	\begin{block}{Aufgabe 3}
+		Entwerfe einen Algorithmus, der die erste Stelle im Wort, an der x in w vorkommt, berechnet!
+	\end{block}
+	\visible<2->{
+	\begin{block}{Lösung}
+		$p \leftarrow -1$ \\
+		for $i \leftarrow 0$ to $n-1$ do \\
+		$p \leftarrow \begin {cases}
+		i & \textnormal { falls } w(i)=\textnormal{x} \wedge p<0\\
+		p & \textnormal { sonst} \end {cases}$
+	\end{block}
+	}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Korrektheitsbeweis}
+	\begin{block}{Beweis der Korrektheit eines Programms (Aufgabe 2)}
+		Durch Induktion wird gezeigt, dass nach den ersten k Schleifendurchläufen p die letzte Position von x in den ersten k Zeichen von w ist.
+	\end{block}
+	\visible<2->{
+	\begin{block}{Beweis}
+        \begin{itemize}
+        	\item Induktionsanfang: k=0, p=-1 ist wahr.
+        	\item Induktionsannahme: für ein festes $k<|w|$ gilt: Nach den ersten k Schleifendurchläufen ist p die Position des letzten x in den ersten k Zeichen von w.
+        	\item Induktionsschritt: $k \rightarrow k+1$\\
+		Wir betrachten den k+1ten Schleifendurchlauf, während dem das Zeichen w(k) betrachtet wird (2 Fälle!).
+        \end{itemize}
+	\end{block}
+	}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Korrektheitsbeweis}
+	\begin{block}{Fall 1: $w(k)=\textnormal{x}$}
+        	Die Position des letzten x ist unter den ersten k+1 Zeichen jetzt die Position k+1. Nach Induktionsannahme gilt zu Beginn des Schleifendurchlaufs: p ist die letzte Position von x unter den ersten k Zeichen von w. Aufgrund des Programmes wird p nun k+1, so dass am Ende des k+1ten Schleifendurchlaufs gilt: p ist die Position des letzten x unter den ersten k+1 Zeichen von w.
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Korrektheitsbeweis}
+	\begin{block}{Fall 2: $w(k)\ne \textnormal{x}$:}
+        	Die letzte Position von x ist unter den ersten k+1 Zeichen gleich der letzten Position von x unter den ersten k Zeichen von w. Nach Induktionsannahme gilt zu Beginn des Schleifendurchlaufs: p ist die letzte Position von x unter den ersten k Zeichen von w. Aufgrund des Programmes bleibt p nun gleich, so dass am Ende des k+1ten Schleifendurchlaufs gilt: p ist die letzte Position von x unter den ersten k+1 Zeichen von w.
+	\end{block}
+	Damit ist die Behauptung gezeigt.
+
+\end{frame}
+
+
+
+\section[Palindromtest]{Palindromtest}
+\subsection*{}
+\begin{frame}
+	\frametitle{Palindrome}
+	\begin{block}{Was ist ein Palindrom?}
+		Palindrome sind Wörter, die von vorne gelesen das gleiche Wort ergeben, wie von hinten gelesen.
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Palindromtest}
+	\begin{block}{Aufgabe 5}
+		Schreibe ein Programm, das für Wörter w untersucht, ob w ein Palindrom ist!
+	\end{block}
+	\visible<2->{
+	\begin{block}{Lösung}
+		$p \leftarrow 1$ \\
+		for $i \leftarrow 0$ to $n-1$ do \\
+		$p \leftarrow \begin {cases}
+		p & \textnormal { falls } w(i)= w(n-1-i)\\
+		-1 & \textnormal { sonst} \end {cases}$
+	\end{block}
+	}
+
+\end{frame}
+
+\section[Vollst. Ind.]{Vollständige Induktion}
+\subsection*{}
+\begin{frame}
+	\frametitle{Beweisverfahren der vollständigen Induktion}
+	\only<1-2>{
+	\begin{block}{Die Theorie}
+		Der Beweis erfolgt in folgenden Schritten:
+		\begin{enumerate}
+			\item Induktionsanfang: Die Aussage wird für $n=n_0$ gezeigt
+			\item Induktionsvorraussetzung/-annahme: Die Aussage sei für \textbf{ein} $n$ wahr. 
+			\item Induktionsschluss/-schritt: Aus dem Schluss von $n$ auf $n+1$ (in der Regel mit Hilfe der IV) folgt, dass die Aussage für alle natürlichen Zahlen $n>n_0$ gilt.
+		\end{enumerate}
+	\end{block}}
+	\only<2-3>{
+	\begin{block}{Ein Beispiel:}
+	Beweise durch vollständig Induktion $1+2+3+...+n=\frac{n*(n+1)}{2}$:
+	\only<3>{
+	\begin{itemize}
+		\item[IA] $n=1$: $1=\frac{1*(1+1)}{2}=1$ ist erfüllt
+		\item[IV]	$1+2+3+...+n=\frac{n*(n+1)}{2}$ gilt für ein $n \in \mathbb{N}$
+		\item[IS] \begin{equation}
+				\begin{split}
+					 1+2&+3+...+(n+1) \nonumber\\
+					&=1+2+3+...+n+(n+1) \nonumber\\
+					&\overset{IV}{=} \frac{n*(n+1)}{2}+(n+1) \nonumber\\
+					&=\frac{(n+1)*(n+2)+2(n+1)}{2}=\frac{n^2+3n+2}{2} \nonumber\\
+					&=\frac{(n+1)*(n+2)}{2}
+				\end{split}
+			\end{equation}
+	\end{itemize}}
+	\end{block}}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+	\frametitle{Und weils so schön ist...}
+	\begin{block}{Ihr schon wieder...}
+	 Es sei $n \in \mathbf{N}$ und $a,b \in \mathbf{R}$. Beweist durch vollständige Induktion:
+  Für $f(x) = e^{ax+b} $ gilt $f^{(n)}=a^n*e^{ax+b}$
+	\end{block}
+\end{frame}
+
+\section{Abschluss}
+% Studis anzuregen darüber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachträglich stellen, dann kann in der nächsten Woche nochmal drauf eingegangen werden
+\subsection*{}
+\begin{frame}
+	\frametitle{Zum Schluss...}
+	\begin{block}{Was ihr nun wissen solltet!}
+	\begin{itemize}
+		\visible<2->{\item Was ist eine for-Schleife?}
+		\visible<3->{\item Was ist eine Schleifeninvariante?}
+		\visible<4->{\item Wie entwirft man einen Suchalgorithmus?}
+		\visible<5->{\item Wie funktioniert ein Korrektheitsbeweis}
+		\visible<6->{\item Was sind Palindrome? Vorgehen beim Algorithmenentwurf.}
+	\end{itemize}
+	\end{block}
+
+	\visible<6->{
+	\begin{block}{Ihr wisst was nicht?}
+		Stellt \textbf{jetzt} Fragen!
+	\end{block}}
+\end{frame}

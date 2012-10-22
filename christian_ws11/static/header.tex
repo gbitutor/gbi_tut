@@ -1,0 +1,153 @@
+\RequirePackage{fix-cm}
+\documentclass[compress]{beamer}
+\setbeamertemplate{navigation symbols}{}
+
+%%%% Verweis auf beamerthemeTutorium.sty
+\usetheme[footline=authortitle,compress]{Tutorium}
+
+
+\usepackage{ae}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usepackage{colortbl}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgf}
+\usetikzlibrary{matrix}
+\usetikzlibrary{arrows}%\usepackage{pgflibraryarrows}
+\usetikzlibrary{shapes}%\usepackage{pgflibraryshapes}
+\usetikzlibrary{backgrounds,automata}
+\usepackage{wasysym}
+\usepackage{textcomp}
+\pgfarrowsdeclarealias{fat}{fat}{triangle 45}{triangle 45}
+
+\definecolor{darkblue}{rgb}{0,0,.75}
+\definecolor{darkred}{rgb}{.75,0,0}
+\definecolor{darkgreen}{rgb}{0,.6,0}
+%\lstloadlanguages{Java}
+
+\lstdefinelanguage{pseudo}{
+	morekeywords={if, else, for, in, remove, from, case, do, od, forever, to, False, True},
+	sensitive=true,%
+	morecomment=[l]{//},% \#
+	morestring=[b]',%
+}
+
+\lstset{language=pseudo,
+	mathescape=true,
+	literate=
+{<=} {$\leq$}{2} {>=} {$\geq$}{2} {:=} {$:=$}{2} {!=} {$\neq$}{2} {=}
+{$\leftarrow$}{2} {==} {=}{2} {&&} {$\wedge$}{2} {||} {$\vee$}{2}, texcl,
+ language=Pseudo,
+ tabsize=2,
+ basicstyle=\small\ttfamily\footnotesize,
+ commentstyle=\itshape\color{gray},
+ keywordstyle=\bfseries\color{darkblue},
+ stringstyle=\color{darkred},
+ showspaces=false,
+ showtabs=false,
+% numbersep=5pt,
+columns=fixed,
+numbers=left,
+frame=none,
+numberstyle=\tiny,
+breaklines=true,
+breakatwhitespace,
+showstringspaces=false,
+ xleftmargin=0.7cm
+}%
+
+\newcommand{\comp}{\leftmoon\!\!}
+\newcommand{\hide}{\onslide+<+(1)->}
+\newcommand{\cmd}[1]{\texttt{#1}}
+\newcommand{\file}[1]{\texttt{#1}}
+\newcommand{\mm}[1]{\begin{displaymath}#1\end{displaymath}}
+\newcommand{\xn}{\visible<2->{n}}
+\newcommand{\xj}{\visible<2->{j}}
+\newcommand{\ld}[1]{\text{ld}\left({#1}\right)}
+\newcommand{\rd}[1]{\textcolor{red}{#1}}
+\newcommand{\gn}[1]{\textcolor{green}{#1}}
+\newcommand{\bl}[1]{\textcolor{blue}{#1}}
+\def\LCM{\text{LCM}}
+
+% fr UML
+
+% - fr UML -
+\usepackage{colortbl}
+\newcolumntype{L}{>{\columncolor{yellow!20!white}}l}
+\newcolumntype{H}{>{\columncolor{yellow!20!white}}c}
+\newcommand{\umlclass}[3]{
+        \begin{tabular}{|LL|}
+                \hline
+                        \multicolumn{2}{|H|}{#1}\\
+                \hline
+#2
+                \hline
+#3
+                \hline
+        \end{tabular}
+}
+\newcommand{\umlobject}[3]{
+    \begin{tabular}{|LL|}
+    \hline
+    \multicolumn{2}{|H|}{\underline{#1: #2}}\\
+    \hline
+#3
+    \hline
+    \end{tabular}
+}
+\newcommand{\umlattr}[2]{
+        \texttt{#1:} & \texttt{#2}\\
+}
+\newcommand{\umlobjattr}[2]{
+        \texttt{#1 =} & \texttt{#2}\\
+}
+\newcommand{\umlmeth}[1]{
+        \multicolumn{2}{|L|}{\texttt{#1}}\\
+}
+\newcommand{\javacode}[1]{
+        \footnotesize
+        \semiverbatim{#1}
+}
+
+% Formatierungs-Shortcuts von Michael
+% --------------------------------------------------
+\newcommand{\xb}[1]{{\bf #1}}   % \xb {fett}
+\newcommand{\xu}{\underline}    % \xu {unterstrichen}
+% --------------------------------------------------
+
+% Notwendig für Tut-10
+% --------------------------------------------------
+\pgfdeclareshape{circlebox}{
+\inheritsavedanchors[from=circle]
+\inheritsavedanchors[from=rectangle]
+\inheritanchorborder[from=circle]
+\inheritanchor[from=circle]{center}
+\inheritanchor[from=circle]{east}
+\inheritanchor[from=circle]{west}
+\inheritanchor[from=circle]{south}
+\inheritanchor[from=circle]{southwest}
+\inheritanchor[from=circle]{southeast}
+\inheritanchor[from=circle]{northwest}
+\inheritanchor[from=circle]{northeast}
+ \backgroundpath{%
+%     \@tempdima=\radius%
+%     \setlength{\@xa}{\pgfshapeouterxsep}%
+%     \setlength{\pgf@yb}{\pgfshapeouterysep}%
+%     \ifdim\pgf@xb<\pgf@yb%
+%       \advance\@tempdima by-\pgf@yb%
+%     \else%
+%       \advance\@tempdima by-\pgf@xb%
+%     \fi%
+%     \pgfpathcircle{\centerpoint}{\@tempdima}%
+     \pgfpathrectanglecorners
+     {\pgfpointadd{\southwest}{\pgfpoint{\pgfshapeouterxsep}{\pgfshapeouterysep}}}
+     {\pgfpointadd{\northeast}{\pgfpointscale{-1}{\pgfpoint{\pgfshapeouterxsep}{\pgfshapeouterysep}}}}
+ }
+}
+% --------------------------------------------------

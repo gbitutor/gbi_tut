@@ -1,0 +1,382 @@
+% ----- ab hier eigentlicher Inhalt -------------------------------------------
+
+\section[Relationen]{Relationen}
+\subsection*{}
+\begin{frame}
+	\frametitle{Relationen -- Überblick}
+	\begin{block}{Relationen anschaulich}
+		Durch Relationen werden Elemente einer oder mehrerer Mengen in Beziehung zueinander gesetzt:
+		\begin{itemize}
+			\item praktisch jede alltägliche Aussage enthält Relationen \pause
+			\item Beispiel: 'Das Haus hat vier Außenwände'
+		\end{itemize}
+	\end{block}
+	\pause
+	\begin{block}{Wozu brauchen wir das?}
+		In der Informatik werden Relationen zur Modellierung von Systemen benötigt: \pause
+		\begin{itemize}
+			\item Relationen sind Grundlage der verschiedenen Diagramme der Unified
+			Modeling Language \pause
+			\item die graphische Darstellung von Relationen ergibt Graphen
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Relationen mathematisch}
+	\begin{block}{Definitionen - aus dem 1. Tutorium}
+		\begin{itemize}
+			\item Das karthesische Produkt zweier Mengen ist definiert als $A \times B := \left\{(a, b)|a \in A, b \in B\right\}$
+			\item $R \subseteq A \times B$ heißt Relation
+	  	\end{itemize}
+	\end{block}
+	\pause
+	\begin{block}{Definition}
+	\begin{itemize}
+		\item Eine Relation $R$ bezieht sich auf zwei Grundmengen $M_1$,$M_2$ und es gilt $R \subseteq M_1\times M_2$. \pause
+		\item Eine Relation $R$ heißt homogen, wenn $M_1=M_2$ gilt.
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+%
+
+\begin{frame}
+	\frametitle{Relationen}
+	\begin{block}{Definition: Produkt}
+		Sind $R \subseteq M_1 \times M_2$ und $S \subseteq M_2 \times M_3$ zwei Relationen, dann heißt \pause
+		\begin{itemize}
+			\item $S \circ R = \{(x,z) \in M_1 \times M_3 \mid \exists y \in M_2 : (x,y) \in R \wedge (y,z) \in S \} $ das {\em Produkt der Relationen S und R} \pause
+			\item $Id_M = \{(x,x) \mid x \in M \}$ heißt die {\em identische Abbildung}
+		\end{itemize}
+	\end{block}
+	\pause
+	\begin{block}{Definition: Potenz}
+		Sei $R \subseteq M \times M$ eine {\em binäre} Relation, dann heißt
+		\begin{itemize}
+			\item $R^i$ {\em die i-te Potenz} von R und ist definiert als: \pause
+			\begin{itemize}
+				\item $R^0=Id_M$ \pause
+				\item $\forall i \in \mathbb N_0: R^{i+1}=R \circ R^i$
+			\end{itemize}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\section[Reflexiv-transitive Hülle]{Reflexiv-transitive Hülle}
+\subsection*{}
+\begin{frame}
+	\frametitle{Reflexiv-transitive Hülle}
+
+	\begin{block}{mögliche Attribute homogener Relationen}
+		\begin{description}
+			\item[reflexiv] $x R x$
+			\item[transitiv] Aus $x R y$ und $y R z$ folgt $x R z$
+			\item[symmetrisch] Aus $x R y$ folgt $y R x$
+		\end{description} \pause
+		Gelten alle diese Eigenschaften, handelt es sich um eine Äquivalenzrelation.
+	\end{block}
+		\pause
+	\begin{block}{Definition}
+		Die sogenannte reflexiv-transitive Hülle einer Relation R ist
+		\begin{itemize}
+			\item $R^* = \bigcup_{i=0}^{\infty} R^i$
+		\end{itemize}
+	\pause
+		Sie ist die Erweiterung der Relation um die Paare, die notwendig sind um Reflexivität und Transitivität herzustellen.
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Reflexiv-transitive Hülle}
+	\begin{block}{Anschauliches Beispiel: StudiVZ}
+		\begin{itemize}
+			\item $R \subseteq M \times M $ sei die "`ist-befreundet-mit"'-Relation.
+			\item $M = \{ Gertrud, Holger, Lars, Katja, Martin, Nina \} $ %alphabetische Anfänge == leichter merkbar
+			\item $R = \{ (Martin,Holger), (Lars,Katja), (Nina,Holger),$ \\
+						$(Gertrud,Holger), (Katja, Nina) \} \bigcup \{${dazu sym. Tupel}$\}$ \pause
+			\item dann ist $R^0=\{ (Martin,Martin), ..., (Holger,Holger) \}$
+			\item und $R^1=R$ und \pause
+			\item $R^2=\{ (Martin,Nina), (Martin,Gertrud), (Martin,Martin),$ \\
+						$(Lars,Nina), (Lars,Lars), (Nina,Gertrud),(Nina,Martin),$ \\
+						$(Nina,Nina), (Nina,Lars), (Katja,Katja), (Katja,Holger), $ \\
+						$(Gertrud,Gertrud), (Gertrud,Martin), (Gertrud,Nina), $ \\
+						$(Holger,Holger), (Holger,Katja)\}$
+			\item $R^*=$ ? \pause Ist $R^*$ eine Äquivalenzrelation?
+			%\item wegen Symmetrie und Unsinnigkeit der Reflexivität, entfällt Einiges % Funktionen sind kommutativ, Relationen symmetrisch
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection*{}
+\begin{frame}
+	\frametitle{Relationen graphisch}
+	\begin{block}{Ihr seid dran...}
+		\begin{enumerate}
+			\item Überlegt euch, wie eine Relation graphisch aussehen könnte. Zeigt ein Beispiel mit mindestens $4$ verschiedenen Elementen %Grundmenge?
+			\item Wie sieht nun graphisch die reflexiv-transitive Hülle aus?
+		\end{enumerate}
+	\end{block} \pause
+    \begin{block}{mögliche Darstellung}
+    	\begin{itemize}
+          \item Relation als Pfeile von Element zu Element
+          \item Relation als Matrix, d.h. wenn xRy ist Feld [x,y] $== 1$
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+
+\section{Zahlensysteme}
+
+\subsection*{}	%Von letztem Jahr info1
+\begin{frame}
+	\frametitle{Zahlensysteme umrechnen}
+	\only<1>{
+	\begin{block}{Was ist das?}
+		\begin{itemize}
+          \item Wir verwenden normalerweise das Dezimalsystem mit den Ziffern 0 bis 9
+          \item Es gibt aber noch weitere Zahlensysteme, wie das Dualsysteme (mit den Ziffern 0 und 1)
+          \item Hexadezimalsystem (mit den Ziffern von 0-9 und den Buchstaben A-F)
+        \end{itemize}
+	\end{block}
+
+	\begin{block}{Darstellung}
+		Eine Darstellung einer Zahl im Dualsystem ist wie folgt aufgebaut:
+		$z_m z_{m-1} \ldots z_0, z_{-1} \ldots z_{-n}$ mit $(m,n \in \mathbb{N}_0 z_i \in \{ 0, 1 \} )$
+
+	\end{block}}
+	\only<2>{
+	\begin{block}{0-9}
+\begin{center}
+			\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c}
+			Dez & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+			Bin & 0 & 1 & 10 & 11 & 100 & 101 & 110 & 111 & 1000 & 1001\\
+			Oct & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 10 & 11 \\
+			Hex & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9
+			\end{tabular}
+\end{center}
+    \end{block}
+  	\begin{block}{10-15}
+\begin{center}
+
+			\begin{tabular}{c|c|c|c|c|c|c}
+			Dez & 10 & 11 & 12 & 13 & 14 & 15 \\
+			Bin & 1010 & 1011 & 1100 & 1101 & 1110 & 1111 \\
+			Oct & 12 & 13 & 14 & 15 & 16 & 17 \\
+			Hex & A & B & C & D & E & F
+			\end{tabular}
+\end{center}
+    \end{block}
+	}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Zahlensysteme}
+	\begin{block}{Umrechnung}
+		\only<3->{\scriptsize}
+		Wert einer Dualzahl im Dezimalsystem:
+\begin{center}
+	$Z=\sum_{i=-n}^{m} z_i * 2^i$
+\end{center} \pause
+		Wert einer ganzzahligen Dezimalzahl $z$ im Dualsystem:
+			\begin{enumerate}
+				\item Finde das größte $n$ mit $2^n \leq z$
+				\item Notiere 1, setze $z=z-2^n$ und setze $i=n-1$ .
+				\item Teste, ob $2^{i} \leq z$
+					\begin{itemize}
+						\only<3->{\scriptsize}
+						\item Wenn ja, dann notiere 1, setze $z=z-2^i$ und setze $i=i-1$
+						\item Wenn nein, dann notiere 0 und setze $i=i-1$
+					\end{itemize}
+				\item Wiederhole Schritt 3 solange bis i=0
+			\end{enumerate}
+	\end{block}
+
+	\only<3->{
+	\begin{block}{Ihr seid dran}
+		%\small
+		Wandle $4242_{10}$ ins Dual-, Oktal- und Hexadezimalsystem um. \\
+		Ein kleiner Tipp: 4 Stellen im Dualsystem lassen sich zu einer Stelle im Hexadezimalssystem zusammenfassen. $(0001 0001)_2=(11)_{16}$
+	\end{block}}
+\end{frame}
+
+\subsection*{}
+\begin{frame}{Ihr seid dran...}
+	\begin{block}{Was macht der Algorithmus?}
+		 \only<2->{//Eingabe: $w \in Z_2^*$\\}
+    $x \leftarrow 0$ \\
+    \only<3->{\color{red}$v\leftarrow\epsilon$ \color{black}\\}
+    \textbf{for} $i\leftarrow 0$ to $|w| -1$ do \\
+    \ \ $x \leftarrow 2x + num_2(w(i))$ \\
+    \only<3->{\color{red} \ \ $v\leftarrow v \cdot w(i)$ \color{black} \\}
+    od
+    \visible<2->{//am Ende: $x=Num_2(w)$ \ \only<3->{$\land \ v=w$}}
+  \end{block}
+  \begin{block}{Analyse}
+  	\begin{itemize}
+	   	\only<1,2>{	\item Was macht diese Algorithmus? Was sind wohl die Ein- und Ausgaben? }
+  		\item Was ist eine mögliche Schleifeninvariante? \\
+  			TIPP: Ihr könnt den Code auch erweitern um eine geeignete Invariante zu finden. \\
+  			\only<3->{Lsg.: $x = Num_2(v)$}
+  	\end{itemize}
+ \end{block}
+\end{frame}
+
+
+\section{Alphabete}
+\subsection*{}
+
+
+\begin{frame}{Aus der Vorlesung...}
+	Warum macht man Übersetzungen? \pause
+ \begin{itemize}
+ \item \textbf{Lesbarkeit:} \pause Manchmal führen Übersetzungen zu kürzeren und
+   besser lesbaren Texten.\\
+   	 $A3$ ist leichter erfassbar als
+   $10100011$
+ \item \textbf{Kompression:}  \pause Manchmal führen Übersetzungen zu kürzeren
+   Texten, die weniger Platz benötigen. Und zwar \emph{ohne} zu
+   einem größeren Alphabet überzugehen.
+ \item \textbf{Verschlüsselung:} \pause Manchmal will man Texte für andere unleserlich machen
+ \item \textbf{Fehlererkennung} und \textbf{Fehlerkorrektur:} \pause Man kann Texte durch Übersetzung derart länger machen, dass man Fehler erkennen
+ 	oder diese sogar beheben kann
+ \end{itemize}
+\end{frame}
+
+
+\section{Einschub}
+\subsection{Homomorphismen}
+% ------sollten wir in ein zwei einfache Sätze zusammenfassen, um die angst vor dem begriff zu nehmen-----------------------------------------------------------------
+\begin{frame}{Homomorphismen}
+\begin{block}{Definition}
+
+Ein \emph{Homomorphismus} $h:A^* \rightarrow B^*$ ist eine Abbildung, die
+durch die Funktionswerte $h(x)$ für alle $x\in A$ eindeutig festgelegt ist. \\ \pause
+Insbesondere bleibt das neutrale Element das neutrale Element:
+
+	\begin{align*}
+    h(\epsilon) &= \epsilon \\
+  	   	  h(wx) &= h(w) h(x)
+	\end{align*}
+	
+	weiterhin wird die zugrundeliegende Struktur erhalten
+	     \begin{itemize}
+       \item auf $\mathbb{N}_0$ ist Verdoppelung Homomorphismus, Struktur der Addition bleibt erhalten
+       \item auf Strings ist $upper()$ ein Homomorphismus
+     \end{itemize}
+\end{block}
+\end{frame}
+
+
+\subsection{Graphen}
+\begin{frame}{Graphen}
+
+ 	\begin{block}{Bäume - Binärbäume}
+     In der Regel\dots
+     \begin{itemize}
+       \item hat jeder Baum eine Wurzel und jeder Knoten maximal zwei Kinder/Nachfolger
+       \item wird die Wurzel oben dargestellt
+     \end{itemize}
+	\end{block}
+\end{frame}
+
+\section{Huffman-Codes}
+\subsection*{}
+\begin{frame}
+	\frametitle{Aus der Vorlesung:}
+	\begin{block}{Wozu Huffman Codes?}
+    		\begin{itemize}
+              \item Huffman-Codes komprimieren ein Wort $w \in A$* indem \pause
+              \item häufigere Symbole durch kürzere
+              \item und seltener vorkommende Symbole durch längere Wörter
+              kodiert werden \pause
+              \item statt einzelnen Symbolen können auch längere Blöcke als
+              kleinste Einheit gewählt werden
+            \end{itemize}
+    	\end{block}
+\end{frame}
+
+\begin{frame}{Huffman-Code}
+	\begin{block}{Vorgehensweise}
+		zwei Schritte:
+    		\begin{enumerate}
+			\item Konstruktion eines Baumes:
+				\begin{itemize}
+					\visible<2->{\item Blätter entsprechen $x \in A$}
+					\visible<3->{\item Innere Knoten entsprechen Mengen von Symbolen}
+					\visible<4->{\item An jedem Blatt wird das Symbol $x$ und dessen Häufigkeit notiert}
+					\visible<5->{\item die zwei Elemente mit der geringsten Häufigkeit werden zu einem Elternknoten zusammengefasst}
+				\end{itemize}
+			\item Beschriftung der Kanten: links mit 0, rechts mit 1
+		\end{enumerate}
+		Der kürzeste Weg von der Wurzel zum Blatt gibt die Kodierung des jeweiligen Zeichens (im Blatt) an.
+    	\end{block}
+\end{frame}
+
+\begin{frame}{Aufgabe}
+	\begin{block}{Aufgabe 1}
+    		Gegeben sei das Alphabet $X=\{a,b,c,d,e,f,g,h\}$.
+    		\begin{enumerate}
+			\item 1. Fall: Jedes Zeichen kommt genau einmal vor \\ Erstelle den Huffman-Code-Baum.\\
+				\pause Wie lange wird die Kodierung von $w=badcfehg$? \pause
+			\item 2. Fall: Zeichen a und b kommen zweimal, c viermal, d 8-mal, e 16-mal, f 32-mal, g 64-mal und h 128-mal vor. \\ Erstelle den Huffman-Code-Baum. Wie lange wird die Kodierung von $w=badcafehg$? \pause
+			\item Wie lange wird ein Wort mit zweiter Zeichenverteilung, wenn man es mit dem ersten Code codiert?
+			\item Wie lange wird ein Wort mit erster Zeichenverteilung, wenn man es mit dem zweiten Code codiert?
+		\end{enumerate}
+    	\end{block}
+
+\end{frame}
+
+\begin{frame}{Aufgabe}
+	\begin{block}{Aufgabe 2}
+    		Gegeben sei das Alphabet $X=\{a,b,c,d,e,f,g\}$ und die Auftrittswahrscheinlichkeiten $p(a)=\frac{3}{10}$, $p(b)=\frac{1}{10}$, $p(c)=\frac{1}{10}$, $p(d)=\frac{1}{7}$, $p(e)=\frac{1}{7}$, $p(f)=\frac{1}{7}$ und $p(g)=\frac{1}{14}$.
+    		\begin{itemize}
+			\item Erzeuge einen Huffman-Code C.
+		\end{itemize}
+    	\end{block}
+	\visible<2->{
+	\begin{block}{Lösung 2}
+    		\begin{tabular}{cccccccc}
+			Zeichen:&  a&    b&    c&    d&    e&    f&    g\\
+			Wahrscheinlichkeit:&$\frac{3}{10}$&$\frac{1}{10}$&$\frac{1}{10}$&$\frac{1}{7}$&$\frac{1}{7}$&$\frac{1}{7}$&$\frac{1}{14}$ \\
+			Code:&     00&  101&  110&  010&  011&  100&  111
+		\end{tabular}
+    	\end{block}
+	}
+\end{frame}
+
+\begin{frame}{viele Codes}
+	\begin{block}{mehrdeutig?}
+    \begin{itemize}
+      \item im Allgemeinen sind Huffman-Codes nicht indeutig:
+		\item es können mehrere Zeichen gleichhäufig vorkommen
+		\item Außerdem ist nicht festgelegt, welcher Knoten linker Nachfolger und welcher rechter Nachfolger eines inneren Knotens wird
+
+		\item[$\Rightarrow$] Huffman-Codes sind nicht eindeutig
+		\item Das macht aber nichts: alle, die sich für ein Wort $w$ ergeben können, sind "`gleich gut"'
+	\end{itemize}
+	\end{block}
+
+\end{frame}
+
+
+\section{Abschluss}
+% Studis anzuregen darüber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachträglich stellen, dann kann in der nächsten Woche nochmal drauf eingegangen werden
+\subsection*{}
+\begin{frame}
+	\frametitle{Zum Schluss...}
+	\begin{block}{Was ihr nun wissen solltet!}
+	\begin{itemize}
+		\visible<2->{\item Was bedeutet Konkatenation von Relationen?}
+		\visible<3->{\item Was tut ein Homomorphismus?}
+	\end{itemize}
+	\end{block}
+
+	\visible<4->{
+	\begin{block}{Ihr wisst was nicht?}
+		Stellt \textbf{jetzt} Fragen!
+	\end{block}}
+\end{frame}
