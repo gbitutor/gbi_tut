@@ -4,10 +4,10 @@
 \begin{frame}
 	\frametitle{Wegematrix I}
 	\begin{block}{Darstellung von Relationen}
-		So wie die Adjazenzmatrix Relationen zwischen Knoten darstellt, können auch weitere Relationen als Matrix dargestellt werden. Ein Beispiel ist die Wegematrix, die eine Darstellungsform der Erreichbarkeitssrelation
+		So wie die Adjazenzmatrix Relationen zwischen Knoten darstellt, kÃ¶nnen auch weitere Relationen als Matrix dargestellt werden. Ein Beispiel ist die Wegematrix, die eine Darstellungsform der Erreichbarkeitssrelation
 		$E^*=\bigcup^{n-1}_{i=0} E^i $. \\
 	\end{block}
-	\begin{block}{Für die Wegematrix gilt}
+	\begin{block}{FÃ¼r die Wegematrix gilt}
  \begin{displaymath}
  W_{ij}=
 	\begin{cases}
@@ -21,8 +21,8 @@
 \subsection{Algorithmen}
 \begin{frame}
 	\frametitle{Aufwand}
-	\begin{block}{Zählweise}
-		Beim Vergleich verschiedener Algorithmen in Bezug auf den Aufwand, sucht man nach einem Maß für die Anzahl der Rechenoperationen für eine Aufgabe der Größe $n$.
+	\begin{block}{ZÃ¤hlweise}
+		Beim Vergleich verschiedener Algorithmen in Bezug auf den Aufwand, sucht man nach einem MaÃŸ fÃ¼r die Anzahl der Rechenoperationen fÃ¼r eine Aufgabe der GrÃ¶ÃŸe $n$.
 	\end{block}
 	\begin{block}{Beispiel} \pause
 		Summe aller Zahlen von $1$ bis $n$: \\
@@ -65,9 +65,9 @@
 
 \begin{frame}
 	\begin{block}{Aufwandsvergleich}
-		Wenn man in einem bestimmten Zeitraum mit dem $n^5$ Algorithmus gerade noch die Problemgröße $n=1000$ schafft: 
+		Wenn man in einem bestimmten Zeitraum mit dem $n^5$ Algorithmus gerade noch die ProblemgrÃ¶ÃŸe $n=1000$ schafft: 
 	  \begin{itemize}
-		  \item Wie große Probleminstanzen schafft man mit dem $n^4$ Algorithmus? \pause
+		  \item Wie groÃŸe Probleminstanzen schafft man mit dem $n^4$ Algorithmus? \pause
 		  \item ... oder mit dem $log_2(n) \cdot n^3$ Algorithmus?
 	  \end{itemize}
 	\end{block}
@@ -108,7 +108,7 @@
 	\begin{block}{Ihr seid dran...}
 		\begin{itemize}
 			\item Wie sieht die Wegematrix zum oben gezeigten Graph aus?
-			\visible<2->{\item Wie sieht die Wegematrix für eine vollständig mit 1en gefüllte Matrix aus?}
+			\visible<2->{\item Wie sieht die Wegematrix fÃ¼r eine vollstÃ¤ndig mit 1en gefÃ¼llte Matrix aus?}
 			\visible<3->{\item Wann gilt allgemein $W=A$? Wann gilt $E^1=A$?}
 		\end{itemize}
 	\end{block}
@@ -117,13 +117,13 @@
 \section{Warshall-Algorithmus}
 \subsection*{}
 \begin{frame}
-	\frametitle{Reflexive Transitive Hülle nach Warshall}
+	\frametitle{Reflexive Transitive HÃ¼lle nach Warshall}
 
-	Gegeben sei eine reflexive Relation $\rho$ über einer endlichen Eckenmenge $E=\{0,\dots,n-1\}$.
+	Gegeben sei eine reflexive Relation $\rho$ Ã¼ber einer endlichen Eckenmenge $E=\{0,\dots,n-1\}$.
 	$\sigma^{(k)}$ sei folgende Relation:
 	\begin{multline*}
 		\sigma^{(k)} = \{(i,j)\in E \times E | \exists \text{Weg } i \to e_1 \to \cdots \to e_{l-1} \to j \\
-		\text{ mit } l\le k+2, e_r\in\{0,\ldots,k\} \text{ für } 1\le r\le l-1\}
+		\text{ mit } l\le k+2, e_r\in\{0,\ldots,k\} \text{ fÃ¼r } 1\le r\le l-1\}
 	\end{multline*}
 
 	\begin{columns}
@@ -291,15 +291,15 @@
     \begin{itemize}
       \item Ist ein Algorithmus besser als ein anderer?
       \item Gilt das auch auf einer anderen Rechenmaschine?
-      \item Gilt es auch, wenn die Datenmenge weiter wächst?
+      \item Gilt es auch, wenn die Datenmenge weiter wÃ¤chst?
     \end{itemize}
   \end{block}
 \pause
-  \begin{block}{Lösungsansatz}
+  \begin{block}{LÃ¶sungsansatz}
     Wir abstrahieren die Effizienz von Algorithmen:
     \begin{itemize}
-      \item unabhängig von der Rechenmaschine
-      \item in Abhängigkeit der Eingabelänge (meist $n$)
+      \item unabhÃ¤ngig von der Rechenmaschine
+      \item in AbhÃ¤ngigkeit der EingabelÃ¤nge (meist $n$)
       \item mathematisch fundiert und beweisbar
     \end{itemize}
     So kann anhand der oberen Schranke
@@ -311,15 +311,15 @@
 
 \subsection*{}
 \begin{frame}
-  \frametitle{$O$-Kalkül}
+  \frametitle{$O$-KalkÃ¼l}
     \begin{block}{Definition}
           $O(g(n))=\{f(n)| \exists c > 0 \ \exists n_{0} \in \mathbb{N}\ \forall n \ge n_{0}: 0 \le f(n) \le c\cdot g(n)\}$
     \end{block}
 
     \begin{block}{Umgangssprachlich}
-        $O(g(n))$ enthält alle nicht-negativen Funktionen, die höchstens so schnell wie $g(n)$ wachsen.
+        $O(g(n))$ enthÃ¤lt alle nicht-negativen Funktionen, die hÃ¶chstens so schnell wie $g(n)$ wachsen.
 
-        Dabei kümmern wir uns nicht
+        Dabei kÃ¼mmern wir uns nicht
 
   \begin{itemize}
     \item darum, was am Anfang passiert ($\exists n_0\in\mathbb{N}$ \ldots $\forall n\ge n_0$).
@@ -330,7 +330,7 @@
 
 \subsection*{}
 \begin{frame}
-  \frametitle{$O$-Kalkül}
+  \frametitle{$O$-KalkÃ¼l}
     \begin{center}
 			\includegraphics[height=6.2cm]{src/tut08_okalk.png} %[height=5cm]
 		\end{center}
@@ -338,7 +338,7 @@
 
 \subsection*{}
 \begin{frame}
-  \frametitle{Rechnen mit dem $O$-Kalkül}
+  \frametitle{Rechnen mit dem $O$-KalkÃ¼l}
 
 \begin{small}  Man kann aus der obigen Definition ein paar Regeln ableiten, mit denen der Umgang deutlich einfacher wird.\\
   (Eigentlich rechnet man hier mit Mengen, und auch sonst ist die Schreibweise nicht mathematisch
@@ -352,7 +352,7 @@
       \item $O( a\cdot n^2+b\cdot n+c ) = O( n^2 ) \ \forall a,b,c\in\mathbb{R}$
     \end{itemize}
 
-    \begin{center}"`Der Stärkere gewinnt!"'\end{center}
+    \begin{center}"`Der StÃ¤rkere gewinnt!"'\end{center}
   \end{block}
 \end{frame}
 
@@ -364,7 +364,7 @@
   \begin{itemize}
   	\item z.z.: $\log_2(n) \in\Theta(\log_8(n))$ \pause
 	\item $n = 8^{\log_8 n} = (2^3)^{\log_8(n)} = 2^{3\log_8(n)}$,
-		also gilt für alle $n\geq 1$: $\log_2(n) = 3 \log_8(n)$ und $\log_8(n)=\frac{1}{3}\log_2(n)$
+		also gilt fÃ¼r alle $n\geq 1$: $\log_2(n) = 3 \log_8(n)$ und $\log_8(n)=\frac{1}{3}\log_2(n)$
 	\item allgemein: \pause
 
  	 $\log_b(n) \in\Theta(\log_a(n))$, denn
@@ -372,7 +372,7 @@
 	    b^{\log_b(n)} = n = a^{\log_a(n)} = (b^{\log_b(a)})^{\log_a(n)} = b^{\log_b(a) \cdot \log_a(n) }
 	    \]  \pause
 	     $\log_b(n) = \log_b(a) \cdot \log_a(n)$ \\
-	    also für $c'=c=\log_b(a)$ und alle $n\geq 1$ gilt: $c \log_a(n) \leq\log_b(n) \leq c' \log_a(n) $ \pause
+	    also fÃ¼r $c'=c=\log_b(a)$ und alle $n\geq 1$ gilt: $c \log_a(n) \leq\log_b(n) \leq c' \log_a(n) $ \pause
 	 \item Man kann also einfach $\Theta(\log n)$ ohne Basis schreiben
   \end{itemize}
   \end{block}
@@ -391,7 +391,7 @@
 
     \node (s1) at (  0,  -4)[right] {\texttt{Solange i<n \{}};
     \node      at (  1,  -5)[right] {\texttt{ergebnis = ergebnis $\cdot$ x}};
-    \node 		 at (  1,  -6)[right] {\texttt{Erhöhe i um 1 }};
+    \node 		 at (  1,  -6)[right] {\texttt{ErhÃ¶he i um 1 }};
     \node (s2) at (  0,  -7)[right] {\texttt{\}}};
 
     \node      at (  0,  -8)[right] {\texttt{Gebe Zahl ergebnis aus;}};
@@ -422,18 +422,18 @@
     \node      at (  0,   -1)[right] {\texttt{Setze Suchbereich s auf gesamte Liste;}};
 
     \node (s1) at (  0,  -2)[right] {\texttt{Solange (AnzahlElemente(s) > 0) \{}};
-    \node      at (  1,  -3)[right] {\texttt{Wähle Mitte des Suchbereichs als Pivotelement p;}};
-    \node 		 at (  1,  -4)[right] {\texttt{Falls (p == x) gib WAHR zurück;}};
-    \node 		 at (  1,  -5)[right] {\texttt{Falls (p > x) Setze s auf linkeHälfte(s);}};
-    \node 		 at (  1,  -6)[right] {\texttt{Falls (p < x) Setze s auf rechteHälfte(s);}};
+    \node      at (  1,  -3)[right] {\texttt{WÃ¤hle Mitte des Suchbereichs als Pivotelement p;}};
+    \node 		 at (  1,  -4)[right] {\texttt{Falls (p == x) gib WAHR zurÃ¼ck;}};
+    \node 		 at (  1,  -5)[right] {\texttt{Falls (p > x) Setze s auf linkeHÃ¤lfte(s);}};
+    \node 		 at (  1,  -6)[right] {\texttt{Falls (p < x) Setze s auf rechteHÃ¤lfte(s);}};
     \node (s2) at (  0,  -7)[right] {\texttt{\}}};
 
-    \node      at (  0,  -8)[right] {\texttt{Schritt 4: Gib FALSCH zurück;}};
+    \node      at (  0,  -8)[right] {\texttt{Schritt 4: Gib FALSCH zurÃ¼ck;}};
 
     \only<1>{
-    	\node      at (  0,  -10)[right]{\texttt{Hinweis: Operationen wie Suchbereich setzen, Pivotelement wählen, }};
+    	\node      at (  0,  -10)[right]{\texttt{Hinweis: Operationen wie Suchbereich setzen, Pivotelement wÃ¤hlen, }};
     	\node      at (  0,  -11)[right]{\texttt{Anzahl der Elemente bestimmen verursachen einen Aufwand von $O(1)$.}};
-    	\node      at (  0,  -12)[right]{\texttt{Nehmen Sie an, dass die Liste n Elemente enthält.}};}
+    	\node      at (  0,  -12)[right]{\texttt{Nehmen Sie an, dass die Liste n Elemente enthÃ¤lt.}};}
 
 		\visible<2->{\node      at ( 16,  0)[right] {$O(1)$};}
     \visible<3->{\node      at ( 16,  -1)[right] {$O(1)$};}
@@ -455,10 +455,10 @@
 			\frametitle{Aufwandsklassen}
 			\begin{block}{Fallunterscheidung: Aufwandsklassen}
                 \begin{description}
-                    \item[$O$-Kalkül] Obere Schranke, die der Algorithmus erreichen, aber nicht überschreiten kann
-                    \item[$\Omega$-Kalkül] Untere Schranke und ein "'Mindestaufwand"', den der Algorithmus hat
-					\item[$\Theta$-Kalkül] Vereinigung der Betrachtung aus $\Omega(n)$ und $O(n)$.\\
-						Es entsteht eine Art Funktionsbereich, den der Algorithmus nie verlässt.
+                    \item[$O$-KalkÃ¼l] Obere Schranke, die der Algorithmus erreichen, aber nicht Ã¼berschreiten kann
+                    \item[$\Omega$-KalkÃ¼l] Untere Schranke und ein "'Mindestaufwand"', den der Algorithmus hat
+					\item[$\Theta$-KalkÃ¼l] Vereinigung der Betrachtung aus $\Omega(n)$ und $O(n)$.\\
+						Es entsteht eine Art Funktionsbereich, den der Algorithmus nie verlÃ¤sst.
                 \end{description}
 			\end{block}
 \end{frame}
@@ -478,13 +478,13 @@
 					0 \leq c_1 \cdot g(n) \leq f (n) \leq c_2 \cdot g(n)\}$\\
 		}
 		\begin{block}{\bf Beachte:}
-		Alle Kalküle geben eine {\bf Menge} von Funktionen an. $f(n) = O(n^2)$ bedeutet also eigentlich $f(n) \in O(n^2)$!
+		Alle KalkÃ¼le geben eine {\bf Menge} von Funktionen an. $f(n) = O(n^2)$ bedeutet also eigentlich $f(n) \in O(n^2)$!
 		\end{block}
 \end{frame}
 
 \begin{frame}
 			\frametitle{Rechenregeln}
-			\begin{block}{Reflexivität}
+			\begin{block}{ReflexivitÃ¤t}
                 \begin{itemize}
                     \item $f(n) \in O(f(n))$
                     \item $g(n) \in \Omega(g(n))$
@@ -542,7 +542,7 @@
 	\frametitle{Aufgaben}
 
 	\begin{itemize}
-		\item 	Welche Funktionen gehören in welche Klassen?
+		\item 	Welche Funktionen gehÃ¶ren in welche Klassen?
 	\end{itemize}
 
 	\begin{Large}
@@ -561,14 +561,14 @@
 \end{frame}
 
 \section{Abschluss}
-% Studis anzuregen darüber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachträglich stellen, dann kann in der nächsten Woche nochmal drauf eingegangen werden
+% Studis anzuregen darÃ¼ber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachtrÃ¤glich stellen, dann kann in der nÃ¤chsten Woche nochmal drauf eingegangen werden
 \subsection*{}
 \begin{frame}
 	\frametitle{Zum Schluss...}
 	\begin{block}{Was ihr nun wissen solltet!}
 	\begin{itemize}
-	  	\visible<2->{\item Wie sind die $O$, $\Omega$ und $\Theta$ Kalküle definiert?}
-		\visible<3->{\item Wozu braucht man sie überhaupt?}
+	  	\visible<2->{\item Wie sind die $O$, $\Omega$ und $\Theta$ KalkÃ¼le definiert?}
+		\visible<3->{\item Wozu braucht man sie Ã¼berhaupt?}
 		\visible<4->{\item Welche Schreibweise sollten wir verwenden?} %($f\in O(g)$!)
 		\visible<5->{\item Was ist eine geschlossene Formel zu einer Rekursion?}
 		\visible<6->{\item Was ist eine monoton steigende Funktion?}

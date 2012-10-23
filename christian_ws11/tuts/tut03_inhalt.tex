@@ -3,13 +3,13 @@
 	\frametitle{Formale Sprachen}
 	\begin{block}{Was ist das eigentlich?} \pause
 		\begin{itemize}
-          \item Eine formale Sprache $L$ ist eine Menge von Wörtern die aus einem beliebigen Alphabet $A$ erzeugt werden können. \pause
+          \item Eine formale Sprache $L$ ist eine Menge von WÃ¶rtern die aus einem beliebigen Alphabet $A$ erzeugt werden kÃ¶nnen. \pause
           \item $L$ soll stets alle (in einem bestimmten Sinn) korrekten Gebilde enthalten und alle nicht korrekten nicht.
         \end{itemize}
 	\end{block}
  \pause
 	\begin{block}{Ein Beispiel...}
-		Die Sprache die alle Zustände einer Ampel beschreibt enthält \texttt{Grün} oder \texttt{Rot-Gelb} aber nicht die Phase \texttt{Grün-Rot}.
+		Die Sprache die alle ZustÃ¤nde einer Ampel beschreibt enthÃ¤lt \texttt{GrÃ¼n} oder \texttt{Rot-Gelb} aber nicht die Phase \texttt{GrÃ¼n-Rot}.
 	\end{block}
 \end{frame}	
 	
@@ -43,14 +43,14 @@
  		\visible<2->{
  		$A=\{0,\ldots,9\}$ \\
  		$L_I=$ \only<2>{ $A^*$ } \visible<3->{$\{\epsilon,-\}A^+$.} \\
- 		\only<3>{Seid ihr mit der Lösung einverstanden?}
+ 		\only<3>{Seid ihr mit der LÃ¶sung einverstanden?}
 		}
 	\end{block}}
 	\only<4-7>{
 	\begin{block}{Variabelnamen in \texttt{Java}}
 		Gebt eine formale Sprache $L_V$ aller legalen Variablenamen in \texttt{Java} an. \\
 	\end{block}
-	\begin{block}{Lösung}
+	\begin{block}{LÃ¶sung}
 		\only<5-6>{
 	    $A=\{\_ ,a,\ldots,z,A,\ldots,Z\}$, \\
       $B=A \cup \{0,\ldots,9\}$ \\
@@ -59,14 +59,14 @@
     	\visible<6>{
     		\begin{itemize}
     			\item Umlaute
-    			\item Schlüsselwörter sind als Variablenamen verboten
+    			\item SchlÃ¼sselwÃ¶rter sind als Variablenamen verboten
     		\end{itemize}
     	}
 		}
 		\only<7>{
 		\hspace{1em}
 			Also besser: \\
-      $A=\{\_ ,a,\ldots,z,A,\ldots,Z, $ä$, $ö$, $ü$\}$, \\
+      $A=\{\_ ,a,\ldots,z,A,\ldots,Z, $Ã¤$, $Ã¶$, $Ã¼$\}$, \\
       $B=A \cup \{0,\ldots,9\}$ \\
       $L_V= (A \cdot B^*) \smallsetminus\{\texttt{if}, \texttt{class}, \dots\}$
 		}
@@ -74,8 +74,8 @@
 	\only<8->{
 	\begin{block}{ohne \texttt{ab}}
 	 	\begin{itemize}
-           \item Gebt die formale Sprache $L$ aller Wörter über $A=\{a,b\}$an, in denen nirgends das Teilwort \texttt{ab} vorkommt.
-           \item \visible<9-10>{Anders formuliert: In den erlaubten Wörtern müssen, wenn überhaupt, erst alle \texttt{b} kommen und danach, wenn überhaupt alle \texttt{a}}
+           \item Gebt die formale Sprache $L$ aller WÃ¶rter Ã¼ber $A=\{a,b\}$an, in denen nirgends das Teilwort \texttt{ab} vorkommt.
+           \item \visible<9-10>{Anders formuliert: In den erlaubten WÃ¶rtern mÃ¼ssen, wenn Ã¼berhaupt, erst alle \texttt{b} kommen und danach, wenn Ã¼berhaupt alle \texttt{a}}
          \end{itemize}
 
 	 \visible<10>{$L=\{b\}^*\{a\}^*$}
@@ -87,14 +87,14 @@
 \subsection*{}
 \begin{frame}
 	\frametitle{noch einige Hinweise...}
-	\begin{block}{Wörter \& Sprache}
-		Wörter und Sprachen sind nicht das Gleiche! \\
+	\begin{block}{WÃ¶rter \& Sprache}
+		WÃ¶rter und Sprachen sind nicht das Gleiche! \\
 		So ist $\texttt{abb}$ ist etwas anderes als $\{\texttt{abb}\}$. \\
 		Und $\{\texttt{abb}\}^*$ gibt es, aber $\texttt{abb}^*$ kennen wir \textbf{nicht}.
 	\end{block}
 	
 	\begin{block}{$L_1 L_2$}
-		$L_1=\{a^n \mid n \in \mathbb{N}_0\}$ und  $L_2=\{b^n \mid n \in \mathbb{N}_0\}$ \\     				\textbf{Achtung:} $L_1L_2=\{a^k b^m \mid k\in\mathbb{N}_0\land m\in\mathbb{N}_0\}$  die Exponenten können verschieden sein!
+		$L_1=\{a^n \mid n \in \mathbb{N}_0\}$ und  $L_2=\{b^n \mid n \in \mathbb{N}_0\}$ \\     				\textbf{Achtung:} $L_1L_2=\{a^k b^m \mid k\in\mathbb{N}_0\land m\in\mathbb{N}_0\}$  die Exponenten kÃ¶nnen verschieden sein!
 	\end{block}
 \end{frame}
 
@@ -103,7 +103,7 @@
 \subsection*{}
 \begin{frame}
 	\frametitle{Mengenlehre}
-	\begin{block}{Ergänzungen}
+	\begin{block}{ErgÃ¤nzungen}
 		\begin{itemize}
 			\item Was ist eine \textbf{Mengendifferenz}?
 			\only<2->{\item Sei $A:=\left\{ 1,2,3 \right\}$ und $B:=\left\{ 2,4,6 \right\}$ Was ist dann $A\setminus B$?} 
@@ -132,11 +132,11 @@
 	      Also $w=w'w''\in L^i\cdot L = L^{i+1}$. \\
 	      Da $i+1\in\mathbb{N}_+$, ist $L^{i+1}\subseteq L^+$, also $w\in L^+$.}
 	    \item $\supseteq$: 
-	    \visible<5->{	%den Teil die Studis probieren(!!!!) alleine lösen zu lassen
+	    \visible<5->{	%den Teil die Studis probieren(!!!!) alleine lÃ¶sen zu lassen
 	    	Wenn $w\in L^+$, dann existiert ein $i\in\mathbb{N}_+$
 	      mit $w\in L^i$. \\
-	      Da $i\in \mathbb{N}_+$ ist $i=j+1$ für ein $j\in\mathbb{N}_0$, \\
-	      also ist für ein $j\in\mathbb{N}_0$: $w\in L^{j+1}= L^j\cdot L$. \\
+	      Da $i\in \mathbb{N}_+$ ist $i=j+1$ fÃ¼r ein $j\in\mathbb{N}_0$, \\
+	      also ist fÃ¼r ein $j\in\mathbb{N}_0$: $w\in L^{j+1}= L^j\cdot L$. \\
 	      also $w=w'w''$ mit $w'\in L^j$ und $w''\in L$ . \\
 	      Wegen $L^j\subseteq L^*$ ist $w=w'w''\in L^*\cdot L$.}
 	   \end{itemize}
@@ -146,16 +146,16 @@
 \end{frame}
 
 \section{Abschluss}
-% Studis anzuregen darüber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachträglich stellen, dann kann in der nächsten Woche nochmal drauf eingegangen werden
+% Studis anzuregen darÃ¼ber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachtrÃ¤glich stellen, dann kann in der nÃ¤chsten Woche nochmal drauf eingegangen werden
 \subsection*{}
 \begin{frame}
 	\frametitle{Zum Schluss...}
 	\begin{block}{Was ihr nun wissen solltet!}
 	\begin{itemize}
 		\visible<2->{\item Wie beweise ich Mengengleichheit?}
-		\visible<3->{\item Was ist das Beweisverfahren der vollständigen Induktion?}
+		\visible<3->{\item Was ist das Beweisverfahren der vollstÃ¤ndigen Induktion?}
 		\visible<4->{\item Was kann ich alles tolles damit anstellen?}
-		\visible<5->{\item Wie kann ich meinen Tutor bei der Korrektur meines Übungsblattes positiv beeinflussen?}
+		\visible<5->{\item Wie kann ich meinen Tutor bei der Korrektur meines Ãœbungsblattes positiv beeinflussen?}
 	\end{itemize}
 	\end{block}
 

@@ -8,7 +8,7 @@
 	Ein gerichteter Graph $G$ ist ein Tupel $G=(V,E)$ mit
 	\begin{itemize}
 		\item der Grundmenge $V = \{v_i\}$ (die Menge der Ecken)
-		\item der Relation $E\subseteq V\times V$ (die Menge der Kanten) \\ Notationen für Kanten:
+		\item der Relation $E\subseteq V\times V$ (die Menge der Kanten) \\ Notationen fÃ¼r Kanten:
 		\begin{itemize}
 			\item $(v,v')\in E$
 			\item $v\rightarrow_G v'$
@@ -72,10 +72,10 @@
 	\frametitle{Graphen}
 	\begin{block}{Begriffe}
 		\begin{itemize}
-			\item Ein Graph heißt \textbf{endlich}, wenn $V$ endlich ist ($|V|<\infty$).\pause
-			\item 2 Knoten x und y heißen \textbf{adjazent}, wenn es eine Kante $(x,y)\in E$ gibt.\pause
+			\item Ein Graph heiÃŸt \textbf{endlich}, wenn $V$ endlich ist ($|V|<\infty$).\pause
+			\item 2 Knoten x und y heiÃŸen \textbf{adjazent}, wenn es eine Kante $(x,y)\in E$ gibt.\pause
 			\item Eine \textbf{Schlinge} ist eine Kante der Form $(x,x)\in E$.\pause
-			\item Ein Graph heißt \textbf{schlingenfrei}, wenn er keine Schlingen besitzt.\pause
+			\item Ein Graph heiÃŸt \textbf{schlingenfrei}, wenn er keine Schlingen besitzt.\pause
 			\item $G'=(V',E')$ ist ein \textbf{Teilgraph} von $G=(V,E)$, wenn $V'\subseteq V$ und $E'\subseteq E \cap V'\times V'$
 			\item zwei Graphen sind isomorph, wenn es eine Bijektion der Knoten von $G_1$ gibt, so dass er mit $G_2$ identisch ist
 		\end{itemize}
@@ -87,19 +87,19 @@
 	\begin{block}{Aufgabe}
 		Gegeben sei ein gerichteter Graph mit n Knoten.
 		\begin{itemize}
-			\item Wieviele Kanten kann er maximal haben, wenn Schlingen erlaubt sind? \visible<2->{\textbf{Lösung:} $n²$ Kanten}\pause
-			\item Wieviele Kanten kann er maximal haben, wenn er schlingenfrei ist? \visible<3->{\textbf{Lösung:} $n(n-1)$ Kanten}
+			\item Wieviele Kanten kann er maximal haben, wenn Schlingen erlaubt sind? \visible<2->{\textbf{LÃ¶sung:} $nÂ²$ Kanten}\pause
+			\item Wieviele Kanten kann er maximal haben, wenn er schlingenfrei ist? \visible<3->{\textbf{LÃ¶sung:} $n(n-1)$ Kanten}
 		\end{itemize}
 	\end{block}
 \end{frame}
 
 \begin{frame}
-	\frametitle{gerichtete Bäume}
+	\frametitle{gerichtete BÃ¤ume}
 	\begin{block}{Definition}
     In einem gerichteten Baum \ldots \pause
 		\begin{itemize}
 			\item  \ldots gibt es genau einen Knoten $r\in V$ so dass: \\
-				für alle $x\in V$ ex. genau ein Pfad von $r$ nach $x$ \pause
+				fÃ¼r alle $x\in V$ ex. genau ein Pfad von $r$ nach $x$ \pause
 			\item \ldots ist die Wurzel eindeutig
 		\end{itemize}
 	\end{block}
@@ -108,11 +108,11 @@
 \begin{frame}
 	\frametitle{Pfade}
 	\begin{block}{Definition}
-		Ein Pfad ist eine nichtleere Liste $p=(v_0,\ldots ,v_n)\in V^+$, wenn für alle $i \in {\mathbb G}_n$ gilt $(v_i,v_{i+1})\in E$ \pause
+		Ein Pfad ist eine nichtleere Liste $p=(v_0,\ldots ,v_n)\in V^+$, wenn fÃ¼r alle $i \in {\mathbb G}_n$ gilt $(v_i,v_{i+1})\in E$ \pause
 		\begin{itemize}
-			\item Die Anzahl $n=|p|-1$ (der Kanten!) heißt die \emph{Länge} des Pfades \pause
-			\item Ein Pfad heißt \emph{wiederholungsfrei}, wenn alle Knoten $v_0,\ldots ,v_{n-1}$ und $v_1,\ldots ,v_n$ je paarweise verschieden sind, also maximal $v_0$ und $v_n$ gleich sind. \pause
-			\item Falls $v_0=v_n$ heißt der Pfad \emph{geschlossen}. Dann ist der Pfad auch ein Zyklus.\pause
+			\item Die Anzahl $n=|p|-1$ (der Kanten!) heiÃŸt die \emph{LÃ¤nge} des Pfades \pause
+			\item Ein Pfad heiÃŸt \emph{wiederholungsfrei}, wenn alle Knoten $v_0,\ldots ,v_{n-1}$ und $v_1,\ldots ,v_n$ je paarweise verschieden sind, also maximal $v_0$ und $v_n$ gleich sind. \pause
+			\item Falls $v_0=v_n$ heiÃŸt der Pfad \emph{geschlossen}. Dann ist der Pfad auch ein Zyklus.\pause
 			\item ein geschlossener und wiederholungsfreier Pfad ist ein \emph{einfacher Zyklus}.
 		\end{itemize}
 	\end{block}
@@ -147,7 +147,7 @@
 	\end{tikzpicture}
 	\\
 	\vspace{1ex}
-	\only<2->{Wie sähe dieser ungerichtete Graph als Menge aus?\\}
+	\only<2->{Wie sÃ¤he dieser ungerichtete Graph als Menge aus?\\}
 	\only<3->{$G = ( \{a,b,c,d\}, \{\{a,b\},\{a,c\},\{a,d\},\{b,c\},\{d,b\},\{d,c\}\})$}
 
 	\end{center}
@@ -158,29 +158,29 @@
 	\begin{block}{Aufgabe}
 		Gegeben sei ein ungerichteter Graph mit n Knoten.
 		\begin{itemize}
-			\item Wieviele Kanten kann er maximal haben, wenn er schlingenfrei ist? \visible<2->{\textbf{Lösung:} $n(n-1)/2$ Kanten}\pause
-			\item Wieviele Kanten kann er maximal haben, wenn Schlingen erlaubt sind? \visible<3->{\textbf{Lösung:} $n(n+1)/2$ Kanten}
+			\item Wieviele Kanten kann er maximal haben, wenn er schlingenfrei ist? \visible<2->{\textbf{LÃ¶sung:} $n(n-1)/2$ Kanten}\pause
+			\item Wieviele Kanten kann er maximal haben, wenn Schlingen erlaubt sind? \visible<3->{\textbf{LÃ¶sung:} $n(n+1)/2$ Kanten}
 		\end{itemize}
 	\end{block}
 \end{frame}
 
 \begin{frame}
-	\frametitle{zusammenhängende Graphen}
+	\frametitle{zusammenhÃ¤ngende Graphen}
 	\begin{block}{Definition}
     	Wir nennen \ldots
 		\begin{itemize}
-			\item einen gerichteten Graphen \emph{streng zusammenhängend},
-				wenn für jedes Knotenpaar $(x,y)\in V^2$ gilt: Es gibt in $G$ einen Pfad von $x$ nach $y$.\\ \pause
-			\item einen ungerichteten Graphen \emph{zusammenhängend}, wenn der entsprechende gerichtete Graph \emph{streng zusammenhängend} ist.
+			\item einen gerichteten Graphen \emph{streng zusammenhÃ¤ngend},
+				wenn fÃ¼r jedes Knotenpaar $(x,y)\in V^2$ gilt: Es gibt in $G$ einen Pfad von $x$ nach $y$.\\ \pause
+			\item einen ungerichteten Graphen \emph{zusammenhÃ¤ngend}, wenn der entsprechende gerichtete Graph \emph{streng zusammenhÃ¤ngend} ist.
 		\end{itemize}
 	\end{block}
 \end{frame}
 
 \begin{frame}
-	\frametitle{ungerichtete Bäume}
+	\frametitle{ungerichtete BÃ¤ume}
 	\begin{block}{Definition}
 		\begin{itemize}
-			\item Jeder zusammenhängende ungerichtete Graph mit $|E| = |V| - 1$ ist ein ungerichteter Baum \pause
+			\item Jeder zusammenhÃ¤ngende ungerichtete Graph mit $|E| = |V| - 1$ ist ein ungerichteter Baum \pause
 			\item Im ungerichteten Baum kann theoretisch jeder Knoten Wurzel sein. \\ \pause
 			\item Daher wird i.d.R. ein Knoten als Wurzel hervorgehoben.
 		\end{itemize}
@@ -203,8 +203,8 @@
 	\end{block}
 \pause
 	\begin{block}{Beispiel}
-		Gegeben sei ein Rohrsystem (von q nach s), durch das Wasser fließt. Wie viel
-		Wasser kann auf einmal durch das Rohrsystem fließen?
+		Gegeben sei ein Rohrsystem (von q nach s), durch das Wasser flieÃŸt. Wie viel
+		Wasser kann auf einmal durch das Rohrsystem flieÃŸen?
 	\end{block}
 \end{frame}
 
@@ -219,7 +219,7 @@
 \begin{frame}
 \frametitle{Beispiel Routenplanung}
 	\begin{block}{Beispiel}
-		Was ist der kürzeste Weg von S nach Z wenn an den Kanten die Entfernung zwischen den Städten eingetragen ist?
+		Was ist der kÃ¼rzeste Weg von S nach Z wenn an den Kanten die Entfernung zwischen den StÃ¤dten eingetragen ist?
 	\end{block}
 \end{frame}
 
@@ -227,7 +227,7 @@
 
 \begin{frame}
 	\frametitle{Matrizenrechnen!}
-		\large Wer wünscht sich dazu Beispiele?
+		\large Wer wÃ¼nscht sich dazu Beispiele?
 \end{frame}
 
 
@@ -253,7 +253,7 @@
 		\end{center}
 
 		\begin{block}{Ein Graph - verschiedene Schreibweisen}
-			Für den oben angegebenen Graphen - in grafischer Darstellung - gibt es verschiedene Darstellungsarten:
+			FÃ¼r den oben angegebenen Graphen - in grafischer Darstellung - gibt es verschiedene Darstellungsarten:
 			\begin{description}
 				\only<-1>{
 					\item[\xb{Tupeldarstellung}] (aus dem letzten Tut):\\
@@ -291,13 +291,13 @@
 	\begin{block}{Adjazenzlisten}
 	\begin{itemize}
 		\visible<2->{\item einfacher Zugriff auf alle adjazenten Knoten}
-		\visible<3->{\item Um zu überprüfen, ob eine Kante existiert, muss man eventuell alle Nachbarn durchgehen}
+		\visible<3->{\item Um zu Ã¼berprÃ¼fen, ob eine Kante existiert, muss man eventuell alle Nachbarn durchgehen}
 	\end{itemize}
 	\end{block}
 
 	\begin{block}{Adjanzenzmatrixen}
 	\begin{itemize}
-		\visible<4->{\item schnelle Überprüfung, ob eine Kante zwischen zwei Knoten $i$ und $j$ existiert}
+		\visible<4->{\item schnelle ÃœberprÃ¼fung, ob eine Kante zwischen zwei Knoten $i$ und $j$ existiert}
 		\visible<5->{\item Um auf einen Nachbarn zuzugreifen, muss man eventuell alle Knoten durchgehen}
 	\end{itemize}
 	\end{block}
@@ -305,11 +305,11 @@
 \begin{frame}
 \frametitle{Liste vs. Matrix}
 	\begin{block}{Welche Darstellungsform ist geeigneter?}
-		Für einen...
+		FÃ¼r einen...
 		\begin{itemize}
-			\visible<1->{\item vollständigen Graphen? \visible<2->{\\Adjazenzmatrix}}\pause
+			\visible<1->{\item vollstÃ¤ndigen Graphen? \visible<2->{\\Adjazenzmatrix}}\pause
 			\item Graphen mit nur wenigen Kanten? \visible<3->{\\Adjazenzliste}\pause
-			\item Graphen, den wir später auf Reflexivität untersuchen wollen? \visible<4->{\\Adjazenzmatrix}
+			\item Graphen, den wir spÃ¤ter auf ReflexivitÃ¤t untersuchen wollen? \visible<4->{\\Adjazenzmatrix}
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -318,10 +318,10 @@
 \begin{frame}
 	\frametitle{Wegematrix I}
 	\begin{block}{Darstellung von Relationen}
-		So wie die Adjazenzmatrix Relationen zwischen Knoten darstellt, können auch weitere Relationen als Matrix dargestellt werden. Ein Beispiel ist die Wegematrix, die eine Darstellungsform der Erreichbarkeitssrelation
+		So wie die Adjazenzmatrix Relationen zwischen Knoten darstellt, kÃ¶nnen auch weitere Relationen als Matrix dargestellt werden. Ein Beispiel ist die Wegematrix, die eine Darstellungsform der Erreichbarkeitssrelation
 		$E^*=\bigcup^{n-1}_{i=0} E^i $. \\
 	\end{block}
-	\begin{block}{Für die Wegematrix gilt}
+	\begin{block}{FÃ¼r die Wegematrix gilt}
  \begin{displaymath}
  W_{ij}=
 	\begin{cases}
@@ -335,8 +335,8 @@
 \subsection{Algorithmen}
 \begin{frame}
 	\frametitle{Aufwand}
-	\begin{block}{Zählweise}
-		Beim Vergleich verschiedener Algorithmen in Bezug auf den Aufwand, sucht man nach einem Maß für die Anzahl der Rechenoperationen für eine Aufgabe der Größe $n$.
+	\begin{block}{ZÃ¤hlweise}
+		Beim Vergleich verschiedener Algorithmen in Bezug auf den Aufwand, sucht man nach einem MaÃŸ fÃ¼r die Anzahl der Rechenoperationen fÃ¼r eine Aufgabe der GrÃ¶ÃŸe $n$.
 	\end{block}
 	\begin{block}{Beispiel} \pause
 		Summe aller Zahlen von $1$ bis $n$: \\
@@ -399,14 +399,14 @@
 	\begin{block}{Ihr seid dran...}
 		\begin{itemize}
 			\item Wie sieht die Wegematrix zum oben gezeigten Graph aus?
-			\visible<2->{\item Wie sieht die Wegematrix für eine vollständig mit 1en gefüllte Matrix aus?}
+			\visible<2->{\item Wie sieht die Wegematrix fÃ¼r eine vollstÃ¤ndig mit 1en gefÃ¼llte Matrix aus?}
 			\visible<3->{\item Wann gilt allgemein $W=A$? Wann gilt $E^1=A$?}
 		\end{itemize}
 	\end{block}
 \end{frame}
 
 \section{Abschluss}
-% Studis anzuregen darüber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachträglich stellen, dann kann in der nächsten Woche nochmal drauf eingegangen werden
+% Studis anzuregen darÃ¼ber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachtrÃ¤glich stellen, dann kann in der nÃ¤chsten Woche nochmal drauf eingegangen werden
 \subsection*{}
 \begin{frame}
 	\frametitle{Zum Schluss...}
@@ -416,7 +416,7 @@
 		\visible<3->{\item Wie werden Graphen im Rechner dargestellt?}
 		\visible<4->{\item Vor- \& Nachteile von Adjazenzliste und Adjazenzmatrix}
 		\visible<5->{\item Was ist eine Wegematrix?}
-		\visible<6->{\item Was sind Gewichte von Graphen und wozu sind sie nützlich?}
+		\visible<6->{\item Was sind Gewichte von Graphen und wozu sind sie nÃ¼tzlich?}
     \end{itemize}
    	\end{block}
 

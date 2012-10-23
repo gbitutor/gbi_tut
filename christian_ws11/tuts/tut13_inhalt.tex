@@ -12,7 +12,7 @@
 	\item einen \textbf{Anfangszustand} $z_0 \in Z$
 	\item ein endliches \textbf{Bandalphabet} $X$
 	\pause
-	\item eine partielle \textbf{Zustandsüberführung}sfunktion $f : Z \times X \dashrightarrow  Z$
+	\item eine partielle \textbf{ZustandsÃ¼berfÃ¼hrung}sfunktion $f : Z \times X \dashrightarrow  Z$
 	\item eine partielle \textbf{Ausgabe}funktion $g : Z \times X \dashrightarrow  X$ und
 	\item eine partielle \textbf{Bewegung}sfunktion $m : Z \times X \dashrightarrow  \{-1, 0, 1\}$\end{itemize}
 \end{block}
@@ -77,7 +77,7 @@ eine Bewegung nach rechts und \textbf{0 oder N} ein Stehenbleiben.
 \begin{frame}
   \frametitle{Konfiguration einer TM}
 Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzustand}, der als \textbf{Konfiguration} $(z, b, p) \in Z \times X^\mathbb{Z} \times \mathbb{Z}$ bezeichnet wird
-\begin{block}{Vollständig beschrieben durch...}
+\begin{block}{VollstÃ¤ndig beschrieben durch...}
 \begin{itemize}
   \pause
 	\item den aktuellen \textbf{Zustand} $z \in Z$ der Steuereinheit,
@@ -131,7 +131,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
   \begin{block}{unendliche Berechnung}
 \begin{itemize}
 	\item unendliche Folge von Konfigurationen $(c_0, c_1, c_2, . . . )$
-	\item wobei für $i>0$ gilt  $c_i = \Delta_1(c_{i-1})$
+	\item wobei fÃ¼r $i>0$ gilt  $c_i = \Delta_1(c_{i-1})$
 	\item \textbf{nicht haltend}
 \end{itemize}
   \end{block}
@@ -145,16 +145,16 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 \begin{itemize}
 	\item   \textbf{Erkennung formaler Sprachen}: ein Bit akzeptiert/abgelehnt
 	\pause
-  \item		Teilmenge $F \subset Z$ \textbf{akzeptierender Zustände}
+  \item		Teilmenge $F \subset Z$ \textbf{akzeptierender ZustÃ¤nde}
   \item		TM akzeptiert Eingabewort $w$, wenn
 \begin{itemize}
 	\pause
-	\item TM für Eingabe $w$ hält und
+	\item TM fÃ¼r Eingabe $w$ hÃ¤lt und
 	\pause
 	\item der Zustand der Endkonfiguration $\Delta_{*}(c_0(w))$ akzepierend ist
 \end{itemize}
 \pause
-\item $L(T)$: Menge der akzeptierten Wörter
+\item $L(T)$: Menge der akzeptierten WÃ¶rter
 \end{itemize}
 \end{block}
 \end{frame}
@@ -167,7 +167,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 	Gebt ein TM-Akzeptor an, der die Sprache $L^= = \{0^n1^n : n \geq 1\}$ akzeptiert
 	\end{block}}
   \only<2->{
-\begin{block}{Lösung}
+\begin{block}{LÃ¶sung}
 \begin{figure}
 	\centering
 		\includegraphics[height=6.7cm]{src/tut13_tmaufgabe.png}
@@ -177,17 +177,17 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 
 \subsection*{}
 \begin{frame}
-  \frametitle{Aufzählbare und entscheidbare Sprachen}
-  \begin{block}{zwei Möglichkeiten, wenn $w$ von TM nicht akzeptiert wird}
+  \frametitle{AufzÃ¤hlbare und entscheidbare Sprachen}
+  \begin{block}{zwei MÃ¶glichkeiten, wenn $w$ von TM nicht akzeptiert wird}
 \begin{enumerate}
 \pause
-	\item TM hält für Eingabe $w$, aber Endzustand nicht akzeptierend
+	\item TM hÃ¤lt fÃ¼r Eingabe $w$, aber Endzustand nicht akzeptierend
 	\pause
-  \item	TM hält für Eingabe $w$ \textbf{nicht}
+  \item	TM hÃ¤lt fÃ¼r Eingabe $w$ \textbf{nicht}
 \end{enumerate}
 \end{block}
 \pause
-  \begin{block}{Was wissen wir über die Berechnung?}
+  \begin{block}{Was wissen wir Ã¼ber die Berechnung?}
 \begin{enumerate}
 \pause
 	\item TM ist fertig und lehnt die Eingabe ab
@@ -198,9 +198,9 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 \pause
   \begin{block}{Wir halten in zwei Definitionen fest}
 \begin{enumerate}
-	\item $L$ heißt \textbf{entscheidbare Sprache}, wenn es eine TM gibt, die \textbf{immer hält} und $L$ akzeptiert.
+	\item $L$ heiÃŸt \textbf{entscheidbare Sprache}, wenn es eine TM gibt, die \textbf{immer hÃ¤lt} und $L$ akzeptiert.
 	\pause
-	\item $L$ heißt \textbf{aufzählbare}(semi-entscheidbar) \textbf{Sprache}, wenn es eine TM gibt, die $L$ akzeptiert
+	\item $L$ heiÃŸt \textbf{aufzÃ¤hlbare}(semi-entscheidbar) \textbf{Sprache}, wenn es eine TM gibt, die $L$ akzeptiert
 \end{enumerate}
 \end{block}
 \end{frame}
@@ -212,7 +212,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 \begin{frame}
   \frametitle{Codierungen von Turingmaschinen}
 
-  \begin{block}{Gödelisierung}
+  \begin{block}{GÃ¶delisierung}
 \begin{itemize}
 \pause
 	\item Ziel: Beschreibe jede Turingmaschine durch ein Wort
@@ -221,7 +221,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 \begin{itemize}
   \item Triviales Alphabet zur Codierung wie z.B. $A = \{[, ], 0, 1\}$
 \pause
-	\item Codierung der Zustände, Symbole, Kopfbewegungen, Funktionen
+	\item Codierung der ZustÃ¤nde, Symbole, Kopfbewegungen, Funktionen
 	\pause
 	\item Codierung der gesamten Turingmaschine als Konkatentation aller codierten Bestandteile
 \end{itemize}
@@ -233,27 +233,27 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 \begin{frame}
   \frametitle{Eigenschaften dieser Codierungen}
 
-  \begin{block}{einfache Syntaxanalyse ist möglich}
+  \begin{block}{einfache Syntaxanalyse ist mÃ¶glich}
 \begin{itemize}
-	\item TM konstruierbar, die für $w \in A^*$ feststellt, ob es die Codierung einer TM ist oder nicht.
+	\item TM konstruierbar, die fÃ¼r $w \in A^*$ feststellt, ob es die Codierung einer TM ist oder nicht.
 \end{itemize}
   \end{block}
   \pause
   \begin{block}{\textbf{universelle Turingmaschine} $U$ existiert}
 \begin{itemize}
 \pause
-	\item erhält als Eingabe zwei Argumente als Wort $[w_1][w_2]$
+	\item erhÃ¤lt als Eingabe zwei Argumente als Wort $[w_1][w_2]$
 	\pause
-	\item prüft, ob $w_1$ Codierung einer Turingmaschine $T$ ist
+	\item prÃ¼ft, ob $w_1$ Codierung einer Turingmaschine $T$ ist
 	\pause
-	\item falls nein: hält mit NEIN
+	\item falls nein: hÃ¤lt mit NEIN
 	\pause
 	\item falls ja:
 	\pause
 \begin{itemize}
-	\item U \textbf{simuliert Schritt für Schritt die Arbeit}, die $T$ für die Eingabe $w_2$ durchführen würde
+	\item U \textbf{simuliert Schritt fÃ¼r Schritt die Arbeit}, die $T$ fÃ¼r die Eingabe $w_2$ durchfÃ¼hren wÃ¼rde
 	\pause
-	\item $U$ liefert am Ende als Ergebnis, was $T$ liefern würde (\textit{FALLS T hält!})
+	\item $U$ liefert am Ende als Ergebnis, was $T$ liefern wÃ¼rde (\textit{FALLS T hÃ¤lt!})
 \end{itemize}
 \end{itemize}
   \end{block}
@@ -265,7 +265,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
   \frametitle{Das Halteproblem}
 
   \begin{block}{Das Halteproblem ist die formale Sprache}
-  $H = \{w \in A^* | $w ist eine TM-Codierung und $T_w(w)$ hält. $\}$
+  $H = \{w \in A^* | $w ist eine TM-Codierung und $T_w(w)$ hÃ¤lt. $\}$
    \end{block}
    \pause
    \begin{block}{Satz}
@@ -273,17 +273,17 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
    \end{block}
    \pause
    \begin{block}{Anmerkung}
-  \textbf{Aber:} Das Halteproblem ist aufzählbar(semi-entscheidbar). Man zeigt das mittels Univeral-TM.
+  \textbf{Aber:} Das Halteproblem ist aufzÃ¤hlbar(semi-entscheidbar). Man zeigt das mittels Univeral-TM.
    \end{block}
 \end{frame}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Äquivalenzrelationen %%%%%%%%%%%%%%%%%%%%
-\section[Relationen]{Äquivalenzrelationen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Ã„quivalenzrelationen %%%%%%%%%%%%%%%%%%%%
+\section[Relationen]{Ã„quivalenzrelationen}
 
 \subsection*{}
 \begin{frame}
-  \frametitle{Definition von Äquivalenzrelationen}
+  \frametitle{Definition von Ã„quivalenzrelationen}
 
 	\begin{block}{Vorraussetzungen}
 		\begin{description}
@@ -291,36 +291,36 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 			\item[transitiv] Aus $x R y$ und $y R z$ folgt $x R z$
 			\item[symmetrisch] Aus $x R y$ folgt $y R x$
 		\end{description} \pause
-		Gelten alle diese Eigenschaften für alle $x,y$, handelt es sich um eine \textbf{Äquivalenzrelation}.
+		Gelten alle diese Eigenschaften fÃ¼r alle $x,y$, handelt es sich um eine \textbf{Ã„quivalenzrelation}.
 	\end{block}
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{Äquivalenzrelationen}
+  \frametitle{Ã„quivalenzrelationen}
 
   \begin{block}{Relation als Graph}
     \begin{itemize}
     \item Darstellung von Relationen als gerichtete Graphen:
       Woran sieht man
       \begin{itemize}
-        \item Reflexivität?
+        \item ReflexivitÃ¤t?
         \item Symmetrie?
-        \item Transitivität?
+        \item TransitivitÃ¤t?
       \end{itemize} \pause
-    \item Wie sieht der Graph einer Äquivalenzrelation aus: \pause
+    \item Wie sieht der Graph einer Ã„quivalenzrelation aus: \pause
       "`Cliquen"', in denen jeder mit jedem verbunden ist
-      \item dazwischen nichts (die Cliquen heißen später Äquivalenzklassen)
+      \item dazwischen nichts (die Cliquen heiÃŸen spÃ¤ter Ã„quivalenzklassen)
     \end{itemize}
    \end{block}
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{Äquivalenzrelationen von Nerode}
+  \frametitle{Ã„quivalenzrelationen von Nerode}
 
   \begin{block}{Definition}
-  	für alle $w_1,w_2 \in A^*$ ist\\
+  	fÃ¼r alle $w_1,w_2 \in A^*$ ist\\
   	$w1 \equiv_L w2 \Leftrightarrow (\forall w \in A^*: w_1w \in L \Leftrightarrow w_2w \in L)$
 
   	\pause
@@ -330,14 +330,14 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
       \begin{itemize}
       \item man nehme eine Sprache $L$, die von einem endlichen Akzeptor
         erkannt wird
-      \item man nehme zwei Wörter $w_1$, $w_2$ die \emph{nicht}
-        $\equiv_L$-äquivalent sind
-      \item Was kann man über $f^*(z_0,w_1)$ und $f^*(z_0,w_2)$ sagen?\pause
-      \item Sie müssen verschieden sein, denn sonst
-        $f^*(z_0,w_1)=f^*(z_0,w_2)$ und dann auch für jedes Suffix
-        $w$: $f^*(z_0,w_1w)=f^*(z_0,w_2w)$, also werden für jedes
-        Suffix entweder beide Wörter $w_1w$ und $w_2w$ oder keines
-        akzeptiert, und dann wären $w_1$ und $w_2$ ja äquivalent.
+      \item man nehme zwei WÃ¶rter $w_1$, $w_2$ die \emph{nicht}
+        $\equiv_L$-Ã¤quivalent sind
+      \item Was kann man Ã¼ber $f^*(z_0,w_1)$ und $f^*(z_0,w_2)$ sagen?\pause
+      \item Sie mÃ¼ssen verschieden sein, denn sonst
+        $f^*(z_0,w_1)=f^*(z_0,w_2)$ und dann auch fÃ¼r jedes Suffix
+        $w$: $f^*(z_0,w_1w)=f^*(z_0,w_2w)$, also werden fÃ¼r jedes
+        Suffix entweder beide WÃ¶rter $w_1w$ und $w_2w$ oder keines
+        akzeptiert, und dann wÃ¤ren $w_1$ und $w_2$ ja Ã¤quivalent.
       \end{itemize}
     \end{itemize}
 
@@ -346,7 +346,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 
 
 \begin{frame}
-  \frametitle{Äquivalenzrelationen von Nerode}
+  \frametitle{Ã„quivalenzrelationen von Nerode}
 
   \begin{block}{Beispiele}
 	aus dem Skript:\\
@@ -354,9 +354,9 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
     \begin{itemize}
     	\item $w_1 = aaa, w_2 = a$
     	\item $w_1 = aaab, w_2 = abb$
-    	\item $w_1 = aa, w_2 = abb$ \only<2>{ nicht $\equiv_L$-äquivalent sind}
+    	\item $w_1 = aa, w_2 = abb$ \only<2>{ nicht $\equiv_L$-Ã¤quivalent sind}
     	\item $w_1 = aba, w_2 = babb$
-    	\item $w_1 = ab, w_2 = ba$ \only<2>{ nicht $\equiv_L$-äquivalent sind}
+    	\item $w_1 = ab, w_2 = ba$ \only<2>{ nicht $\equiv_L$-Ã¤quivalent sind}
     \end{itemize}
 
    \end{block}
@@ -366,7 +366,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 
 \subsection*{}
 \begin{frame}
-  \frametitle{WDH: Definition von Äquivalenzrelationen}
+  \frametitle{WDH: Definition von Ã„quivalenzrelationen}
 
 	\begin{block}{Vorraussetzungen} \pause
 		\begin{description}
@@ -374,7 +374,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 			\item[transitiv] Aus $x R y$ und $y R z$ folgt $x R z$
 			\item[symmetrisch] Aus $x R y$ folgt $y R x$
 		\end{description} \pause
-		Gelten alle diese Eigenschaften für alle $x,y,z \in M$, handelt es sich um eine \textbf{Äquivalenzrelation}.
+		Gelten alle diese Eigenschaften fÃ¼r alle $x,y,z \in M$, handelt es sich um eine \textbf{Ã„quivalenzrelation}.
 	\end{block}
 \end{frame}
 
@@ -389,7 +389,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 			\item[antisymmetrisch] Aus $x R y$ und $y R x$ folgt $x = y$
 		\end{description} \pause
 \begin{itemize}
-	\item Gelten alle diese Eigenschaften für alle $x,y$, handelt es sich bei $R \subseteq M x M$ um eine \textbf{Halbordnung}. \pause
+	\item Gelten alle diese Eigenschaften fÃ¼r alle $x,y$, handelt es sich bei $R \subseteq M x M$ um eine \textbf{Halbordnung}. \pause
 	\item	Wenn R Halbordnung auf Menge M ist, nennt man M eine \textbf{halbgeordnete Menge}.
 \end{itemize}
 	\end{block}
@@ -401,7 +401,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
   \frametitle{Beispiel Mengeninklusion}
 
 	\begin{block}{Untersuchung der Mengeninklusion}
-      Handelt es sich bei der Relation $\subseteq$ (Mengeninklusion) um eine \textbf{Äquivalenzrelation oder Halbordnung} auf Potenzmenge $P = 2^M$? \pause
+      Handelt es sich bei der Relation $\subseteq$ (Mengeninklusion) um eine \textbf{Ã„quivalenzrelation oder Halbordnung} auf Potenzmenge $P = 2^M$? \pause
 \begin{itemize}
 	\item relfexiv: $\forall A \in P$: $A \subseteq A$ \pause
 	\item transitiv: $\forall A, B, C \in P$: $A \subseteq B$ und $B \subseteq C \Longrightarrow A \subseteq C$ \pause
@@ -423,17 +423,17 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
   \frametitle{Ihr seid dran...}
 
 	\begin{block}{Aufgabe}
-	Überprüft, ob es sich bei folgenden Relationen um Halbordnungen handelt:
+	ÃœberprÃ¼ft, ob es sich bei folgenden Relationen um Halbordnungen handelt:
   \begin{itemize}
     \item  $\sqsubseteq_p$ auf $A^*$ mit $v\sqsubseteq_p w \Leftrightarrow \exists u: vu=w$ ?
       \only<2->{
       \begin{itemize}
-      \item \textbf{Reflexivität}: gilt wegen  $w_1\epsilon=w_1$
+      \item \textbf{ReflexivitÃ¤t}: gilt wegen  $w_1\epsilon=w_1$
       \item \textbf{Antisymmetrie}: wenn $w_1\sqsubseteq_p w_2$ und $w_2\sqsubseteq w_1$,
         dann gibt es $u_1,u_2\in A^*$ mit $w_1u_1=w_2$ und
         $w_2u_2=w_1$. Also ist $w_1u_1u_2=w_2u_2=w_1$. Also muss
         $|u_1u_2|=0$ sein, also $u_1=u_2=\epsilon$, also $w_1=w_2$.
-      \item \textbf{Transitivität}: wenn $w_1\sqsubseteq_p w_2$ und $w_2\sqsubseteq w_3$,
+      \item \textbf{TransitivitÃ¤t}: wenn $w_1\sqsubseteq_p w_2$ und $w_2\sqsubseteq w_3$,
         dann gibt es $u_1,u_2\in A^*$ mit $w_1u_1=w_2$ und
         $w_2u_2=w_3$.  Also ist $w_1(u_1u_2)=(w_1u_1)u_2=w_2u_2=w_3$,
         also $w_1\sqsubseteq w_3$.
@@ -443,7 +443,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
     \only<4->{
 			\begin{itemize}
 				\item Antisymmetrie ist verletzt.
-				 \only<5->{ \item Reflexivität und Transitivität sind erfüllt. }
+				 \only<5->{ \item ReflexivitÃ¤t und TransitivitÃ¤t sind erfÃ¼llt. }
 			\end{itemize}
 		}
    \end{itemize}
@@ -455,7 +455,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 \begin{frame}
   \frametitle{Hassediagramm}
   \begin{block}{Konstruktion}
-  Zur \textbf{Veranschaulichung einer Halbordnung} lassen sich Hassediagramme folgendermaßen erstellen: \pause
+  Zur \textbf{Veranschaulichung einer Halbordnung} lassen sich Hassediagramme folgendermaÃŸen erstellen: \pause
     \begin{enumerate}
     \item Darstellung der Halbordnung als Graph \pause
     \item Entfernen aller reflexiven und transitiven Kanten
@@ -469,18 +469,18 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
   Sei $( M, \sqsubseteq )$ halbgeordnet und $T \subseteq M$ \pause
   \begin{block}{minimale und maximale Elemente}
     \begin{itemize}
-    \item $x \in T$ heißt \textbf{minimales Element} von T, wenn es kein $y \in T$ gibt mit $y \sqsubseteq x$ und $y \neq x$. \pause
-    \item $x \in T$ heißt \textbf{maximales Element} von T, wenn es kein $y \in T$ gibt mit $x \sqsubseteq y$ und $x \neq y$. \pause
+    \item $x \in T$ heiÃŸt \textbf{minimales Element} von T, wenn es kein $y \in T$ gibt mit $y \sqsubseteq x$ und $y \neq x$. \pause
+    \item $x \in T$ heiÃŸt \textbf{maximales Element} von T, wenn es kein $y \in T$ gibt mit $x \sqsubseteq y$ und $x \neq y$. \pause
     \end{itemize}
 	\end{block}
-	\begin{block}{kleinstes und größtes Element}
+	\begin{block}{kleinstes und grÃ¶ÃŸtes Element}
     \begin{itemize}
-    \item $x \in T$ heißt \textbf{kleinstes Element} von T, wenn für alle $y \in T$ gilt: $x \sqsubseteq y$. \pause
-    \item $x \in T$ heißt \textbf{größtes Element} von T, wenn für alle $y \in T$ gilt: $y \sqsubseteq x$.
+    \item $x \in T$ heiÃŸt \textbf{kleinstes Element} von T, wenn fÃ¼r alle $y \in T$ gilt: $x \sqsubseteq y$. \pause
+    \item $x \in T$ heiÃŸt \textbf{grÃ¶ÃŸtes Element} von T, wenn fÃ¼r alle $y \in T$ gilt: $y \sqsubseteq x$.
     \end{itemize}
   \end{block}
   \only<6->{
-  Eine Teilmenge T kann mehrere minimale (bzw. maximale) Elemente besitzen, aber nur ein kleinstes (bzw. größtes)!
+  Eine Teilmenge T kann mehrere minimale (bzw. maximale) Elemente besitzen, aber nur ein kleinstes (bzw. grÃ¶ÃŸtes)!
   }
 \end{frame}
 
@@ -502,11 +502,11 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
   Sei $( M, \sqsubseteq )$ halbgeordnet und $T \subseteq M$ \pause
   \begin{block}{Untere und obere Schranken}
     \begin{itemize}
-    \item $x \in M$ heißt \textbf{untere Schranke} von T, wenn für alle $y \in T$ gilt: $x \sqsubseteq y$. \pause
-    \item $x \in M$ heißt \textbf{obere Schranke} von T, wenn für alle $y \in T$ gilt: $y \sqsubseteq x$.  \pause
+    \item $x \in M$ heiÃŸt \textbf{untere Schranke} von T, wenn fÃ¼r alle $y \in T$ gilt: $x \sqsubseteq y$. \pause
+    \item $x \in M$ heiÃŸt \textbf{obere Schranke} von T, wenn fÃ¼r alle $y \in T$ gilt: $y \sqsubseteq x$.  \pause
     \end{itemize}
     \only<4->{
-    Also: Schranken von T dürfen außerhalb von T liegen.
+    Also: Schranken von T dÃ¼rfen auÃŸerhalb von T liegen.
     }
 	\end{block}
 \end{frame}
@@ -516,12 +516,12 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
   \frametitle{Extreme "`Elemente"' III}
 	\begin{block}{Supremum und Infimum}
     \begin{itemize}
-    \item Besitzt die Menge aller oberen Schranken einer Teilmenge T ein kleinstes Element, so heißt dies das \textbf{Supremum} von T ($sup(T)$) \pause
-    \item Besitzt die Menge aller unteren Schranken einer Teilmenge T ein größtes Element, so heißt dies das \textbf{Infimum} von T ($inf(T)$) \pause
+    \item Besitzt die Menge aller oberen Schranken einer Teilmenge T ein kleinstes Element, so heiÃŸt dies das \textbf{Supremum} von T ($sup(T)$) \pause
+    \item Besitzt die Menge aller unteren Schranken einer Teilmenge T ein grÃ¶ÃŸtes Element, so heiÃŸt dies das \textbf{Infimum} von T ($inf(T)$) \pause
     \item \textbf{Achtung}: Existieren nicht, wenn
 			\begin{itemize}
-				\item überhaupt keine oberen (unteren) Schranken vorhanden \pause
-				\item keine eindeutig kleinste (größte) Schranke aller oberer (unterer) Schranken
+				\item Ã¼berhaupt keine oberen (unteren) Schranken vorhanden \pause
+				\item keine eindeutig kleinste (grÃ¶ÃŸte) Schranke aller oberer (unterer) Schranken
 			\end{itemize}
 		\end{itemize}
   \end{block}
@@ -529,17 +529,17 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 
 \subsection*{}
 \begin{frame}
-  \frametitle{Vollständige Halbordnungen}
+  \frametitle{VollstÃ¤ndige Halbordnungen}
   \begin{block}{aufsteigende Kette}
   wird definiert als
     \begin{itemize}
-    \item abzählbar unendliche Folge $(x_0, x_1, x_2, ... )$ von Elementen
+    \item abzÃ¤hlbar unendliche Folge $(x_0, x_1, x_2, ... )$ von Elementen
     \item mit Eigenschaft: $\forall i \in N_0$: $x_i \sqsubseteq x_{i+1}$
     \end{itemize}
 	\end{block}
 	\pause
-	\begin{block}{vollständige Halbordnung}
-    Eine Halbordnung heißt \textbf{vollständig}, wenn
+	\begin{block}{vollstÃ¤ndige Halbordnung}
+    Eine Halbordnung heiÃŸt \textbf{vollstÃ¤ndig}, wenn
     \begin{itemize}
     \item sie ein kleinstes Element $\bot$ hat und
     \item jede aufsteigende Kette $ x_0 \sqsubseteq x_1 \sqsubseteq x_2 \sqsubseteq ...$ ein Supremum $x_i$ besitzt
@@ -549,23 +549,23 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 
 \subsection*{}
 \begin{frame}
-  \frametitle{Vollständige Halbordnungen II}
-  \begin{block}{Stetige Abbildungen auf vollständigen Halbordnungen}
+  \frametitle{VollstÃ¤ndige Halbordnungen II}
+  \begin{block}{Stetige Abbildungen auf vollstÃ¤ndigen Halbordnungen}
     \begin{itemize}
     \item Beispiel aus dem Skript
     \item Gegeben sei:
     \item Terminalzeichenalphabet $T=\{a,b\}$, \pause
-    \item $D$ die halbgeordnete Potenzmenge $D=2^{T^*}$ der Menge aller Wörter
+    \item $D$ die halbgeordnete Potenzmenge $D=2^{T^*}$ der Menge aller WÃ¶rter
     \item mit Inklusion als Halbordnungsrelation. \pause
-    \item Elemente der Halbordnung sind also Mengen von Wörtern, d.h. formale Sprachen. \pause
+    \item Elemente der Halbordnung sind also Mengen von WÃ¶rtern, d.h. formale Sprachen. \pause
     \item Kleinstes Element der Halbordnung ist die leere Menge $\emptyset$.  \pause
-    \item Wie weiter vorne erwähnt, ist diese Halbordnung vollständig.
+    \item Wie weiter vorne erwÃ¤hnt, ist diese Halbordnung vollstÃ¤ndig.
     \end{itemize}
 	\end{block}
 \end{frame}
 \subsection*{}
 \begin{frame}
-  \frametitle{Vollständige Halbordnungen III}
+  \frametitle{VollstÃ¤ndige Halbordnungen III}
   \begin{block}{Beweis}
     \begin{itemize}
     \item Es sei $v\in T^*$ ein Wort und $f_v:D\rightarrow D$ die Abbildung
@@ -576,7 +576,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
       \cdots$ eine Kette und $L=\bigcup L_i$ ihr Supremum.
 
       $f_v(L_i)=\{ vw | w\in L_i \}$, also $\bigcup_i f_v(L_i)= \{ vw | \exists i\in N_0: w\in L_i\} = \{v\}\{w | \exists i \in N_0: w\in L_i\}$ $=\{v\}\bigcup_i L_i = f(\bigcup_i L_i)$.
-    \item analog für Konkatenation von rechts
+    \item analog fÃ¼r Konkatenation von rechts
     \end{itemize}
 	\end{block}
 \end{frame}
@@ -608,7 +608,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 	\begin{block}{Beispiele}
 \begin{itemize}
 	\item $( N_0 , \leq )$ \pause
-	\item $( \{a, b\}^*, \sqsubseteq_1 )$ mit $w_1 \sqsubseteq_1 w_2$ "`wie im Wörterbuch"' \pause
+	\item $( \{a, b\}^*, \sqsubseteq_1 )$ mit $w_1 \sqsubseteq_1 w_2$ "`wie im WÃ¶rterbuch"' \pause
 	\item $( \{a, b\}^*, \sqsubseteq_2 )$ mit $w_1 \sqsubseteq_2 w_2$ genau dann, wenn \pause
 		\begin{itemize}
 			\item entweder $|w_1| < |w_2|$ \pause
@@ -622,7 +622,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 \begin{frame}
   \frametitle{Ihr seid dran...}
 
-	\begin{block}{Beispiele für $\sqsubseteq_1$:}
+	\begin{block}{Beispiele fÃ¼r $\sqsubseteq_1$:}
       \begin{itemize}
         \item  Warum ist $aa \sqsubseteq_1 aabba$? \pause
         \item  Warum ist $aa \sqsubseteq_1 bba$? \pause
@@ -630,7 +630,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
         \item  Warum ist $aaaab \sqsubseteq_1 aab$? \pause
       \end{itemize}
   \end{block}
-  \begin{block}{Beispiele für $\sqsubseteq_2$:}
+  \begin{block}{Beispiele fÃ¼r $\sqsubseteq_2$:}
       \begin{itemize}
         \item  Warum ist $aa \sqsubseteq_2 aabba$? \pause
         \item  Warum ist $aa \sqsubseteq_2 bba$? \pause
@@ -648,7 +648,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 		Relation $\sqsubseteq_p$ auf $ \{a, b\}^* $ eine totale Ordnung?
 	\end{block}
 	\only<2->{
-	\begin{block}{Lösung}
+	\begin{block}{LÃ¶sung}
 		Es handelt sich um eine Halbordnung, allerdings mit unvergleichbaren Element wie z.B. $a, b$.
 		Daher ist die Relation $\sqsubseteq_p$ \textbf{keine} totale Ordnung.
 	\end{block}
@@ -657,7 +657,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 
 
 \section{Abschluss}
-% Studis anzuregen darüber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachträglich stellen, dann kann in der nächsten Woche nochmal drauf eingegangen werden
+% Studis anzuregen darÃ¼ber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachtrÃ¤glich stellen, dann kann in der nÃ¤chsten Woche nochmal drauf eingegangen werden
 \subsection*{}
 \begin{frame}
 	\frametitle{Zum Schluss...}
@@ -666,7 +666,7 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 	  	\visible<2->{\item Was ist ein Algorithmus?}
 		\visible<3->{\item Welche Arten von Berechnung unterscheiden wir?}
 		\visible<4->{\item Was zeichnet das Halteproblem aus? Gibt es noch andere Probleme, auf die dasselbe zutrifft?}
-		\visible<5->{\item Was besagt die Äquivalenzrelation von Nerode?}
+		\visible<5->{\item Was besagt die Ã„quivalenzrelation von Nerode?}
     \end{itemize}
    	\end{block}
 

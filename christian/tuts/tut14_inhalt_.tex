@@ -2,7 +2,7 @@
 
 \subsection*{}
 \begin{frame}
-  \frametitle{WDH: Definition von Äquivalenzrelationen}
+  \frametitle{WDH: Definition von Ã„quivalenzrelationen}
 
 	\begin{block}{Vorraussetzungen} \pause
 		\begin{description}
@@ -10,7 +10,7 @@
 			\item[transitiv] Aus $x R y$ und $y R z$ folgt $x R z$
 			\item[symmetrisch] Aus $x R y$ folgt $y R x$
 		\end{description} \pause
-		Gelten alle diese Eigenschaften für alle $x,y,z \in M$, handelt es sich um eine \textbf{Äquivalenzrelation}.
+		Gelten alle diese Eigenschaften fÃ¼r alle $x,y,z \in M$, handelt es sich um eine \textbf{Ã„quivalenzrelation}.
 	\end{block}
 \end{frame}
 
@@ -25,7 +25,7 @@
 			\item[antisymmetrisch] Aus $x R y$ und $y R x$ folgt $x = y$
 		\end{description} \pause
 \begin{itemize}
-	\item Gelten alle diese Eigenschaften für alle $x,y$, handelt es sich bei $R \subseteq M x M$ um eine \textbf{Halbordnung}. \pause
+	\item Gelten alle diese Eigenschaften fÃ¼r alle $x,y$, handelt es sich bei $R \subseteq M x M$ um eine \textbf{Halbordnung}. \pause
 	\item	Wenn R Halbordnung auf Menge M ist, nennt man M eine \textbf{halbgeordnete Menge}.
 \end{itemize}
 	\end{block}
@@ -37,7 +37,7 @@
   \frametitle{Beispiel Mengeninklusion}
 
 	\begin{block}{Untersuchung der Mengeninklusion}
-      Handelt es sich bei der Relation $\subseteq$ (Mengeninklusion) um eine \textbf{Äquivalenzrelation oder Halbordnung} auf Potenzmenge $P = 2^M$? \pause
+      Handelt es sich bei der Relation $\subseteq$ (Mengeninklusion) um eine \textbf{Ã„quivalenzrelation oder Halbordnung} auf Potenzmenge $P = 2^M$? \pause
 \begin{itemize}
 	\item relfexiv: $\forall A \in P$: $A \subseteq A$ \pause
 	\item transitiv: $\forall A, B, C \in P$: $A \subseteq B$ und $B \subseteq C \Longrightarrow A \subseteq C$ \pause
@@ -59,17 +59,17 @@
   \frametitle{Ihr seid dran...}
 
 	\begin{block}{Aufgabe}
-	Überprüft, ob es sich bei folgenden Relationen um Halbordnungen handelt:
+	ÃœberprÃ¼ft, ob es sich bei folgenden Relationen um Halbordnungen handelt:
   \begin{itemize}
     \item  $\sqsubseteq_p$ auf $A^*$ mit $v\sqsubseteq_p w \Leftrightarrow \exists u: vu=w$ ?
       \only<2->{
       \begin{itemize}
-      \item \textbf{Reflexivität}: gilt wegen  $w_1\epsilon=w_1$
+      \item \textbf{ReflexivitÃ¤t}: gilt wegen  $w_1\epsilon=w_1$
       \item \textbf{Antisymmetrie}: wenn $w_1\sqsubseteq_p w_2$ und $w_2\sqsubseteq w_1$,
         dann gibt es $u_1,u_2\in A^*$ mit $w_1u_1=w_2$ und
         $w_2u_2=w_1$. Also ist $w_1u_1u_2=w_2u_2=w_1$. Also muss
         $|u_1u_2|=0$ sein, also $u_1=u_2=\epsilon$, also $w_1=w_2$.
-      \item \textbf{Transitivität}: wenn $w_1\sqsubseteq_p w_2$ und $w_2\sqsubseteq w_3$,
+      \item \textbf{TransitivitÃ¤t}: wenn $w_1\sqsubseteq_p w_2$ und $w_2\sqsubseteq w_3$,
         dann gibt es $u_1,u_2\in A^*$ mit $w_1u_1=w_2$ und
         $w_2u_2=w_3$.  Also ist $w_1(u_1u_2)=(w_1u_1)u_2=w_2u_2=w_3$,
         also $w_1\sqsubseteq w_3$.
@@ -79,7 +79,7 @@
     \only<4->{
 			\begin{itemize}
 				\item Antisymmetrie ist verletzt.
-				 \only<5->{ \item Reflexivität und Transitivität sind erfüllt. }
+				 \only<5->{ \item ReflexivitÃ¤t und TransitivitÃ¤t sind erfÃ¼llt. }
 			\end{itemize}
 		}
    \end{itemize}
@@ -91,7 +91,7 @@
 \begin{frame}
   \frametitle{Hassediagramm}
   \begin{block}{Konstruktion}
-  Zur \textbf{Veranschaulichung einer Halbordnung} lassen sich Hassediagramme folgendermaßen erstellen: \pause
+  Zur \textbf{Veranschaulichung einer Halbordnung} lassen sich Hassediagramme folgendermaÃŸen erstellen: \pause
     \begin{enumerate}
     \item Darstellung der Halbordnung als Graph \pause
     \item Entfernen aller reflexiven und transitiven Kanten
@@ -105,18 +105,18 @@
   Sei $( M, \sqsubseteq )$ halbgeordnet und $T \subseteq M$ \pause
   \begin{block}{minimale und maximale Elemente}
     \begin{itemize}
-    \item $x \in T$ heißt \textbf{minimales Element} von T, wenn es kein $y \in T$ gibt mit $y \sqsubseteq x$ und $y \neq x$. \pause
-    \item $x \in T$ heißt \textbf{maximales Element} von T, wenn es kein $y \in T$ gibt mit $x \sqsubseteq y$ und $x \neq y$. \pause
+    \item $x \in T$ heiÃŸt \textbf{minimales Element} von T, wenn es kein $y \in T$ gibt mit $y \sqsubseteq x$ und $y \neq x$. \pause
+    \item $x \in T$ heiÃŸt \textbf{maximales Element} von T, wenn es kein $y \in T$ gibt mit $x \sqsubseteq y$ und $x \neq y$. \pause
     \end{itemize}
 	\end{block}
-	\begin{block}{kleinstes und größtes Element}
+	\begin{block}{kleinstes und grÃ¶ÃŸtes Element}
     \begin{itemize}
-    \item $x \in T$ heißt \textbf{kleinstes Element} von T, wenn für alle $y \in T$ gilt: $x \sqsubseteq y$. \pause
-    \item $x \in T$ heißt \textbf{größtes Element} von T, wenn für alle $y \in T$ gilt: $y \sqsubseteq x$.
+    \item $x \in T$ heiÃŸt \textbf{kleinstes Element} von T, wenn fÃ¼r alle $y \in T$ gilt: $x \sqsubseteq y$. \pause
+    \item $x \in T$ heiÃŸt \textbf{grÃ¶ÃŸtes Element} von T, wenn fÃ¼r alle $y \in T$ gilt: $y \sqsubseteq x$.
     \end{itemize}
   \end{block}
   \only<6->{
-  Eine Teilmenge T kann mehrere minimale (bzw. maximale) Elemente besitzen, aber nur ein kleinstes (bzw. größtes)!
+  Eine Teilmenge T kann mehrere minimale (bzw. maximale) Elemente besitzen, aber nur ein kleinstes (bzw. grÃ¶ÃŸtes)!
   }
 \end{frame}
 
@@ -138,11 +138,11 @@
   Sei $( M, \sqsubseteq )$ halbgeordnet und $T \subseteq M$ \pause
   \begin{block}{Untere und obere Schranken}
     \begin{itemize}
-    \item $x \in M$ heißt \textbf{untere Schranke} von T, wenn für alle $y \in T$ gilt: $x \sqsubseteq y$. \pause
-    \item $x \in M$ heißt \textbf{obere Schranke} von T, wenn für alle $y \in T$ gilt: $y \sqsubseteq x$.  \pause
+    \item $x \in M$ heiÃŸt \textbf{untere Schranke} von T, wenn fÃ¼r alle $y \in T$ gilt: $x \sqsubseteq y$. \pause
+    \item $x \in M$ heiÃŸt \textbf{obere Schranke} von T, wenn fÃ¼r alle $y \in T$ gilt: $y \sqsubseteq x$.  \pause
     \end{itemize}
     \only<4->{
-    Also: Schranken von T dürfen außerhalb von T liegen.
+    Also: Schranken von T dÃ¼rfen auÃŸerhalb von T liegen.
     }
 	\end{block}
 \end{frame}
@@ -152,12 +152,12 @@
   \frametitle{Extreme "`Elemente"' III}
 	\begin{block}{Supremum und Infimum}
     \begin{itemize}
-    \item Besitzt die Menge aller oberen Schranken einer Teilmenge T ein kleinstes Element, so heißt dies das \textbf{Supremum} von T ($sup(T)$) \pause
-    \item Besitzt die Menge aller unteren Schranken einer Teilmenge T ein größtes Element, so heißt dies das \textbf{Infimum} von T ($inf(T)$) \pause
+    \item Besitzt die Menge aller oberen Schranken einer Teilmenge T ein kleinstes Element, so heiÃŸt dies das \textbf{Supremum} von T ($sup(T)$) \pause
+    \item Besitzt die Menge aller unteren Schranken einer Teilmenge T ein grÃ¶ÃŸtes Element, so heiÃŸt dies das \textbf{Infimum} von T ($inf(T)$) \pause
     \item \textbf{Achtung}: Existieren nicht, wenn
 			\begin{itemize}
-				\item überhaupt keine oberen (unteren) Schranken vorhanden \pause
-				\item keine eindeutig kleinste (größte) Schranke aller oberer (unterer) Schranken
+				\item Ã¼berhaupt keine oberen (unteren) Schranken vorhanden \pause
+				\item keine eindeutig kleinste (grÃ¶ÃŸte) Schranke aller oberer (unterer) Schranken
 			\end{itemize}
 		\end{itemize}
   \end{block}
@@ -165,17 +165,17 @@
 
 \subsection*{}
 \begin{frame}
-  \frametitle{Vollständige Halbordnungen}
+  \frametitle{VollstÃ¤ndige Halbordnungen}
   \begin{block}{aufsteigende Kette}
   wird definiert als
     \begin{itemize}
-    \item abzählbar unendliche Folge $(x_0, x_1, x_2, ... )$ von Elementen
+    \item abzÃ¤hlbar unendliche Folge $(x_0, x_1, x_2, ... )$ von Elementen
     \item mit Eigenschaft: $\forall i \in N_0$: $x_i \sqsubseteq x_{i+1}$
     \end{itemize}
 	\end{block}
 	\pause
-	\begin{block}{vollständige Halbordnung}
-    Eine Halbordnung heißt \textbf{vollständig}, wenn
+	\begin{block}{vollstÃ¤ndige Halbordnung}
+    Eine Halbordnung heiÃŸt \textbf{vollstÃ¤ndig}, wenn
     \begin{itemize}
     \item sie ein kleinstes Element $\bot$ hat und
     \item jede aufsteigende Kette $ x_0 \sqsubseteq x_1 \sqsubseteq x_2 \sqsubseteq ...$ ein Supremum $x_i$ besitzt
@@ -185,23 +185,23 @@
 
 \subsection*{}
 \begin{frame}
-  \frametitle{Vollständige Halbordnungen II}
-  \begin{block}{Stetige Abbildungen auf vollständigen Halbordnungen}
+  \frametitle{VollstÃ¤ndige Halbordnungen II}
+  \begin{block}{Stetige Abbildungen auf vollstÃ¤ndigen Halbordnungen}
     \begin{itemize}
     \item Beispiel aus dem Skript
     \item Gegeben sei:
     \item Terminalzeichenalphabet $T=\{a,b\}$, \pause
-    \item $D$ die halbgeordnete Potenzmenge $D=2^{T^*}$ der Menge aller Wörter
+    \item $D$ die halbgeordnete Potenzmenge $D=2^{T^*}$ der Menge aller WÃ¶rter
     \item mit Inklusion als Halbordnungsrelation. \pause
-    \item Elemente der Halbordnung sind also Mengen von Wörtern, d.h. formale Sprachen. \pause
+    \item Elemente der Halbordnung sind also Mengen von WÃ¶rtern, d.h. formale Sprachen. \pause
     \item Kleinstes Element der Halbordnung ist die leere Menge $\emptyset$.  \pause
-    \item Wie weiter vorne erwähnt, ist diese Halbordnung vollständig.
+    \item Wie weiter vorne erwÃ¤hnt, ist diese Halbordnung vollstÃ¤ndig.
     \end{itemize}
 	\end{block}
 \end{frame}
 \subsection*{}
 \begin{frame}
-  \frametitle{Vollständige Halbordnungen III}
+  \frametitle{VollstÃ¤ndige Halbordnungen III}
   \begin{block}{Beweis}
     \begin{itemize}
     \item Es sei $v\in T^*$ ein Wort und $f_v:D\rightarrow D$ die Abbildung
@@ -212,7 +212,7 @@
       \cdots$ eine Kette und $L=\bigcup L_i$ ihr Supremum.
 
       $f_v(L_i)=\{ vw | w\in L_i \}$, also $\bigcup_i f_v(L_i)= \{ vw | \exists i\in N_0: w\in L_i\} = \{v\}\{w | \exists i \in N_0: w\in L_i\}$ $=\{v\}\bigcup_i L_i = f(\bigcup_i L_i)$.
-    \item analog für Konkatenation von rechts
+    \item analog fÃ¼r Konkatenation von rechts
     \end{itemize}
 	\end{block}
 \end{frame}
@@ -244,7 +244,7 @@
 	\begin{block}{Beispiele}
 \begin{itemize}
 	\item $( N_0 , \leq )$ \pause
-	\item $( \{a, b\}^*, \sqsubseteq_1 )$ mit $w_1 \sqsubseteq_1 w_2$ "`wie im Wörterbuch"' \pause
+	\item $( \{a, b\}^*, \sqsubseteq_1 )$ mit $w_1 \sqsubseteq_1 w_2$ "`wie im WÃ¶rterbuch"' \pause
 	\item $( \{a, b\}^*, \sqsubseteq_2 )$ mit $w_1 \sqsubseteq_2 w_2$ genau dann, wenn \pause
 		\begin{itemize}
 			\item entweder $|w_1| < |w_2|$ \pause
@@ -258,7 +258,7 @@
 \begin{frame}
   \frametitle{Ihr seid dran...}
 
-	\begin{block}{Beispiele für $\sqsubseteq_1$:}
+	\begin{block}{Beispiele fÃ¼r $\sqsubseteq_1$:}
       \begin{itemize}
         \item  Warum ist $aa \sqsubseteq_1 aabba$? \pause
         \item  Warum ist $aa \sqsubseteq_1 bba$? \pause
@@ -266,7 +266,7 @@
         \item  Warum ist $aaaab \sqsubseteq_1 aab$? \pause
       \end{itemize}
   \end{block}
-  \begin{block}{Beispiele für $\sqsubseteq_2$:}
+  \begin{block}{Beispiele fÃ¼r $\sqsubseteq_2$:}
       \begin{itemize}
         \item  Warum ist $aa \sqsubseteq_2 aabba$? \pause
         \item  Warum ist $aa \sqsubseteq_2 bba$? \pause
@@ -284,7 +284,7 @@
 		Relation $\sqsubseteq_p$ auf $ \{a, b\}^* $ eine totale Ordnung?
 	\end{block}
 	\only<2->{
-	\begin{block}{Lösung}
+	\begin{block}{LÃ¶sung}
 		Es handelt sich um eine Halbordnung, allerdings mit unvergleichbaren Element wie z.B. $a, b$.
 		Daher ist die Relation $\sqsubseteq_p$ \textbf{keine} totale Ordnung.
 	\end{block}
@@ -294,17 +294,17 @@
 \section[Klausur]{Klausur am 10.03.10}
 \subsection*{}
 \begin{frame}
-	\frametitle{Klausur am Dienstag, 10. März '10}
+	\frametitle{Klausur am Dienstag, 10. MÃ¤rz '10}
 	\begin{block}{14:00 - 16:00}
 		\begin{itemize}
 			\item Aufgaben: 5 - 8
 			\item Gesamtpunktzahl: ?? (zum Bestehen: ??)
 			\item Anmeldebeginn: bald
-			\item Anmeldeende: 7. März
-			\item Abmeldeende: 9. März
+			\item Anmeldeende: 7. MÃ¤rz
+			\item Abmeldeende: 9. MÃ¤rz
 		\end{itemize}
   	\end{block}
-  	\textit{Alle Angaben sind wie immer ohne Gewähr.}
+  	\textit{Alle Angaben sind wie immer ohne GewÃ¤hr.}
 \end{frame}
 
 \subsection*{}
@@ -315,12 +315,12 @@
 		\begin{itemize}
 		\item siehe Vorlesungshinweis XOR alles was behandelt wurde
 	  	\item z.B. :\pause
-		  	\item Mengenlehre, \textbf{Abbildungen}, Aussagenlogik, Quantoren, Wörter,
+		  	\item Mengenlehre, \textbf{Abbildungen}, Aussagenlogik, Quantoren, WÃ¶rter,
 		  	\item Palindrome, \textbf{Formale Sprachen}, Grammatiken,
 		  	\item Zahlensysteme, Huffman-Codes,
 		  	\item \textbf{Graphen}, Adjazenzliste, Adjazenzmatrix, Wegematrix,
-		  	\item Mealy- / Moore- \textbf{Automaten}, Akzeptor, Regulärer Ausdruck,
-		  	\item \textbf{Äquivalenzrelationen}, Nerode-Relation, Ordnungen
+		  	\item Mealy- / Moore- \textbf{Automaten}, Akzeptor, RegulÃ¤rer Ausdruck,
+		  	\item \textbf{Ã„quivalenzrelationen}, Nerode-Relation, Ordnungen
 	 	\end{itemize}
 	\end{block}
 \end{frame}
@@ -343,8 +343,8 @@
 	\frametitle{}
 	\begin{block}{Schleifeninvariante}
 Als Schleifeninvariante werden \textbf{Eigenschaften einer Schleife} bezeichnet, \\
-die \textbf{zu einem bestimmten Punkt bei jedem Durchlauf gültig} sind, \\
-unabhängig von der Zahl ihrer derzeitigen Durchläufe. \\
+die \textbf{zu einem bestimmten Punkt bei jedem Durchlauf gÃ¼ltig} sind, \\
+unabhÃ¤ngig von der Zahl ihrer derzeitigen DurchlÃ¤ufe. \\
 Typischerweise enthalten Schleifeninvarianten Wertebereiche von Variablen und Beziehungen der Variablen untereinander.
 	\end{block}
 \end{frame}
@@ -352,7 +352,7 @@ Typischerweise enthalten Schleifeninvarianten Wertebereiche von Variablen und Be
 \subsection*{}
 \begin{frame}
 	\frametitle{Aufgabe}
-	Gegeben sei folgendes Programmstück:
+	Gegeben sei folgendes ProgrammstÃ¼ck:
 	\begin{tabbing}
 	 int sum = 0; \\
    int i = 0; \\
@@ -372,7 +372,7 @@ Typischerweise enthalten Schleifeninvarianten Wertebereiche von Variablen und Be
 
 %\subsection*{}
 \begin{frame}
-	\frametitle{Lösung}
+	\frametitle{LÃ¶sung}
 		\begin{tabbing}
 	 int sum = 0; \\
    int i = 0; \\
@@ -394,13 +394,13 @@ Typischerweise enthalten Schleifeninvarianten Wertebereiche von Variablen und Be
 %\subsection*{}
 \begin{frame}
 	\frametitle{Aufgabe}
-	Gib zu den folgenden Sprachen $L_1$ ,$L_2$ jeweils eine Grammatik höchstmöglichen Typs 	an (das heißt Typ i mit i möglichst groß aus {0,1,2,3}), welche die Sprache erzeugt.
+	Gib zu den folgenden Sprachen $L_1$ ,$L_2$ jeweils eine Grammatik hÃ¶chstmÃ¶glichen Typs 	an (das heiÃŸt Typ i mit i mÃ¶glichst groÃŸ aus {0,1,2,3}), welche die Sprache erzeugt.
 	\begin{enumerate}
 		\item[(a)] $L_1=\{a^m (bc)^{2m}| m> 0 \}$
 		\item[(b)] $L_2=\{a^n b^m c^m d^n | m>=0, n>=1 \}$
 	\end{enumerate}
 	\visible<2->{
-	Lösung: \\
+	LÃ¶sung: \\
 	\begin{enumerate}
 		\item[(a)] $G=(\Sigma ,N,P,A)$ mit $\Sigma=\{a,b,c\}, N=\{A\}$ und $P = \{A \rightarrow aAbcbc|abcbc\}$ \pause
 		\item[(b)] $G=(\Sigma, N,P,A)$ mit $\Sigma=\{a,b,c,d \} N=\{ \}$ und \\
@@ -419,23 +419,23 @@ Typischerweise enthalten Schleifeninvarianten Wertebereiche von Variablen und Be
 	\end{itemize}
 Es gelten dabei folgende Regeln:
 Ein Wort beginnt mit einem Konsonanten oder einem Vokal. Auf einen Konsonanten muss
-mindestens ein Vokal folgen. Es können beliebig viele Vokale aufeinander folgen. Konsonanten
-dürfen nicht am Ende eines Wortes stehen. Ein Wort hat mindestens einen Buchstaben.
+mindestens ein Vokal folgen. Es kÃ¶nnen beliebig viele Vokale aufeinander folgen. Konsonanten
+dÃ¼rfen nicht am Ende eines Wortes stehen. Ein Wort hat mindestens einen Buchstaben.
 	\small
 	\begin{enumerate}
 		\item[(a)] Gib eine Grammatik des Typs 2 an, die diese Sprache erzeugt. \\
 					\footnotesize
-					\textbf{Hinweis:} Es gibt hier auch eine Typ-3 Grammatik, aber diese ist recht umfangreich und daher als Lösung nicht sinnvoll.
+					\textbf{Hinweis:} Es gibt hier auch eine Typ-3 Grammatik, aber diese ist recht umfangreich und daher als LÃ¶sung nicht sinnvoll.
 					\small
 		\item[(b)] Erzeuge mittels der Grammatik aus (a) das Wort kaiulani.
-		\item[(c)] Erstelle einen regulären Ausdruck für die hawaiianische Sprache.
+		\item[(c)] Erstelle einen regulÃ¤ren Ausdruck fÃ¼r die hawaiianische Sprache.
 		\item[(d)] Erstelle einen Akzeptor, der die hawaiianische Sprache akzeptiert.
 	\end{enumerate}
 \end{frame}
 
 \subsection*{}
 \begin{frame}
-	\frametitle{Lösung}
+	\frametitle{LÃ¶sung}
 	\begin{enumerate}
 		\item[(a)] $G = (\Sigma, N, P, S)$ \\
 		$\Sigma=\{a,e,i,o,u,h,k,l,m,n,p,w\}$ \ $N=\{S,V,K \}$ \\
@@ -453,17 +453,17 @@ dürfen nicht am Ende eines Wortes stehen. Ein Wort hat mindestens einen Buchstab
 
 
 \section{Abschluss}
-% Studis anzuregen darüber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachträglich stellen, dann kann in der nächsten Woche nochmal drauf eingegangen werden
+% Studis anzuregen darÃ¼ber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachtrÃ¤glich stellen, dann kann in der nÃ¤chsten Woche nochmal drauf eingegangen werden
 \subsection*{}
 \begin{frame}
 	\frametitle{Zum Schluss...}
 	\begin{block}{Was ihr nun wissen solltet!}
 	\begin{itemize}
-	  	\visible<2->{\item Wie unterscheiden sich Äquivalenzrelation und Halbordnung? Was sind typische Beispiele?}
+	  	\visible<2->{\item Wie unterscheiden sich Ã„quivalenzrelation und Halbordnung? Was sind typische Beispiele?}
 		\visible<3->{\item Warum Hassediagramme? Welche "`extremen"' Elemente treten bei Halbordnungen auf?}
 		\visible<4->{\item Was besagt eine totale Ordnung?}
-		\visible<5->{\item Meldet euch bitte für Schein und KLAUSUR an!\\
-						Solange ihr euch nicht für den Schein anmeldet, kann er euch auch nicht eingetragen werden.}
+		\visible<5->{\item Meldet euch bitte fÃ¼r Schein und KLAUSUR an!\\
+						Solange ihr euch nicht fÃ¼r den Schein anmeldet, kann er euch auch nicht eingetragen werden.}
     \end{itemize}
    	\end{block}
 

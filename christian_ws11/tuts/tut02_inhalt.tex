@@ -1,6 +1,6 @@
 %%TODO: 1.3 unendliche mengen beschreiben,
-%%1.4 wie kommt man auf 16: 2^2 eingaben, verknüpfung also durch 4 bit definiert, sprich für jede eingabe eine ausgabe, sprich 2^4 mögliche verknüpfungen
-%%%beispiele für verknüpfungen: nicht A, und, oder, xor, nor, ..., 0, 1
+%%1.4 wie kommt man auf 16: 2^2 eingaben, verknÃ¼pfung also durch 4 bit definiert, sprich fÃ¼r jede eingabe eine ausgabe, sprich 2^4 mÃ¶gliche verknÃ¼pfungen
+%%%beispiele fÃ¼r verknÃ¼pfungen: nicht A, und, oder, xor, nor, ..., 0, 1
 
 \section[Organisation]{Organisatorisches}
 % \subsection*{}
@@ -17,7 +17,7 @@
 \section[Blatt 1]{Aufgabenblatt 1}
 \subsection*{}
 \begin{frame}
-	\frametitle{Ein Blick zurück}
+	\frametitle{Ein Blick zurÃ¼ck}
 	\begin{block}{etwas Statistik}
 		\begin{itemize}
 			\item 23 Abgaben, weiter so!
@@ -25,9 +25,9 @@
 		\end{itemize}
 	\end{block}
 
-	\begin{block}{häufige Fehler...}
+	\begin{block}{hÃ¤ufige Fehler...}
 		\begin{itemize}
-			\item[1.1:] äquivalente Ausdrücke sind nicht $=$, besser $\equiv$ \pause
+			\item[1.1:] Ã¤quivalente AusdrÃ¼cke sind nicht $=$, besser $\equiv$ \pause
 			\item[1.1:] bei Wahrheitstabellen immer auch Wert der Eingabevariablen angeben \pause
 			\item[1.4:] denkt an die Klammern, selbst wenn in der Vorlesung Vorrangigkeit der Operatoren definiert ist!
 		 \end{itemize}
@@ -46,24 +46,24 @@
         \end{block}
         \begin{block}{Themen}
         \begin{itemize}
-          \item Prädikatenlogik 
-        	\item Wörter
-        	\item Vollständige Induktion
+          \item PrÃ¤dikatenlogik 
+        	\item WÃ¶rter
+        	\item VollstÃ¤ndige Induktion
         	\item Mengen
         \end{itemize}
         \end{block}
 \end{frame}
 
-\subsection{Prädikatenlogik}
+\subsection{PrÃ¤dikatenlogik}
 \begin{frame}
 	\frametitle{Quantoren}
 	\begin{block}{$\exists$ und $\forall$}
-	Eine nützliche Notation, um zu unterscheiden, ob wir Aussagen für alle Elemente oder nur für eines machen sind Quantoren. Die gebräuchlichsten sind:
+	Eine nÃ¼tzliche Notation, um zu unterscheiden, ob wir Aussagen fÃ¼r alle Elemente oder nur fÃ¼r eines machen sind Quantoren. Die gebrÃ¤uchlichsten sind:
 	\begin{itemize}
 		\item[$\exists$] Existenzquantor (lies: "`Es existiert"')
-		\item[$\forall$] Allquantor (lies: "`Für alle"')
+		\item[$\forall$] Allquantor (lies: "`FÃ¼r alle"')
 	\end{itemize}
-	Bei den Quantoren kommt es auf die Reihenfolge an! Sie dürfen niemals hinter eine Formel stehen!
+	Bei den Quantoren kommt es auf die Reihenfolge an! Sie dÃ¼rfen niemals hinter eine Formel stehen!
 	\end{block}
 	\only<2->{
 	\begin{block}{Einige Fragen...}
@@ -85,7 +85,7 @@
 	\pause
 	\begin{block}{Wort}
 		\begin{itemize}
-			\item Ein \textbf{Wort} w über einem Alphabet A ist eine \textbf{Folge von Zeichen} aus A.	\pause
+			\item Ein \textbf{Wort} w Ã¼ber einem Alphabet A ist eine \textbf{Folge von Zeichen} aus A.	\pause
 			\item formal: surjektive Abbildung $w : \mathbb G_n \rightarrow A$ wobei $\mathbb G_n = \left\{i \in \mathbb N_0 | 0 \leq i < n\right\}$
 
 		\end{itemize}
@@ -94,8 +94,8 @@
 
 \begin{frame}
 	\frametitle{Aus der Vorlesung...}
-	\begin{block}{Menge aller Wörter}
-	Die Menge der Wörter der Länge \textbf{n} wird bezeichnet mit $A^n$. Die Menge aller Wörter $A^*$ ist definiert als $A^* = \bigcup^{\infty}_{i=0} A^i$.
+	\begin{block}{Menge aller WÃ¶rter}
+	Die Menge der WÃ¶rter der LÃ¤nge \textbf{n} wird bezeichnet mit $A^n$. Die Menge aller WÃ¶rter $A^*$ ist definiert als $A^* = \bigcup^{\infty}_{i=0} A^i$.
 	\end{block}
 
 	\only<2->{
@@ -175,58 +175,58 @@
 \begin{frame}
 	\frametitle{Mengenlehre}
 		\begin{block}{$\subseteq$} \pause
-		Wähle ein beliebiges $n \in \mathbb N_0$. Dann gilt nach Definition von $\mathbb G_{n+1}$: $n \in \mathbb G_{n+1}$ und somit auch $n \in \bigcup^{\infty}_{i=0} \mathbb G_i$.
+		WÃ¤hle ein beliebiges $n \in \mathbb N_0$. Dann gilt nach Definition von $\mathbb G_{n+1}$: $n \in \mathbb G_{n+1}$ und somit auch $n \in \bigcup^{\infty}_{i=0} \mathbb G_i$.
 		\end{block}
 	 \pause
 		\begin{block}{$\supseteq$}  \pause
-		Laut Definition enhält $\mathbb G_i$ nur Elemente aus $\mathbb N_0$. Somit $\mathbb G_i \subseteq \mathbb N_0$.
+		Laut Definition enhÃ¤lt $\mathbb G_i$ nur Elemente aus $\mathbb N_0$. Somit $\mathbb G_i \subseteq \mathbb N_0$.
   	\end{block}
 \end{frame}
 
 
-\section[VI]{Vollständig Induktion}
+\section[VI]{VollstÃ¤ndig Induktion}
 \subsection*{}
 \begin{frame}
-	\frametitle{Vollständige Induktion tut nicht weh...}
+	\frametitle{VollstÃ¤ndige Induktion tut nicht weh...}
 	\begin{block}{Ihr seid dran...}
 		\begin{itemize}
-			\item \only<1>{Wer}\only<2>{Ihr} kennt das Beweisverfahren der vollständige Induktion \only<1>{?}\only<2>{...} \\
-				\visible<2->{Erklärt den "`Unwissenden"' das Verfahren...}
+			\item \only<1>{Wer}\only<2>{Ihr} kennt das Beweisverfahren der vollstÃ¤ndige Induktion \only<1>{?}\only<2>{...} \\
+				\visible<2->{ErklÃ¤rt den "`Unwissenden"' das Verfahren...}
 			\item \only<1>{Wer}\only<2>{Ihr} kennt das Verfahren nicht\only<1>{?}\only<2>{...} \\
-		 		\visible<2->{Hört gespannt zu...}
+		 		\visible<2->{HÃ¶rt gespannt zu...}
 		 \end{itemize}
 	\end{block}
 \end{frame}
 
 \subsection*{}
 \begin{frame}
-	\frametitle{Beweisverfahren der vollständigen Induktion}
+	\frametitle{Beweisverfahren der vollstÃ¤ndigen Induktion}
 	\begin{block}{Die Theorie}
 		Der Beweis erfolgt in folgenden Schritten:
 		\begin{enumerate}
-			\item Induktionsanfang: Die Aussage wird für $n=n_0$ gezeigt \pause
-			\item Induktionsvorraussetzung/-annahme: Die Aussage sei für \textbf{ein}
+			\item Induktionsanfang: Die Aussage wird fÃ¼r $n=n_0$ gezeigt \pause
+			\item Induktionsvorraussetzung/-annahme: Die Aussage sei fÃ¼r \textbf{ein}
 			beliebiges  $n$ wahr. \pause
-			\item Induktionsschluss/-schritt: Aus dem Schluss von $n$ auf $n+1$ (in der Regel mit Hilfe der IV) folgt, dass die Aussage für alle natürlichen Zahlen $n>n_0$ gilt.
+			\item Induktionsschluss/-schritt: Aus dem Schluss von $n$ auf $n+1$ (in der Regel mit Hilfe der IV) folgt, dass die Aussage fÃ¼r alle natÃ¼rlichen Zahlen $n>n_0$ gilt.
 		\end{enumerate}
 	\end{block}
 
 	\begin{block}{Ein Beispiel:}
-	Beweise durch vollständig Induktion: 
+	Beweise durch vollstÃ¤ndig Induktion: 
 	 $1+3+5+...+(2n-1)=n^2$
 	\end{block}
 	
 \end{frame}
 
 \begin{frame}
-	\frametitle{Beweisverfahren der vollständigen Induktion}
+	\frametitle{Beweisverfahren der vollstÃ¤ndigen Induktion}
 	
 	\begin{block}{Ein Beispiel:}
-	Beweise durch vollständig Induktion $1+3+5+...+(2n-1)=n^2$
+	Beweise durch vollstÃ¤ndig Induktion $1+3+5+...+(2n-1)=n^2$
 	
 	\begin{itemize}
-		\item[IA] $n=1$: $1=1^2=1$ ist erfüllt
-		\item[IV]	$1+3+5+...+(2n-1)=n^2$ gilt für ein $n \in \mathbb{N}$
+		\item[IA] $n=1$: $1=1^2=1$ ist erfÃ¼llt
+		\item[IV]	$1+3+5+...+(2n-1)=n^2$ gilt fÃ¼r ein $n \in \mathbb{N}$
 		\item[IS] \begin{equation}
 				\begin{split}
 					 1+3&+5+...+(2(n+1)-1) \nonumber\\
@@ -249,15 +249,15 @@
 	Es sei $q\in \mathbb N_0$ und $q\geq 2$:
 		$s_0 = 1 $\\
     $\forall k\in \mathbb N_0:\; s_{k+1} = s_k + q^{k+1}$ \\
- 	Beweise durch vollständige Induktion:
+ 	Beweise durch vollstÃ¤ndige Induktion:
    $\forall k\in \mathbb N_0:\; s_k = \frac{q^{k+1}-1}{q-1}$
   \end{block}}
 
   \only<2->{
-  \begin{block}{Lösung}
+  \begin{block}{LÃ¶sung}
   \begin{itemize}
 	  \item[IA:] $k=0$: $\frac{q^{0+1}-1}{q-1} = \frac{q-1}{q-1} = 1 = s_0$
-	  \item[IV:] $s_k = \frac{q^{k+1}-1}{q-1}$ gelte für ein $n$
+	  \item[IV:] $s_k = \frac{q^{k+1}-1}{q-1}$ gelte fÃ¼r ein $n$
 	  \small
 	  \item[IS:]
       \begin{align*}
@@ -272,16 +272,16 @@
 \end{frame}
 
 \section{Abschluss}
-% Studis anzuregen darüber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachträglich stellen, dann kann in der nächsten Woche nochmal drauf eingegangen werden
+% Studis anzuregen darÃ¼ber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachtrÃ¤glich stellen, dann kann in der nÃ¤chsten Woche nochmal drauf eingegangen werden
 \subsection*{}
 \begin{frame}
 	\frametitle{Zum Schluss...}
 	\begin{block}{Was ihr nun wissen solltet!}
 	\begin{itemize}
 		\visible<2->{\item Wie beweise ich Mengengleichheit?}
-		\visible<3->{\item Was ist das Beweisverfahren der vollständigen Induktion?}
+		\visible<3->{\item Was ist das Beweisverfahren der vollstÃ¤ndigen Induktion?}
 		\visible<4->{\item Was kann ich alles tolles damit anstellen?}
-		\visible<5->{\item Wie kann ich meinen Tutor bei der Korrektur meines Übungsblattes positiv beeinflussen?}
+		\visible<5->{\item Wie kann ich meinen Tutor bei der Korrektur meines Ãœbungsblattes positiv beeinflussen?}
 	\end{itemize}
 	\end{block}
 

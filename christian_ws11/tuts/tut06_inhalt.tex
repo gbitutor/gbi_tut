@@ -3,17 +3,17 @@
 \section[Relationen]{Relationen}
 \subsection*{}
 \begin{frame}
-	\frametitle{Relationen -- Überblick}
+	\frametitle{Relationen -- Ãœberblick}
 	\begin{block}{Relationen anschaulich}
 		Durch Relationen werden Elemente einer oder mehrerer Mengen in Beziehung zueinander gesetzt:
 		\begin{itemize}
-			\item praktisch jede alltägliche Aussage enthält Relationen \pause
-			\item Beispiel: 'Das Haus hat vier Außenwände'
+			\item praktisch jede alltÃ¤gliche Aussage enthÃ¤lt Relationen \pause
+			\item Beispiel: 'Das Haus hat vier AuÃŸenwÃ¤nde'
 		\end{itemize}
 	\end{block}
 	\pause
 	\begin{block}{Wozu brauchen wir das?}
-		In der Informatik werden Relationen zur Modellierung von Systemen benötigt: \pause
+		In der Informatik werden Relationen zur Modellierung von Systemen benÃ¶tigt: \pause
 		\begin{itemize}
 			\item Relationen sind Grundlage der verschiedenen Diagramme der Unified
 			Modeling Language \pause
@@ -28,14 +28,14 @@
 	\begin{block}{Definitionen - aus dem 1. Tutorium}
 		\begin{itemize}
 			\item Das karthesische Produkt zweier Mengen ist definiert als $A \times B := \left\{(a, b)|a \in A, b \in B\right\}$
-			\item $R \subseteq A \times B$ heißt Relation
+			\item $R \subseteq A \times B$ heiÃŸt Relation
 	  	\end{itemize}
 	\end{block}
 	\pause
 	\begin{block}{Definition}
 	\begin{itemize}
 		\item Eine Relation $R$ bezieht sich auf zwei Grundmengen $M_1$,$M_2$ und es gilt $R \subseteq M_1\times M_2$. \pause
-		\item Eine Relation $R$ heißt homogen, wenn $M_1=M_2$ gilt.
+		\item Eine Relation $R$ heiÃŸt homogen, wenn $M_1=M_2$ gilt.
 	\end{itemize}
 	\end{block}
 \end{frame}
@@ -45,15 +45,15 @@
 \begin{frame}
 	\frametitle{Relationen}
 	\begin{block}{Definition: Produkt}
-		Sind $R \subseteq M_1 \times M_2$ und $S \subseteq M_2 \times M_3$ zwei Relationen, dann heißt \pause
+		Sind $R \subseteq M_1 \times M_2$ und $S \subseteq M_2 \times M_3$ zwei Relationen, dann heiÃŸt \pause
 		\begin{itemize}
 			\item $S \circ R = \{(x,z) \in M_1 \times M_3 \mid \exists y \in M_2 : (x,y) \in R \wedge (y,z) \in S \} $ das {\em Produkt der Relationen S und R} \pause
-			\item $Id_M = \{(x,x) \mid x \in M \}$ heißt die {\em identische Abbildung}
+			\item $Id_M = \{(x,x) \mid x \in M \}$ heiÃŸt die {\em identische Abbildung}
 		\end{itemize}
 	\end{block}
 	\pause
 	\begin{block}{Definition: Potenz}
-		Sei $R \subseteq M \times M$ eine {\em binäre} Relation, dann heißt
+		Sei $R \subseteq M \times M$ eine {\em binÃ¤re} Relation, dann heiÃŸt
 		\begin{itemize}
 			\item $R^i$ {\em die i-te Potenz} von R und ist definiert als: \pause
 			\begin{itemize}
@@ -64,37 +64,37 @@
 	\end{block}
 \end{frame}
 
-\section[Reflexiv-transitive Hülle]{Reflexiv-transitive Hülle}
+\section[Reflexiv-transitive HÃ¼lle]{Reflexiv-transitive HÃ¼lle}
 \subsection*{}
 \begin{frame}
-	\frametitle{Reflexiv-transitive Hülle}
+	\frametitle{Reflexiv-transitive HÃ¼lle}
 
-	\begin{block}{mögliche Attribute homogener Relationen}
+	\begin{block}{mÃ¶gliche Attribute homogener Relationen}
 		\begin{description}
 			\item[reflexiv] $x R x$
 			\item[transitiv] Aus $x R y$ und $y R z$ folgt $x R z$
 			\item[symmetrisch] Aus $x R y$ folgt $y R x$
 		\end{description} \pause
-		Gelten alle diese Eigenschaften, handelt es sich um eine Äquivalenzrelation.
+		Gelten alle diese Eigenschaften, handelt es sich um eine Ã„quivalenzrelation.
 	\end{block}
 		\pause
 	\begin{block}{Definition}
-		Die sogenannte reflexiv-transitive Hülle einer Relation R ist
+		Die sogenannte reflexiv-transitive HÃ¼lle einer Relation R ist
 		\begin{itemize}
 			\item $R^* = \bigcup_{i=0}^{\infty} R^i$
 		\end{itemize}
 	\pause
-		Sie ist die Erweiterung der Relation um die Paare, die notwendig sind um Reflexivität und Transitivität herzustellen.
+		Sie ist die Erweiterung der Relation um die Paare, die notwendig sind um ReflexivitÃ¤t und TransitivitÃ¤t herzustellen.
 	\end{block}
 
 \end{frame}
 
 \begin{frame}
-	\frametitle{Reflexiv-transitive Hülle}
+	\frametitle{Reflexiv-transitive HÃ¼lle}
 	\begin{block}{Anschauliches Beispiel: StudiVZ}
 		\begin{itemize}
 			\item $R \subseteq M \times M $ sei die "`ist-befreundet-mit"'-Relation.
-			\item $M = \{ Gertrud, Holger, Lars, Katja, Martin, Nina \} $ %alphabetische Anfänge == leichter merkbar
+			\item $M = \{ Gertrud, Holger, Lars, Katja, Martin, Nina \} $ %alphabetische AnfÃ¤nge == leichter merkbar
 			\item $R = \{ (Martin,Holger), (Lars,Katja), (Nina,Holger),$ \\
 						$(Gertrud,Holger), (Katja, Nina) \} \bigcup \{${dazu sym. Tupel}$\}$ \pause
 			\item dann ist $R^0=\{ (Martin,Martin), ..., (Holger,Holger) \}$
@@ -104,8 +104,8 @@
 						$(Nina,Nina), (Nina,Lars), (Katja,Katja), (Katja,Holger), $ \\
 						$(Gertrud,Gertrud), (Gertrud,Martin), (Gertrud,Nina), $ \\
 						$(Holger,Holger), (Holger,Katja)\}$
-			\item $R^*=$ ? \pause Ist $R^*$ eine Äquivalenzrelation?
-			%\item wegen Symmetrie und Unsinnigkeit der Reflexivität, entfällt Einiges % Funktionen sind kommutativ, Relationen symmetrisch
+			\item $R^*=$ ? \pause Ist $R^*$ eine Ã„quivalenzrelation?
+			%\item wegen Symmetrie und Unsinnigkeit der ReflexivitÃ¤t, entfÃ¤llt Einiges % Funktionen sind kommutativ, Relationen symmetrisch
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -115,11 +115,11 @@
 	\frametitle{Relationen graphisch}
 	\begin{block}{Ihr seid dran...}
 		\begin{enumerate}
-			\item Überlegt euch, wie eine Relation graphisch aussehen könnte. Zeigt ein Beispiel mit mindestens $4$ verschiedenen Elementen %Grundmenge?
-			\item Wie sieht nun graphisch die reflexiv-transitive Hülle aus?
+			\item Ãœberlegt euch, wie eine Relation graphisch aussehen kÃ¶nnte. Zeigt ein Beispiel mit mindestens $4$ verschiedenen Elementen %Grundmenge?
+			\item Wie sieht nun graphisch die reflexiv-transitive HÃ¼lle aus?
 		\end{enumerate}
 	\end{block} \pause
-    \begin{block}{mögliche Darstellung}
+    \begin{block}{mÃ¶gliche Darstellung}
     	\begin{itemize}
           \item Relation als Pfeile von Element zu Element
           \item Relation als Matrix, d.h. wenn xRy ist Feld [x,y] $== 1$
@@ -183,7 +183,7 @@
 \end{center} \pause
 		Wert einer ganzzahligen Dezimalzahl $z$ im Dualsystem:
 			\begin{enumerate}
-				\item Finde das größte $n$ mit $2^n \leq z$
+				\item Finde das grÃ¶ÃŸte $n$ mit $2^n \leq z$
 				\item Notiere 1, setze $z=z-2^n$ und setze $i=n-1$ .
 				\item Teste, ob $2^{i} \leq z$
 					\begin{itemize}
@@ -218,8 +218,8 @@
   \begin{block}{Analyse}
   	\begin{itemize}
 	   	\only<1,2>{	\item Was macht diese Algorithmus? Was sind wohl die Ein- und Ausgaben? }
-  		\item Was ist eine mögliche Schleifeninvariante? \\
-  			TIPP: Ihr könnt den Code auch erweitern um eine geeignete Invariante zu finden. \\
+  		\item Was ist eine mÃ¶gliche Schleifeninvariante? \\
+  			TIPP: Ihr kÃ¶nnt den Code auch erweitern um eine geeignete Invariante zu finden. \\
   			\only<3->{Lsg.: $x = Num_2(v)$}
   	\end{itemize}
  \end{block}
@@ -231,17 +231,17 @@
 
 
 \begin{frame}{Aus der Vorlesung...}
-	Warum macht man Übersetzungen? \pause
+	Warum macht man Ãœbersetzungen? \pause
  \begin{itemize}
- \item \textbf{Lesbarkeit:} \pause Manchmal führen Übersetzungen zu kürzeren und
+ \item \textbf{Lesbarkeit:} \pause Manchmal fÃ¼hren Ãœbersetzungen zu kÃ¼rzeren und
    besser lesbaren Texten.\\
    	 $A3$ ist leichter erfassbar als
    $10100011$
- \item \textbf{Kompression:}  \pause Manchmal führen Übersetzungen zu kürzeren
-   Texten, die weniger Platz benötigen. Und zwar \emph{ohne} zu
-   einem größeren Alphabet überzugehen.
- \item \textbf{Verschlüsselung:} \pause Manchmal will man Texte für andere unleserlich machen
- \item \textbf{Fehlererkennung} und \textbf{Fehlerkorrektur:} \pause Man kann Texte durch Übersetzung derart länger machen, dass man Fehler erkennen
+ \item \textbf{Kompression:}  \pause Manchmal fÃ¼hren Ãœbersetzungen zu kÃ¼rzeren
+   Texten, die weniger Platz benÃ¶tigen. Und zwar \emph{ohne} zu
+   einem grÃ¶ÃŸeren Alphabet Ã¼berzugehen.
+ \item \textbf{VerschlÃ¼sselung:} \pause Manchmal will man Texte fÃ¼r andere unleserlich machen
+ \item \textbf{Fehlererkennung} und \textbf{Fehlerkorrektur:} \pause Man kann Texte durch Ãœbersetzung derart lÃ¤nger machen, dass man Fehler erkennen
  	oder diese sogar beheben kann
  \end{itemize}
 \end{frame}
@@ -249,12 +249,12 @@
 
 \section{Einschub}
 \subsection{Homomorphismen}
-% ------sollten wir in ein zwei einfache Sätze zusammenfassen, um die angst vor dem begriff zu nehmen-----------------------------------------------------------------
+% ------sollten wir in ein zwei einfache SÃ¤tze zusammenfassen, um die angst vor dem begriff zu nehmen-----------------------------------------------------------------
 \begin{frame}{Homomorphismen}
 \begin{block}{Definition}
 
 Ein \emph{Homomorphismus} $h:A^* \rightarrow B^*$ ist eine Abbildung, die
-durch die Funktionswerte $h(x)$ für alle $x\in A$ eindeutig festgelegt ist. \\ \pause
+durch die Funktionswerte $h(x)$ fÃ¼r alle $x\in A$ eindeutig festgelegt ist. \\ \pause
 Insbesondere bleibt das neutrale Element das neutrale Element:
 
 	\begin{align*}
@@ -274,7 +274,7 @@ Insbesondere bleibt das neutrale Element das neutrale Element:
 \subsection{Graphen}
 \begin{frame}{Graphen}
 
- 	\begin{block}{Bäume - Binärbäume}
+ 	\begin{block}{BÃ¤ume - BinÃ¤rbÃ¤ume}
      In der Regel\dots
      \begin{itemize}
        \item hat jeder Baum eine Wurzel und jeder Knoten maximal zwei Kinder/Nachfolger
@@ -290,11 +290,11 @@ Insbesondere bleibt das neutrale Element das neutrale Element:
 	\begin{block}{Wozu Huffman Codes?}
     		\begin{itemize}
               \item Huffman-Codes komprimieren ein Wort $w \in A$* indem \pause
-              \item häufigere Symbole durch kürzere
-              \item und seltener vorkommende Symbole durch längere Wörter
+              \item hÃ¤ufigere Symbole durch kÃ¼rzere
+              \item und seltener vorkommende Symbole durch lÃ¤ngere WÃ¶rter
               kodiert werden \pause
-              \item statt einzelnen Symbolen können auch längere Blöcke als
-              kleinste Einheit gewählt werden
+              \item statt einzelnen Symbolen kÃ¶nnen auch lÃ¤ngere BlÃ¶cke als
+              kleinste Einheit gewÃ¤hlt werden
             \end{itemize}
     	\end{block}
 \end{frame}
@@ -305,14 +305,14 @@ Insbesondere bleibt das neutrale Element das neutrale Element:
     		\begin{enumerate}
 			\item Konstruktion eines Baumes:
 				\begin{itemize}
-					\visible<2->{\item Blätter entsprechen $x \in A$}
+					\visible<2->{\item BlÃ¤tter entsprechen $x \in A$}
 					\visible<3->{\item Innere Knoten entsprechen Mengen von Symbolen}
-					\visible<4->{\item An jedem Blatt wird das Symbol $x$ und dessen Häufigkeit notiert}
-					\visible<5->{\item die zwei Elemente mit der geringsten Häufigkeit werden zu einem Elternknoten zusammengefasst}
+					\visible<4->{\item An jedem Blatt wird das Symbol $x$ und dessen HÃ¤ufigkeit notiert}
+					\visible<5->{\item die zwei Elemente mit der geringsten HÃ¤ufigkeit werden zu einem Elternknoten zusammengefasst}
 				\end{itemize}
 			\item Beschriftung der Kanten: links mit 0, rechts mit 1
 		\end{enumerate}
-		Der kürzeste Weg von der Wurzel zum Blatt gibt die Kodierung des jeweiligen Zeichens (im Blatt) an.
+		Der kÃ¼rzeste Weg von der Wurzel zum Blatt gibt die Kodierung des jeweiligen Zeichens (im Blatt) an.
     	\end{block}
 \end{frame}
 
@@ -338,7 +338,7 @@ Insbesondere bleibt das neutrale Element das neutrale Element:
 		\end{itemize}
     	\end{block}
 	\visible<2->{
-	\begin{block}{Lösung 2}
+	\begin{block}{LÃ¶sung 2}
     		\begin{tabular}{cccccccc}
 			Zeichen:&  a&    b&    c&    d&    e&    f&    g\\
 			Wahrscheinlichkeit:&$\frac{3}{10}$&$\frac{1}{10}$&$\frac{1}{10}$&$\frac{1}{7}$&$\frac{1}{7}$&$\frac{1}{7}$&$\frac{1}{14}$ \\
@@ -352,11 +352,11 @@ Insbesondere bleibt das neutrale Element das neutrale Element:
 	\begin{block}{mehrdeutig?}
     \begin{itemize}
       \item im Allgemeinen sind Huffman-Codes nicht indeutig:
-		\item es können mehrere Zeichen gleichhäufig vorkommen
-		\item Außerdem ist nicht festgelegt, welcher Knoten linker Nachfolger und welcher rechter Nachfolger eines inneren Knotens wird
+		\item es kÃ¶nnen mehrere Zeichen gleichhÃ¤ufig vorkommen
+		\item AuÃŸerdem ist nicht festgelegt, welcher Knoten linker Nachfolger und welcher rechter Nachfolger eines inneren Knotens wird
 
 		\item[$\Rightarrow$] Huffman-Codes sind nicht eindeutig
-		\item Das macht aber nichts: alle, die sich für ein Wort $w$ ergeben können, sind "`gleich gut"'
+		\item Das macht aber nichts: alle, die sich fÃ¼r ein Wort $w$ ergeben kÃ¶nnen, sind "`gleich gut"'
 	\end{itemize}
 	\end{block}
 
@@ -364,7 +364,7 @@ Insbesondere bleibt das neutrale Element das neutrale Element:
 
 
 \section{Abschluss}
-% Studis anzuregen darüber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachträglich stellen, dann kann in der nächsten Woche nochmal drauf eingegangen werden
+% Studis anzuregen darÃ¼ber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachtrÃ¤glich stellen, dann kann in der nÃ¤chsten Woche nochmal drauf eingegangen werden
 \subsection*{}
 \begin{frame}
 	\frametitle{Zum Schluss...}

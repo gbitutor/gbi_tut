@@ -7,8 +7,8 @@
 	\begin{block}{Wozu Huffman Codes?}
     		\begin{itemize}
               \item Huffman-Codes komprimieren ein Wort $w \in A$* indem \pause
-              \item häufigere Symbole durch kürzere Wörter \pause
-              \item und seltener vorkommende Symbole durch längere Wörter kodiert werden
+              \item hÃ¤ufigere Symbole durch kÃ¼rzere WÃ¶rter \pause
+              \item und seltener vorkommende Symbole durch lÃ¤ngere WÃ¶rter kodiert werden
             \end{itemize}
     	\end{block}
 \end{frame}
@@ -19,14 +19,14 @@
     		\begin{enumerate}
 			\item Konstruktion eines Baumes:
 				\begin{itemize}
-					\visible<2->{\item Blätter entsprechen $x \in A$}
+					\visible<2->{\item BlÃ¤tter entsprechen $x \in A$}
 					\visible<3->{\item Innere Knoten entsprechen Mengen von Symbolen}
-					\visible<4->{\item An jedem Blatt wird das Symbol $x$ und dessen Häufigkeit notiert}
-					\visible<5->{\item die zwei Elemente mit der geringsten Häufigkeit werden zu einem Elternknoten zusammengefasst}
+					\visible<4->{\item An jedem Blatt wird das Symbol $x$ und dessen HÃ¤ufigkeit notiert}
+					\visible<5->{\item die zwei Elemente mit der geringsten HÃ¤ufigkeit werden zu einem Elternknoten zusammengefasst}
 				\end{itemize}
 			\item Beschriftung der Kanten: links mit 0, rechts mit 1
 		\end{enumerate}
-		Der kürzeste Weg von der Wurzel zum Blatt gibt die Kodierung des jeweiligen Zeichens (im Blatt) an.
+		Der kÃ¼rzeste Weg von der Wurzel zum Blatt gibt die Kodierung des jeweiligen Zeichens (im Blatt) an.
     	\end{block}
 \end{frame}
 
@@ -52,7 +52,7 @@
 		\end{itemize}
     	\end{block}
 	\visible<2->{
-	\begin{block}{Lösung 2}
+	\begin{block}{LÃ¶sung 2}
     		\begin{tabular}{cccccccc}
 			Zeichen:&  a&    b&    c&    d&    e&    f&    g\\
 			Wahrscheinlichkeit:&$\frac{3}{10}$&$\frac{1}{10}$&$\frac{1}{10}$&$\frac{1}{7}$&$\frac{1}{7}$&$\frac{1}{7}$&$\frac{1}{14}$ \\
@@ -66,11 +66,11 @@
 	\begin{block}{mehrdeutig?}
     \begin{itemize}
       \item im Allgemeinen sind Huffman-Codes nicht indeutig:
-		\item es können mehrere Zeichen gleichhäufig vorkommen
-		\item Außerdem ist nicht festgelegt, welcher Knoten linker Nachfolger und welcher rechter Nachfolger eines inneren Knotens wird
+		\item es kÃ¶nnen mehrere Zeichen gleichhÃ¤ufig vorkommen
+		\item AuÃŸerdem ist nicht festgelegt, welcher Knoten linker Nachfolger und welcher rechter Nachfolger eines inneren Knotens wird
 
 		\item[$\Rightarrow$] Huffman-Codes sind nicht eindeutig
-		\item Das macht aber nichts: alle, die sich für ein Wort $w$ ergeben können, sind "`gleich gut"'
+		\item Das macht aber nichts: alle, die sich fÃ¼r ein Wort $w$ ergeben kÃ¶nnen, sind "`gleich gut"'
 	\end{itemize}
 	\end{block}
 
@@ -85,16 +85,16 @@
 
 	\begin{block}{Gerichtete Graphen}
 	\begin{itemize}
-		\item \visible<1->{Einbahnstraßen}
+		\item \visible<1->{EinbahnstraÃŸen}
 		\item \visible<2->{Bahn- Flugverbindungen}
-		\item \visible<3->{Stammbäume}
+		\item \visible<3->{StammbÃ¤ume}
 	\end{itemize}
 	\end{block}
 
 	\visible<4->{
 	\begin{block}{Ungerichtete Graphen}
 	\begin{itemize}
-		\item Zweibahnstraßen
+		\item ZweibahnstraÃŸen
 		\item \visible<5->{Irrgarten}
 		\item \visible<6->{Stromnetz}
 	\end{itemize}
@@ -114,7 +114,7 @@
 	Ein gerichteter Graph $G$ ist ein Tupel $G=(V,E)$ mit
 	\begin{itemize}
 		\item der Grundmenge $V = \{v_i\}$ (die Menge der Ecken)
-		\item der Relation $E\subseteq V\times V$ (die Menge der Kanten) \\ Notationen für Kanten:
+		\item der Relation $E\subseteq V\times V$ (die Menge der Kanten) \\ Notationen fÃ¼r Kanten:
 		\begin{itemize}
 			\item $(v,v')\in E$
 			\item $v\rightarrow_G v'$
@@ -129,8 +129,8 @@
 	\frametitle{Zeichnerische Darstellung von gerichteten Graphen}
 
 	\begin{block}{Ihr seid dran...}
-		Ein kluger Ersti möchte gerne über die Weihnachtstage mit dem Zug nach Hause fahren. Um zu sehen über welche Strecken er alles fahren kann, malt er sich einen Graphen auf. \\ \pause
-		Aus Aachen fahren Züge nach Berlin, Chemnitz und Dortmund. Während er von Berlin nur Chemnitz erreichen kann, gibt es Züge von Dortmund nach Chemnitz und Berlin. Essen ist leider von keiner dieser Städte erreichbar. \\
+		Ein kluger Ersti mÃ¶chte gerne Ã¼ber die Weihnachtstage mit dem Zug nach Hause fahren. Um zu sehen Ã¼ber welche Strecken er alles fahren kann, malt er sich einen Graphen auf. \\ \pause
+		Aus Aachen fahren ZÃ¼ge nach Berlin, Chemnitz und Dortmund. WÃ¤hrend er von Berlin nur Chemnitz erreichen kann, gibt es ZÃ¼ge von Dortmund nach Chemnitz und Berlin. Essen ist leider von keiner dieser StÃ¤dte erreichbar. \\
 		Hinweis: Man malt die Ecken als Kreise und die Kanten als Pfeile.
 	\end{block}
 \end{frame}
@@ -189,10 +189,10 @@
 	\frametitle{Graphen}
 	\begin{block}{Begriffe}
 		\begin{itemize}
-			\item Ein Graph heißt \textbf{endlich}, wenn $V$ endlich ist ($|V|<\infty$).\pause
-			\item 2 Knoten x und y heißen \textbf{adjazent}, wenn es eine Kante $(x,y)\in E$ gibt.\pause
+			\item Ein Graph heiÃŸt \textbf{endlich}, wenn $V$ endlich ist ($|V|<\infty$).\pause
+			\item 2 Knoten x und y heiÃŸen \textbf{adjazent}, wenn es eine Kante $(x,y)\in E$ gibt.\pause
 			\item Eine \textbf{Schlinge} ist eine Kante der Form $(x,x)\in E$.\pause
-			\item Ein Graph heißt \textbf{schlingenfrei}, wenn er keine Schlingen besitzt.\pause
+			\item Ein Graph heiÃŸt \textbf{schlingenfrei}, wenn er keine Schlingen besitzt.\pause
 			\item $G'=(V',E')$ ist ein \textbf{Teilgraph} von $G=(V,E)$, wenn $V'\subseteq V$ und $E'\subseteq E \cap V'\times V'$
 		\end{itemize}
 	\end{block}
@@ -203,19 +203,19 @@
 	\begin{block}{Aufgabe}
 		Gegeben sei ein gerichteter Graph mit n Knoten.
 		\begin{itemize}
-			\item Wieviele Kanten kann er maximal haben, wenn Schlingen erlaubt sind? \visible<2->{\textbf{Lösung:} $n²$ Kanten}\pause
-			\item Wieviele Kanten kann er maximal haben, wenn er schlingenfrei ist? \visible<3->{\textbf{Lösung:} $n(n-1)$ Kanten}
+			\item Wieviele Kanten kann er maximal haben, wenn Schlingen erlaubt sind? \visible<2->{\textbf{LÃ¶sung:} $nÂ²$ Kanten}\pause
+			\item Wieviele Kanten kann er maximal haben, wenn er schlingenfrei ist? \visible<3->{\textbf{LÃ¶sung:} $n(n-1)$ Kanten}
 		\end{itemize}
 	\end{block}
 \end{frame}
 
 \begin{frame}
-	\frametitle{gerichtete Bäume}
+	\frametitle{gerichtete BÃ¤ume}
 	\begin{block}{Definition}
     In einem gerichteten Baum \ldots \pause
 		\begin{itemize}
 			\item  \ldots gibt es genau einen Knoten $r\in V$ so dass: \\
-				für alle $x\in V$ ex. genau ein Pfad von $r$ nach $x$ \pause
+				fÃ¼r alle $x\in V$ ex. genau ein Pfad von $r$ nach $x$ \pause
 			\item \ldots ist die Wurzel eindeutig
 		\end{itemize}
 	\end{block}
@@ -224,11 +224,11 @@
 \begin{frame}
 	\frametitle{Pfade}
 	\begin{block}{Definition}
-		Ein Pfad ist eine nichtleere Liste $p=(v_0,\ldots ,v_n)\in V^+$, wenn für alle $i \in {\mathbb G}_n$ gilt $(v_i,v_{i+1})\in E$ \pause
+		Ein Pfad ist eine nichtleere Liste $p=(v_0,\ldots ,v_n)\in V^+$, wenn fÃ¼r alle $i \in {\mathbb G}_n$ gilt $(v_i,v_{i+1})\in E$ \pause
 		\begin{itemize}
-			\item Die Anzahl $n=|p|-1$ (der Kanten!) heißt die \emph{Länge} des Pfades \pause
-			\item Ein Pfad heißt \emph{wiederholungsfrei}, wenn alle Knoten $v_0,\ldots ,v_{n-1}$ und $v_1,\ldots ,v_n$ je paarweise verschieden sind, also maximal $v_0$ und $v_n$ gleich sind. \pause
-			\item Falls $v_0=v_n$ heißt der Pfad \emph{geschlossen}. Dann ist der Pfad auch ein Zyklus.\pause
+			\item Die Anzahl $n=|p|-1$ (der Kanten!) heiÃŸt die \emph{LÃ¤nge} des Pfades \pause
+			\item Ein Pfad heiÃŸt \emph{wiederholungsfrei}, wenn alle Knoten $v_0,\ldots ,v_{n-1}$ und $v_1,\ldots ,v_n$ je paarweise verschieden sind, also maximal $v_0$ und $v_n$ gleich sind. \pause
+			\item Falls $v_0=v_n$ heiÃŸt der Pfad \emph{geschlossen}. Dann ist der Pfad auch ein Zyklus.\pause
 			\item ein geschlossener und wiederholungsfreier Pfad ist ein \emph{einfacher Zyklus}.
 		\end{itemize}
 	\end{block}
@@ -263,7 +263,7 @@
 	\end{tikzpicture}
 	\\
 	\vspace{1ex}
-	\only<2->{Wie sähe dieser ungerichtete Graph als Menge aus?\\}
+	\only<2->{Wie sÃ¤he dieser ungerichtete Graph als Menge aus?\\}
 	\only<3->{$G = ( \{a,b,c,d\}, \{\{a,b\},\{a,c\},\{a,d\},\{b,c\},\{d,b\},\{d,c\}\})$}
 
 	\end{center}
@@ -274,29 +274,29 @@
 	\begin{block}{Aufgabe}
 		Gegeben sei ein ungerichteter Graph mit n Knoten.
 		\begin{itemize}
-			\item Wieviele Kanten kann er maximal haben, wenn er schlingenfrei ist? \visible<2->{\textbf{Lösung:} $n(n-1)/2$ Kanten}\pause
-			\item Wieviele Kanten kann er maximal haben, wenn Schlingen erlaubt sind? \visible<3->{\textbf{Lösung:} $n(n+1)/2$ Kanten}
+			\item Wieviele Kanten kann er maximal haben, wenn er schlingenfrei ist? \visible<2->{\textbf{LÃ¶sung:} $n(n-1)/2$ Kanten}\pause
+			\item Wieviele Kanten kann er maximal haben, wenn Schlingen erlaubt sind? \visible<3->{\textbf{LÃ¶sung:} $n(n+1)/2$ Kanten}
 		\end{itemize}
 	\end{block}
 \end{frame}
 
 \begin{frame}
-	\frametitle{zusammenhängende Graphen}
+	\frametitle{zusammenhÃ¤ngende Graphen}
 	\begin{block}{Definition}
     	Wir nennen \ldots
 		\begin{itemize}
-			\item einen gerichteten Graphen \emph{streng zusammenhängend},
-				wenn für jedes Knotenpaar $(x,y)\in V^2$ gilt: Es gibt in $G$ einen Pfad von $x$ nach $y$.\\ \pause
-			\item einen ungerichteten Graphen \emph{zusammenhängend}, wenn der entsprechende gerichtete Graph \emph{streng zusammenhängend} ist.
+			\item einen gerichteten Graphen \emph{streng zusammenhÃ¤ngend},
+				wenn fÃ¼r jedes Knotenpaar $(x,y)\in V^2$ gilt: Es gibt in $G$ einen Pfad von $x$ nach $y$.\\ \pause
+			\item einen ungerichteten Graphen \emph{zusammenhÃ¤ngend}, wenn der entsprechende gerichtete Graph \emph{streng zusammenhÃ¤ngend} ist.
 		\end{itemize}
 	\end{block}
 \end{frame}
 
 \begin{frame}
-	\frametitle{ungerichtete Bäume}
+	\frametitle{ungerichtete BÃ¤ume}
 	\begin{block}{Definition}
 		\begin{itemize}
-			\item Jeder zusammenhängende ungerichtete Graph mit $|E| = |V| - 1$ ist ein ungerichteter Baum \pause
+			\item Jeder zusammenhÃ¤ngende ungerichtete Graph mit $|E| = |V| - 1$ ist ein ungerichteter Baum \pause
 			\item Im ungerichteten Baum kann theoretisch jeder Knoten Wurzel sein. \\ \pause
 			\item Daher wird i.d.R. ein Knoten als Wurzel hervorgehoben.
 		\end{itemize}
@@ -305,7 +305,7 @@
 
 
 \section{Abschluss}
-% Studis anzuregen darüber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachträglich stellen, dann kann in der nächsten Woche nochmal drauf eingegangen werden
+% Studis anzuregen darÃ¼ber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachtrÃ¤glich stellen, dann kann in der nÃ¤chsten Woche nochmal drauf eingegangen werden
 \subsection*{}
 \begin{frame}
 	\frametitle{Zum Schluss...}

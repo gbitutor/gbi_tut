@@ -5,13 +5,13 @@
 	\begin{block}{Aus der Vorlesung}
 	Algorithmen haben folgende Eigenschaften:
 	\begin{itemize}
-	  \item endliche Beschreibung (Wort über einem Alphabet)
-	  \item elementare Aussagen (effektiv in einem Schritt ausführbar)
-	  \item Determinismus (nächste Anweisung ist festgelegt)
+	  \item endliche Beschreibung (Wort Ã¼ber einem Alphabet)
+	  \item elementare Aussagen (effektiv in einem Schritt ausfÃ¼hrbar)
+	  \item Determinismus (nÃ¤chste Anweisung ist festgelegt)
 	  \item endliche Eingabe errechnet endliche Ausgabe
 	  \item endlich viele Schritte
-	  \item funktioniert für beliebig große Eingaben
-	  \item nachvollziehbar/verständlich
+	  \item funktioniert fÃ¼r beliebig groÃŸe Eingaben
+	  \item nachvollziehbar/verstÃ¤ndlich
 	\end{itemize}
 	\end{block}
 	\begin{block}{DIV und MOD}
@@ -26,25 +26,25 @@
  	\frametitle{Schleifen} 
         \begin{block}{Ziel}
         \begin{itemize}
-        	\item Bestimmte Berechnungen sollen wiederholt ausgeführt werden, bis eine bestimmte Bedingung eintritt.
-        	\item Dies wird u.a. durch eine for-Schleife (Zählschleife) erreicht.
+        	\item Bestimmte Berechnungen sollen wiederholt ausgefÃ¼hrt werden, bis eine bestimmte Bedingung eintritt.
+        	\item Dies wird u.a. durch eine for-Schleife (ZÃ¤hlschleife) erreicht.
         \end{itemize}
         \end{block}
 	\pause
         \begin{block}{Syntax der for-Schleife in Pseudocode}
-		for $i \leftarrow 0$ to $10$ do  //zählt von 0 bis 10\\
+		for $i \leftarrow 0$ to $10$ do  //zÃ¤hlt von 0 bis 10\\
 		     ... (Schleifeninhalt)
         \end{block}
 	\pause
         \begin{block}{Syntax der for-Schleife in Java}
-		for (int $i=0$; $i \leq 10$; i++)  //zählt von 0 bis 10\\
+		for (int $i=0$; $i \leq 10$; i++)  //zÃ¤hlt von 0 bis 10\\
 		     ... (Schleifeninhalt)
         \end{block}
 \end{frame}
 
 \begin{frame}
  	\frametitle{Schleifeninvariante}
-	Als Schleifeninvariante werden Eigenschaften einer Schleife bezeichnet, die zu einem bestimmten Punkt bei jedem Durchlauf gültig sind, unabhängig von der Zahl ihrer derzeitigen Durchläufe. Typischerweise enthalten Schleifeninvarianten Wertebereiche von Variablen und Beziehungen der Variablen untereinander.\\
+	Als Schleifeninvariante werden Eigenschaften einer Schleife bezeichnet, die zu einem bestimmten Punkt bei jedem Durchlauf gÃ¼ltig sind, unabhÃ¤ngig von der Zahl ihrer derzeitigen DurchlÃ¤ufe. Typischerweise enthalten Schleifeninvarianten Wertebereiche von Variablen und Beziehungen der Variablen untereinander.\\
 	\begin{block}{Sinn und Zweck}
 	Schleifeninvarianten...
         \begin{itemize}
@@ -83,7 +83,7 @@
 		$\qquad Y \leftarrow Y - 1$ \\
 		od \\
 	\end{block}
-	\begin{block}{Wertetabelle für $a=6$ und $b=4$}
+	\begin{block}{Wertetabelle fÃ¼r $a=6$ und $b=4$}
 		    \begin{tabular}{*{5}{>{$}r<{$}}}
 		      & S & Y  \\
 		       &  6 & 4    \\
@@ -96,12 +96,12 @@
 	\end{block}
 \end{frame}
 
-\section[Suchalgorithmen]{Suchalgorithmen für Wörter}
+\section[Suchalgorithmen]{Suchalgorithmen fÃ¼r WÃ¶rter}
 \subsection*{}
 \begin{frame}
 	\frametitle{Suchalgorithmen}
 	\begin{block}{Suchalgorithmen sind}
-		Algorithmen, die etwas über das Vorkommen eines Zeichens $x \in A$ in einem Wort $w \in A$* aussagen.
+		Algorithmen, die etwas Ã¼ber das Vorkommen eines Zeichens $x \in A$ in einem Wort $w \in A$* aussagen.
 	\end{block}
 \end{frame}
 
@@ -111,7 +111,7 @@
 		Entwerfe einen Algorithmus, der berechnet, ob x in w vorkommt!
 	\end{block}
 	\visible<2->{
-	\begin{block}{Lösung}
+	\begin{block}{LÃ¶sung}
 		$p \leftarrow -1$ \\
 		for $i \leftarrow 0$ to $n-1$ do \\
 		$p \leftarrow \begin {cases}
@@ -127,7 +127,7 @@
 		Entwerfe einen Algorithmus, der die letzte Stelle im Wort, an der x in w vorkommt, berechnet!
 	\end{block}
 	\visible<2->{
-	\begin{block}{Lösung}
+	\begin{block}{LÃ¶sung}
 		$p \leftarrow -1$ \\
 		for $i \leftarrow 0$ to $n-1$ do \\
 		$p \leftarrow \begin {cases}
@@ -143,7 +143,7 @@
 		Entwerfe einen Algorithmus, der die erste Stelle im Wort, an der x in w vorkommt, berechnet!
 	\end{block}
 	\visible<2->{
-	\begin{block}{Lösung}
+	\begin{block}{LÃ¶sung}
 		$p \leftarrow -1$ \\
 		for $i \leftarrow 0$ to $n-1$ do \\
 		$p \leftarrow \begin {cases}
@@ -157,15 +157,15 @@
 \begin{frame}
 	\frametitle{Korrektheitsbeweis}
 	\begin{block}{Beweis der Korrektheit eines Programms (Aufgabe 2)}
-		Durch Induktion wird gezeigt, dass nach den ersten k Schleifendurchläufen p die letzte Position von x in den ersten k Zeichen von w ist.
+		Durch Induktion wird gezeigt, dass nach den ersten k SchleifendurchlÃ¤ufen p die letzte Position von x in den ersten k Zeichen von w ist.
 	\end{block}
 	\visible<2->{
 	\begin{block}{Beweis}
         \begin{itemize}
         	\item Induktionsanfang: k=0, p=-1 ist wahr.
-        	\item Induktionsannahme: für ein festes $k<|w|$ gilt: Nach den ersten k Schleifendurchläufen ist p die Position des letzten x in den ersten k Zeichen von w.
+        	\item Induktionsannahme: fÃ¼r ein festes $k<|w|$ gilt: Nach den ersten k SchleifendurchlÃ¤ufen ist p die Position des letzten x in den ersten k Zeichen von w.
         	\item Induktionsschritt: $k \rightarrow k+1$\\
-		Wir betrachten den k+1ten Schleifendurchlauf, während dem das Zeichen w(k) betrachtet wird (2 Fälle!).
+		Wir betrachten den k+1ten Schleifendurchlauf, wÃ¤hrend dem das Zeichen w(k) betrachtet wird (2 FÃ¤lle!).
         \end{itemize}
 	\end{block}
 	}
@@ -196,17 +196,17 @@
 \begin{frame}
 	\frametitle{Palindrome}
 	\begin{block}{Was ist ein Palindrom?}
-		Palindrome sind Wörter, die von vorne gelesen das gleiche Wort ergeben, wie von hinten gelesen.
+		Palindrome sind WÃ¶rter, die von vorne gelesen das gleiche Wort ergeben, wie von hinten gelesen.
 	\end{block}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Palindromtest}
 	\begin{block}{Aufgabe 5}
-		Schreibe ein Programm, das für Wörter w untersucht, ob w ein Palindrom ist!
+		Schreibe ein Programm, das fÃ¼r WÃ¶rter w untersucht, ob w ein Palindrom ist!
 	\end{block}
 	\visible<2->{
-	\begin{block}{Lösung}
+	\begin{block}{LÃ¶sung}
 		$p \leftarrow 1$ \\
 		for $i \leftarrow 0$ to $n-1$ do \\
 		$p \leftarrow \begin {cases}
@@ -217,26 +217,26 @@
 
 \end{frame}
 
-\section[Vollst. Ind.]{Vollständige Induktion}
+\section[Vollst. Ind.]{VollstÃ¤ndige Induktion}
 \subsection*{}
 \begin{frame}
-	\frametitle{Beweisverfahren der vollständigen Induktion}
+	\frametitle{Beweisverfahren der vollstÃ¤ndigen Induktion}
 	\only<1-2>{
 	\begin{block}{Die Theorie}
 		Der Beweis erfolgt in folgenden Schritten:
 		\begin{enumerate}
-			\item Induktionsanfang: Die Aussage wird für $n=n_0$ gezeigt
-			\item Induktionsvorraussetzung/-annahme: Die Aussage sei für \textbf{ein} $n$ wahr. 
-			\item Induktionsschluss/-schritt: Aus dem Schluss von $n$ auf $n+1$ (in der Regel mit Hilfe der IV) folgt, dass die Aussage für alle natürlichen Zahlen $n>n_0$ gilt.
+			\item Induktionsanfang: Die Aussage wird fÃ¼r $n=n_0$ gezeigt
+			\item Induktionsvorraussetzung/-annahme: Die Aussage sei fÃ¼r \textbf{ein} $n$ wahr. 
+			\item Induktionsschluss/-schritt: Aus dem Schluss von $n$ auf $n+1$ (in der Regel mit Hilfe der IV) folgt, dass die Aussage fÃ¼r alle natÃ¼rlichen Zahlen $n>n_0$ gilt.
 		\end{enumerate}
 	\end{block}}
 	\only<2-3>{
 	\begin{block}{Ein Beispiel:}
-	Beweise durch vollständig Induktion $1+2+3+...+n=\frac{n*(n+1)}{2}$:
+	Beweise durch vollstÃ¤ndig Induktion $1+2+3+...+n=\frac{n*(n+1)}{2}$:
 	\only<3>{
 	\begin{itemize}
-		\item[IA] $n=1$: $1=\frac{1*(1+1)}{2}=1$ ist erfüllt
-		\item[IV]	$1+2+3+...+n=\frac{n*(n+1)}{2}$ gilt für ein $n \in \mathbb{N}$
+		\item[IA] $n=1$: $1=\frac{1*(1+1)}{2}=1$ ist erfÃ¼llt
+		\item[IV]	$1+2+3+...+n=\frac{n*(n+1)}{2}$ gilt fÃ¼r ein $n \in \mathbb{N}$
 		\item[IS] \begin{equation}
 				\begin{split}
 					 1+2&+3+...+(n+1) \nonumber\\
@@ -252,15 +252,15 @@
 
 \subsection*{}
 \begin{frame}
-	\frametitle{Und weils so schön ist...}
+	\frametitle{Und weils so schÃ¶n ist...}
 	\begin{block}{Ihr schon wieder...}
-	 Es sei $n \in \mathbf{N}$ und $a,b \in \mathbf{R}$. Beweist durch vollständige Induktion:
-  Für $f(x) = e^{ax+b} $ gilt $f^{(n)}=a^n*e^{ax+b}$
+	 Es sei $n \in \mathbf{N}$ und $a,b \in \mathbf{R}$. Beweist durch vollstÃ¤ndige Induktion:
+  FÃ¼r $f(x) = e^{ax+b} $ gilt $f^{(n)}=a^n*e^{ax+b}$
 	\end{block}
 \end{frame}
 
 \section{Abschluss}
-% Studis anzuregen darüber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachträglich stellen, dann kann in der nächsten Woche nochmal drauf eingegangen werden
+% Studis anzuregen darÃ¼ber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachtrÃ¤glich stellen, dann kann in der nÃ¤chsten Woche nochmal drauf eingegangen werden
 \subsection*{}
 \begin{frame}
 	\frametitle{Zum Schluss...}
