@@ -1,0 +1,278 @@
+\input{./gbi-macros.tex}
+\documentclass[12pt]{article}
+
+\usepackage{german}
+\usepackage{mdwlist}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage[paper=a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+\usepackage[amsmath,thmmarks]{ntheorem}
+
+\theoremheaderfont{\bfseries}
+\theoremstyle{margin}
+\usepackage{amsmath}
+\usepackage{checkend}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{picinpar}
+\usepackage[alsoload=binary]{siunitx}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+   \usetikzlibrary{automata}
+   \usetikzlibrary{matrix}
+\usepackage{url}
+\usepackage{xspace}
+
+\usepackage{kbordermatrix}
+
+\usepackage[amsmath,thmmarks]{ntheorem}
+
+\usepackage[blue]{thwregex}
+\usepackage{thwtextabbrevs}
+
+\def\tightlist{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}\setlength{\parskip}{0pt}}
+\renewcommand{\dh}{d.\,h.\@\xspace}
+
+\theoremheaderfont{\bfseries}
+\theoremstyle{margin}
+
+\newcommand{\thwtheoremindent}{\relax}
+
+\newtheorem{aaaaaa}{aaaaaa}[section]
+\theorembodyfont{\upshape} \newtheorem{definition}[aaaaaa]{\thwtheoremindent Definition.}
+
+\theorembodyfont{\upshape} \newtheorem{lemma}[aaaaaa]{\thwtheoremindent Lemma.}
+\newenvironment{beweis}%
+  {\begin{proofinternal}}%
+  {\endofproof\end{proofinternal}}%
+\newdimen\endofproofsize\endofproofsize=0.5em
+\def\endofproof{~\quad\hglue\hsize minus\hsize
+                  \hbox{\vrule height \endofproofsize width \endofproofsize}\par}
+
+\def\Red#1{\textcolor{darkred}{#1}}
+
+\begin {document}
+
+
+\bibliography{../skript/gbi}
+
+\setcounter{section}{8}
+
+\section{Quantitative Aspekte von Algorithmen}
+
+\subsection{Gro\ss-O-Notation}
+\subsubsection{Ignorieren konstanter Faktoren}
+
+\begin{itemize}
+ \item   Wir machen das ein bisschen anders als andere:
+  \begin{itemize}
+  \item Erst wird $\Theta$ eingef\"uhrt, und danach $O$:
+    \begin{itemize}
+    \item ich finde, dass $\Theta$ das n\"aher liegende ist, und man
+      kann sich erst mal drauf beschr\"anken, dass Ignorieren konstanter
+      Faktoren kennenzulernen
+    \item die Verallgemeinerungen zu $O$ und $\Omega$ sind evtl dann
+      leichter
+    \end{itemize}
+  \item Wir f\"uhren erst eine \"Aquivalenzrelation $\asymp$ ein, und dann
+    $\Theta(f)$ als \"Aquivalenzklasse (ohne dieses Wort schon zu
+    benutzen) von Funktionen.
+  \item Auch so ist hinterher leicht zu sehen, dass $\Theta(f)=O(f)\cap
+    \Omega(f)$.
+  \item Achtung: einiges k\"onnte man auch leicht unter Verwendung von
+    $\lim$, oder genauer mit $\limsup$ argumentieren, aber die Inwis
+    haben vermutlich noch keine Grenzwerte.
+  \end{itemize}
+
+\item
+  $\Theta$ und Polynome: Man versuche klar zu machen, dass immer
+  $f\asymp g$ ist, wenn $f$ und $g$ Polynome gleichen Grades sind,
+  also \zB $42n^6-33n^3+222n^2 -15 \asymp 66n^6+55555n^5$. Das kann
+  man \zB in Anlehnung an $n^3+5n^2\asymp 3n^3-n$ aus der Vorlesung
+  machen.
+
+\item  Beispiel: Logarithmenfunktionen haben alle gr\"o\ss enordnungsm\"a\ss ig das
+  gleiche Wachstum:
+  \begin{itemize}
+  \item Logarithmen sind ja wohl definitiv Schulwissen. Trotzdem
+    darauf vorbereitet sein, dass Fragen kommen. Also: F\"ur $a\in\Rplus$
+    und $n\in\N_+$ ist $\log_a(n)$ die Zahl mit $a^{\log_a(n)} = n$.
+    Beachte: $n\geq1$, da $\log 0$ nicht definiert.
+  \item Man zeige: $\log_2(n) \in\Th{\log_8(n)}$ \\
+    \begin{itemize}
+    \item man beginne vielleicht mit Beispielen:
+
+      \begin{tabular}{*{6}{>{$}r<{$}}}
+        n         & 1 & 8 & 64 & 512 & 4096 \\
+        \log_8(n) & 0 & 1 &  2 &   3 &    4 \\
+        \log_2(n) & 0 & 3 &  6 &   9 &   12 \\
+      \end{tabular}
+
+      da sollte man doch was sehen \dots
+    \item dann rechnen: $n = 8^{\log_8 n} = (2^3)^{\log_8(n)} = 2
+      ^{3\log_8(n)}$, also gilt f\"ur alle $n\geq 1$: $\log_2(n) = 3
+      \log_8(n)$ und $\log_8(n)=\frac{1}{3}\log_2(n)$
+    \item wenn das klar ist, dann wohl auch \dots
+    \end{itemize}
+  \item allgemein: $\log_b(n) \in\Th{\log_a(n)}$, denn
+    \[
+    b^{\log_b(n)} = n = a^{\log_a(n)} = (b^{\log_b(a)})^{\log_a(n)} = b^{\log_b(a) \cdot \log_a(n) }
+    \]
+    also liefert (Exponentiation ist injektiv) der Vergleich der
+    Exponenten (oder anders gesagt: Logarithmieren beider Seiten):
+    $\log_b(n) = \log_b(a) \cdot \log_a(n)$ \\
+    also f\"ur $c'=c=\log_b(a)$ und alle $n\geq 1$ gilt: $c \log_a(n)
+    \leq\log_b(n) \leq c' \log_a(n) $
+  \item Man kann also einfach $\Th{\log n}$ schreiben, ohne die Basis
+    anzugeben, denn sie ist egal.
+  \item Und mir f\"allt auf, dass eine Aufgabe auf dem aktuellen \"Ubungsblatt dem ganzen doch recht \"ahnelt. Wenn die Leute im Tut also 
+  keine Probleme mit $\log$ haben, muss man das ganze auch nicht so im Detail besprechen.
+  \end{itemize}
+
+\end{itemize}
+
+\subsubsection{Notation f\"ur obere und untere Schranken des Wachstums}
+
+\begin{itemize}
+ \item zum Thema $\Oh{}$:
+  \begin{itemize}
+  \item Damit die Studenten ein besseres Gef\"uhl f\"ur $\Oh{\cdot}$
+    bekommen, bitte noch mal genau $n^a\in \Oh{n^b}$ falls $a\leq b$
+    betrachten.
+  \item Aber damit da kein falscher Eindruck entsteht: \textbf{Bitte
+      beachten:} $\preceq$ und $\succeq$ sind \emph{keine} totalen
+    Ordnungen. Es gibt unvergleichbare Funktionen. \ZB
+    \begin{align*}
+      f(n) &=
+      \begin{cases}
+        1 & \text{ falls $n$ gerade} \\
+        n & \text{ falls $n$ ungerade} \\
+      \end{cases} \\
+      g(n) &=
+      \begin{cases}
+        n & \text{ falls $n$ gerade} \\
+        1 & \text{ falls $n$ ungerade} \\
+      \end{cases} \\
+    \end{align*}
+    Es gilt \emph{nicht} $g\preceq f$, es gilt \emph{nicht} $f\preceq
+    g$ und es gilt erst recht \emph{nicht} $f\asymp g$.
+
+    Und das liegt auch nicht daran, dass die Funktionen so hin und her
+    springen; f\"ur monoton wachsende Funktionen kann man so etwas auch
+    machen; so etwas war z.B. auf \"UB9 im Jahre 2008 dran
+  \end{itemize}
+
+\item  Zu $\Om{\cdot}$: vielleicht auch ein paar einfache Beispiele: Macht
+  es den Studenten Probleme, sich von $n^2\in\Om{\log n}$ zu
+  \"uberzeugen?
+\end{itemize}
+
+\subsubsection{Die furchtbare Schreibweise}
+
+  \begin{itemize}
+  \item Folgendes ist sehr unsch\"one Variante der O-Notation, aber weit verbreitet: \\
+  Man schreibt
+    % 
+    \begin{align*}
+      g(n) = \Oh{f(n)}  &\text{\quad statt\quad }  g(n) \in \Oh{f(n)} \;, \\
+      g(n) = \Th{f(n)}  &\text{\quad statt\quad }  g(n) \in \Th{f(n)} \;, \\
+      g(n) = \Om{f(n)}  &\text{\quad statt\quad }  g(n) \in \Om{f(n)} \;.
+    \end{align*}
+  \item Ausdr\"ucke auf der linken Seite \Red{sind keine Gleichungen!}
+  \item Daher bitte immer \Red{gro\ss e Vorsicht} walten lassen:
+    \begin{itemize}
+    \item Es ist \Red{falsch}, aus $g(n)=\Oh{f_1(n)}$ und
+      $g(n)=\Oh{f_2(n)}$ zu folgern, dass $\Oh{f_1(n)}=\Oh{f_2(n)}$ ist.
+    \item Es ist \Red{falsch}, aus $g_1(n)=\Oh{f(n)}$ und
+      $g_2(n)=\Oh{f(n)}$ zu folgern, dass $g_1(n)=g_2(n)$ ist.
+    \end{itemize}
+  \item Bitte Fragen beantworten. ABER: Ich sehe zwar einen Grund so etwas
+  lesen zu k\"onnen, aber keinen Grund diesen Unfug schreibenderweise zu
+  \"uben.
+  \end{itemize}
+
+\subsection{Matrixmultiplikation}
+\subsubsection{R\"uckblick auf die Schulmethode}
+
+
+  \begin{itemize}
+  \item Wird eigentlich in der Vorlesung nochmal besprochen
+  \item Trotzdem: vielleicht muss man das noch ein bisschen
+    erkl\"aren. Man nehme einfach $4\x 4$-Matrizen und sehe sich \zB
+    $c_{11}=a_{11}b_{11} + a_{12}b_{21} + a_{13}b_{31} +
+    a_{14}b_{41}$ an:
+
+    Man schreibe sich einige der Bl\"ocke $A_{11}$ \usw hin. Dann sieht
+    man: Der erste Teil $a_{11}b_{11} + a_{12}b_{21}$ "`kommt
+    von"'/"`passt zu"' $A_{11}B_{11}$ und der zweite Teil
+    $a_{13}b_{31} + a_{14}b_{41}$ "`kommt von"'/"`passt zu"'
+    $A_{12}B_{21}$.
+  \end{itemize}
+
+\subsubsection{Algorithmus von Strassen}
+
+\begin{itemize}
+ \item Dient in erster Linie als Beispiel f\"ur eine effektivere Matrixmultiplikation. F\"ur das Tutorium vielleicht eher uninteressant.
+ \item 
+  Weitere \"Ubungsm\"oglichkeit: Codeschnipsel aus Sneltings Folien von
+  2008 f\"ur Berechnung der Binomialkoeffizienten:
+\begin{verbatim}
+  static int binom(int n, int k) {
+    assert n >= k && k >= 0;
+    if (k == 0 || k == n) {
+      return 1;
+    } else {
+      return binom(n - 1, k - 1) + binom(n - 1, k);
+    }
+  }
+\end{verbatim}
+  Diskussion: Wieviele Aufrufe von \verb|binom| in Abh\"angigkeit von
+  $n$ werden bei der Berechnung eines $\binom{n}{k}$ gemacht? Im
+  Detail ist das nicht ganz sch\"on zu machen. Man \"uberzeuge sich aber
+  (mit Hilfe eines Beispiels?) davon, dass man mindestens $2^k$ Aufrufe
+  der Form $binom((n-k),x)$ mit $0\leq x\leq k$ hat. Das sind im Fall
+  $k=n/2$ also immerhin $\left(\sqrt{2}\right)^n$.
+
+\end{itemize}
+
+\subsection{Asymptotisches Verhalten "`implizit"' definierter Funktionen}
+Der Stoff ab hier kommt erst n\"achste Woche dran.
+\begin{itemize}
+ \item 
+  Zum Mastertheorem kommen wir erst am 19.12.; dann sollte
+  in Programmieren rekursives Suchen/Sortieren dran gewesen sein. Das
+  gibt dann noch mal Motivation f\"ur
+  \[
+  T(n) = a T\left(\frac{n}{b}\right) + f(n)
+  \]
+
+\item  Mastertheorem
+  \begin{itemize}
+  \item Fall 2: $f(n) \in \Th{n^{\log_b a}}$ schl\"agt bei Quicksort zu
+    \begin{itemize}
+    \item Formel anwenden liefert $n\log n$
+    \end{itemize}
+  \item Fall 3: nur bei Nachfragen diskutieren \dots
+  \item statt dessen darauf hinweisen, dass einem das Mastertheorem
+    nicht weiterhilft, wenn man eine Probleminstanz anders zerhackt,
+    wie etwa bei  $(n+1)!=(n+1)*n!$ oder
+    \[
+    \binom{n}{k}=\begin{cases}
+      0 & \text{ falls } k=0\lor k=n\\
+      \binom{n-1}{k-1}+\binom{n-1}{k} & \text{ sonst}
+    \end{cases}
+    \]
+   % (siehe weiter vorne)
+  \end{itemize}
+
+\end{itemize}
+
+\end{document}

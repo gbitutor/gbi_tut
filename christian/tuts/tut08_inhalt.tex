@@ -87,7 +87,7 @@
 	\begin{block}{Aufgabe}
 		Gegeben sei ein gerichteter Graph mit n Knoten.
 		\begin{itemize}
-			\item Wieviele Kanten kann er maximal haben, wenn Schlingen erlaubt sind? \visible<2->{\textbf{Lösung:} $n²$ Kanten}\pause
+			\item Wieviele Kanten kann er maximal haben, wenn Schlingen erlaubt sind? \visible<2->{\textbf{Lösung:} $n^2$ Kanten}\pause
 			\item Wieviele Kanten kann er maximal haben, wenn er schlingenfrei ist? \visible<3->{\textbf{Lösung:} $n(n-1)$ Kanten}
 		\end{itemize}
 	\end{block}
@@ -404,6 +404,174 @@
 		\end{itemize}
 	\end{block}
 \end{frame}
+
+
+\section{Warshall-Algorithmus}
+\subsection*{}
+\begin{frame}
+	\frametitle{Reflexive Transitive Hülle nach Warshall}
+
+	Gegeben sei eine reflexive Relation $\rho$ über einer endlichen Eckenmenge $E=\{0,\dots,n-1\}$.
+	$\sigma^{(k)}$ sei folgende Relation:
+	\begin{multline*}
+		\sigma^{(k)} = \{(i,j)\in E \times E | \exists \text{Weg } i \to e_1 \to \cdots \to e_{l-1} \to j \\
+		\text{ mit } l\le k+2, e_r\in\{0,\ldots,k\} \text{ für } 1\le r\le l-1\}
+	\end{multline*}
+
+	\begin{columns}
+	\column{.2\textwidth}
+		\begin{tikzpicture}
+			\path[fill] (0,0)  node[circle] (0) {} node[left=2mm] {0} circle (1pt);
+			\path[fill] (1,0)  node[circle] (1) {} node[right=2mm] {1} circle (1pt);
+			\path[fill] (1,1)  node[circle] (2) {} node[right=2mm] {2} circle (1pt);
+			\path[fill] (0,1)  node[circle] (3) {} node[left=2mm] {3} circle (1pt);
+
+			\path[->,draw] (0) arc(45:-280:1.4mm);
+			\path[->,draw] (1) arc(135:-190:1.4mm);
+			\path[->,draw] (2) arc(225:-100:1.4mm);
+			\path[->,draw] (3) arc(325:-10:1.4mm);
+			\path[->,draw] (3) -- (0);
+			\path[->,draw] (0) -- (2);
+			\path[->,draw] (2) -- (1);
+			\visible<2->{\path[->,draw,orange] (3) -- (2);}
+			\visible<6->{\path[->,draw,blue] (3) -- (1);}
+			\visible<6->{\path[->,draw,blue] (0) -- (1);}
+		\end{tikzpicture}
+	\column{.4\textwidth}
+		\[
+		{\color{orange} \sigma^{(0)}}:\
+		\alt<2->{
+			\left(
+			\begin{matrix}
+			1 & 0 & 1 & 0\\
+			0 & 1 & 0 & 0\\
+			0 & 1 & 1 & 0\\
+			1 & 0 & {\color{orange}1} & 1
+			\end{matrix}
+			\right)
+		}{
+			\left(
+			\begin{matrix}
+			1 & 0 & 1 & 0\\
+			0 & 1 & 0 & 0\\
+			0 & 1 & 1 & 0\\
+			1 & 0 & 0 & 1
+			\end{matrix}
+			\right)
+		}
+		\]
+		\[
+		\visible<5->{
+			{ \color{blue} \sigma^{(2)}}:\
+		}
+		\alt<-5>{
+			\visible<5->{
+				\left(
+				\begin{matrix}
+				1 & 0 & 1 & 0\\
+				0 & 1 & 0 & 0\\
+				0 & 1 & 1 & 0\\
+				1 & 0 & {\color{orange}1} & 1
+				\end{matrix}
+				\right)
+			}
+		}
+		{
+			\left(
+			\begin{matrix}
+			1 & {\color{blue} 1} & 1 & 0\\
+			0 & 1 & 0 & 0\\
+			0 & 1 & 1 & 0\\
+			1 & {\color{blue} 1} & {\color{orange}1} & 1
+			\end{matrix}
+			\right)
+		}
+		\]
+	\column{.4\textwidth}
+		\[
+		\visible<3->{
+			{ \color{green} \sigma^{(1)}}:\
+		}
+		\alt<-3>{
+			\visible<3->{
+				\left(
+				\begin{matrix}
+				1 & 0 & 1 & 0\\
+				0 & 1 & 0 & 0\\
+				0 & 1 & 1 & 0\\
+				1 & 0 & {\color{orange}1} & 1
+				\end{matrix}
+				\right)
+			}
+		}
+		{
+			\left(
+			\begin{matrix}
+			1 & 0 & 1 & 0\\
+			0 & 1 & 0 & 0\\
+			0 & 1 & 1 & 0\\
+			1 & 0 & {\color{orange}1} & 1
+			\end{matrix}
+			\right)
+		}
+		\]
+		\[
+		\visible<7->{
+			{ \color{red} \sigma^{(3)}}:\
+		}
+		\alt<-7>{
+			\visible<7->{
+				\left(
+				\begin{matrix}
+				1 & {\color{blue} 1} & 1 & 0\\
+				0 & 1 & 0 & 0\\
+				0 & 1 & 1 & 0\\
+				1 & {\color{blue} 1} & {\color{orange}1} & 1
+				\end{matrix}
+				\right)
+			}
+		}
+		{
+			\left(
+			\begin{matrix}
+			1 & {\color{blue} 1} & 1 & 0\\
+			0 & 1 & 0 & 0\\
+			0 & 1 & 1 & 0\\
+			1 & {\color{blue} 1} & {\color{orange}1} & 1
+			\end{matrix}
+			\right)
+		}
+		\]
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Der Warshall-Algorithmus}
+
+	\begin{block}{Anforderungsbeschreibung}
+		\begin{description}
+			\item[Eingabe:]Adjazenzmatrix $A$ einer Relation $\sigma$
+			\item[Ausgabe:] Adjanzenzmatrix $S$ von $\sigma^*$ \pause (entspricht der
+			Erreichbarkeitsrelation)
+		\end{description}
+	\end{block}
+
+	\pause
+	\begin{block}{Der Algorithmus}
+		\begin{lstlisting}[language = Java,mathescape,morekeywords={set}]
+	$S$ := $A$
+ for $i=0,\ldots,n-1$ set $s_{ii}$ := $1$
+
+ for $k=0,\ldots,n-1$
+   for $i=0,\ldots, n-1$
+     for $j=0,\ldots, n-1$
+       if ($s_{ij}$ + $s_{ik}$ * $s_{kj}$) >= 1 set $s_{ij}$ := 1
+		\end{lstlisting}
+	\end{block}
+\end{frame}
+
+
 
 \section{Abschluss}
 % Studis anzuregen darüber nachzudenken, ob sie wirklich alles wissen, ansonsten nachlesen oder fragen nachträglich stellen, dann kann in der nächsten Woche nochmal drauf eingegangen werden

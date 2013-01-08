@@ -1,0 +1,320 @@
+\input{../skript/gbi-macros.tex}
+\documentclass[12pt]{article}
+
+\usepackage{german}
+\usepackage{mdwlist}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage[paper=a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{pst-all}
+\usepackage{booktabs}
+\usepackage{xspace}
+
+\usepackage[amsmath,thmmarks]{ntheorem}
+
+\theoremheaderfont{\bfseries}
+\theoremstyle{margin}
+\usepackage{amsmath}
+\usepackage{checkend}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{picinpar}
+\usepackage[alsoload=binary]{siunitx}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+   \usetikzlibrary{automata}
+   \usetikzlibrary{matrix}
+\usepackage{url}
+
+\usepackage[amsmath,thmmarks]{ntheorem}
+
+\usepackage[blue]{thwregex}
+
+\def\tightlist{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}\setlength{\parskip}{0pt}}
+\renewcommand{\dh}{d.\,h.\@\xspace}
+
+\theoremheaderfont{\bfseries}
+\theoremstyle{margin}
+
+\newcommand{\thwtheoremindent}{\relax}
+
+\newtheorem{aaaaaa}{aaaaaa}[section]
+% \theoremsymbol{\ensuremath{\Diamond}}
+\theorembodyfont{\upshape} \newtheorem{definition}[aaaaaa]{\thwtheoremindent Definition.}
+
+\theorembodyfont{\upshape} \newtheorem{lemma}[aaaaaa]{\thwtheoremindent Lemma.}
+\newenvironment{beweis}%
+  {\begin{proofinternal}}%
+  {\endofproof\end{proofinternal}}%
+\newdimen\endofproofsize\endofproofsize=0.5em
+\def\endofproof{~\quad\hglue\hsize minus\hsize
+                  \hbox{\vrule height \endofproofsize width \endofproofsize}\par}
+
+
+\begin {document}
+
+
+\bibliography{../skript/gbi}
+
+\setcounter{section}{6}
+
+\section{Graphen}
+\subsection{Gerichtete Graphen und Teilgraphen}
+
+\subsubsection{Graphen:}
+  \begin{itemize}
+  \item zur Motivation:
+    \begin{itemize}
+    \item Einbahnstraßensystem, .....
+    \item wie würde man Zweibahnstraßen modellieren? die Fahrspuren
+      für beide Richtungen separat
+    \item \textbf{Achtung:} analoge Idee für Autobahmodellierung
+      (mehrere Spuren in die gleiche Richtung zwischen zwei Knoten)
+      geht nicht: $E\subseteq V\x V$ erlaubt nur: es gibt \emph{keine}
+      Kante von $x$ nach $y$ oder es gibt \emph{eine}
+      Kante. Sogenannte Mehrfachkanten sind bei uns nicht möglich und 
+     geben bei Lösungen auf jeden Fall Punktabzug.
+    \end{itemize}
+  \item Beispiele malen:
+    \begin{itemize}
+    \item einschließlich Extremfälle mit $0$ Kanten \bzw maximal vielen
+      Kanten; mit Schlingen und ohne Schlingen.
+    \item Sonderfälle wie Bäume (siehe weiter unten) und Zyklen
+    \item Beim Malen darauf hinweisen, dass man den gleichen Graphen
+      unterschiedlich hinmalen kann, \zB den vollständigen Graphen $K_4$ mit sich kreuzenden
+      Kanten oder ohne.
+    \end{itemize}
+  \item Eigenschaften von Graphen an Beispielen diskutieren
+    \begin{itemize}
+    \item beim Straßensystem: Man möchte von jedem Knoten zu jedem
+      kommen.
+    \item Wenn die Knoten Rechner sind und die Kanten Kabel: Man
+      möchte von $x$ nach $y$ nur über möglichst "`wenige"'
+      Kanten laufen müssen (egal wo $x$ und $y$)
+    \end{itemize}
+  \item Wenn ein Graph $n$ Knoten hat:
+    \begin{itemize}
+    \item Wieviele Kanten kann er maximal haben, wenn Schlingen
+      erlaubt sind? $n^2$
+    \item Wieviele Kanten kann er maximal haben, wenn er schlingenfrei
+      ist? $n(n-1)$ \\
+    \end{itemize}
+  \end{itemize}
+
+\subsubsection{Definition Teilgraph:}
+  \begin{itemize}
+  \item Beachte: zu jeder Kante, die man in $E'$ haben will, müssen
+    auch Anfangs- und Endknoten in $V'$ vorhanden sein!
+  \item hinreichend großes Beispiel machen, bei dem sowohl
+    $(\{0,1,2\},$ $\{(0,1),(0,2)\})$ als auch
+    $(\{3,4,5\},\{(3,4),(3,5))\})$ Teilgraph ist:
+    \begin{itemize}
+    \item \textbf{Achtung:} formal sind das verschiedene (Teil-)Graphen
+    \item \textbf{aha:} aber sie sehen gleich aus: so was nennt man
+      isomorphe Graphen
+    \end{itemize}
+  \end{itemize}
+
+\subsection{Pfade und Erreichbarkeit}
+
+\subsubsection{Definition Pfade:}
+  \begin{itemize}
+  \item Beispiel machen, in dem zwar ein Pfad von $x$ nach $y$
+    existiert, aber nicht umgekehrt.
+  \item beachte: für aufeinanderfolgende Knoten im Pfad muss die Kante
+    in die richtige Richtung weisen!
+  \item Beachte: Knoten dürfen in Pfad mehrfach vorkommen
+  \item Beispiel machen, in dem von $x$ nach $y$ unterschiedlich lange
+    Pfade vorkommen.
+  \end{itemize}
+
+\subsection{Isomorphie von Graphen}
+ \begin{itemize}
+  \item Da hatten wir z.B. im WS10/11 eine Aufgabe auf dem Übungsblatt 8 zum Erkennen von isomorphen Graphen. Das macht das ganze vielleicht klar:
+   \begin{itemize}
+  \item Für welche der folgenden sechs Graphen gibt es einen
+    Isomorphismus zu einem der anderen fünf Graphen? Geben Sie jeweils
+    den zugehörigen Isomorphismus an.
+
+    \psset{xunit=0.55cm, yunit=0.55cm, runit=0.55cm}
+    \begin {pspicture}(0, 0)(26, 5) \cnodeput(2, 4){A}{$0$}
+      \cnodeput(3.5, 3){B}{$1$} \cnodeput(2.9, 1){C}{$2$}
+      \cnodeput(1.1, 1){D}{$3$} \cnodeput(0.5, 3){E}{$4$}
+      \rput(2,0){$G_0$}
+
+      \ncline{-}{A}{B}
+      \ncline{-}{B}{C}
+      \ncline{-}{E}{A}
+      \ncline{-}{D}{E}
+      \ncline{-}{C}{D}
+      \ncline{-}{B}{E}
+      
+      \cnodeput(6.5, 4){A1}{$0$}
+      \cnodeput(8, 3){B1}{$1$}
+      \cnodeput(7.4, 1){C1}{$2$}
+      \cnodeput(5.6, 1){D1}{$3$}
+      \cnodeput(5, 3){E1}{$4$}
+      \rput(6.5,0){$G_1$}  
+      
+      \ncline{-}{A1}{B1}
+      \ncline{-}{B1}{C1}
+      \ncline{-}{D1}{E1}
+      \ncline{-}{E1}{A1}
+      \ncline{-}{B1}{D1}
+      \ncline{-}{E1}{C1}
+
+      \cnodeput(11, 4){A2}{$0$}
+      \cnodeput(12.5, 3){B2}{$1$}
+      \cnodeput(11.9, 1){C2}{$2$}
+      \cnodeput(10.1, 1){D2}{$3$}
+      \cnodeput(9.5, 3){E2}{$4$}
+      \rput(11,0){$G_2$}
+      
+      \ncline{-}{A2}{B2}
+      \ncline{-}{C2}{D2}
+      \ncline{-}{D2}{E2}
+      \ncline{-}{E2}{A2}
+      \ncline{-}{C2}{E2}
+      \ncline{-}{D2}{B2}
+
+      \cnodeput(15.5, 4){A3}{$0$}
+      \cnodeput(17, 3){B3}{$1$}
+      \cnodeput(16.4, 1){C3}{$2$}
+      \cnodeput(14.6, 1){D3}{$3$}
+      \cnodeput(14, 3){E3}{$4$}
+      \rput(15.5,0){$G_3$} 
+      
+      \ncline{-}{A3}{B3}
+      \ncline{-}{A3}{C3}
+      \ncline{-}{A3}{D3}
+      \ncline{-}{E3}{A3}
+      \ncline{-}{C3}{E3}
+      \ncline{-}{D3}{B3}
+
+      \cnodeput(20, 4){A4}{$0$}
+      \cnodeput(21.5, 3){B4}{$1$}
+      \cnodeput(20.9, 1){C4}{$2$}
+      \cnodeput(19.1, 1){D4}{$3$}
+      \cnodeput(18.5, 3){E4}{$4$}
+      \rput(20,0){$G_4$}
+      
+      \ncline{-}{E4}{B4}
+      \ncline{-}{E4}{C4}
+      \ncline{-}{E4}{D4}
+      \ncline{-}{E4}{A4}
+      \ncline{-}{C4}{D4}
+      \ncline{-}{A4}{B4}
+
+      \cnodeput(24.5, 4){A5}{$0$}
+      \cnodeput(26, 3){B5}{$1$}
+      \cnodeput(25.4, 1){C5}{$2$}
+      \cnodeput(23.6, 1){D5}{$3$}
+      \cnodeput(23, 3){E5}{$4$}
+      \rput(24.5,0){$G_5$} 
+      
+      \ncline{-}{A5}{D5}
+      \ncline{-}{A5}{C5}
+      \ncline{-}{A5}{D5}
+      \ncline{-}{C5}{B5}
+      \ncline{-}{C5}{E5}
+      \ncline{-}{D5}{B5}
+      \ncline{-}{D5}{E5}
+    \end{pspicture}
+ 
+   \end{itemize}
+ \end{itemize}
+
+\subsection{Ein Blick zur\"uck auf Relationen}
+
+\subsubsection{Pfade, $E^*$}
+  \begin{itemize}
+  \item $E^2$ ist wieder Relation auf $V$: kann man also als Graph
+    malen: Beispiel machen
+  \item analog für $E^3$, \dots
+  \item und $E^*$ ist auch wieder eine Relation auf $V$: kann man also
+    als Graph malen: Beispiel: aus Zyklus der Länge $5$ wird der
+    sogenannte vollständige Graph $K_5$
+  \end{itemize}
+\subsection{Ungerichtete Graphen}
+
+  \begin{itemize}
+  \item \textbf{Achtung:} man reite noch mal auf der Formalisierung
+    von Kanten herum:
+    \begin{itemize}
+    \item für $x\not=y$ ist $\{x,y\}$ eine zweielementige Menge,
+      \emph{ohne} eine Festlegung von Reihenfolge
+    \item für $x=y$ ist die Menge $\{x,y\}=\{x\}$ eine
+      \emph{ein}elementige Menge
+    \end{itemize}
+  \item Wie ist das mit der Anzahl Kanten eines ungerichteten Graphen
+    mit $n$ Knoten:
+    \begin{itemize}
+    \item Wieviele Kanten kann er maximal haben, wenn er schlingenfrei
+      ist? $n(n-1)/2$\\
+      Begründung: von jedem Knoten zu jedem
+      \emph{anderen}; durch zwei, weil sonst jede Kante zweimal gezählt wird.
+    \item Wieviele Kanten kann er maximal haben, wenn er Schlingen
+      haben darf? $n(n+1)/2$ \\
+      Begründung: $n+n(n-1)/2 = n(n+1)/2$
+    \end{itemize}
+  \end{itemize}
+
+\subsection{Anmerkung zu Relationen}
+
+\subsubsection{Äquivalenzrelationen:}
+
+  Falls schon Fragen kommen: mit dem Bild einer
+  Nicht"=Äquivalenzrelation anfangen und so lange Pfeile dazu malen,
+  bis alle Forderungen erfüllt sind:
+  \begin{itemize}
+  \item Schlingen an allen Knoten
+  \item zu jedem Pfeil hin auch der zurück
+  \item wenn ein Pfad von $x$ nach $y$ existiert, dann auch eine
+    direkte Kante
+  \end{itemize}
+  Ergebnis: einige Klumpen, äh, Cliquen (die den Äquivalenzklassen
+  entsprechen)
+
+\subsection{Graphen mit Knoten- oder Kantenmarkierungen}
+
+\subsubsection{kantenmarkierte Graphen:}
+  \begin{itemize}
+  \item Noch mal einen Huffman-Baum hinmalen und diskutieren
+  \item für Zahlen als Kantenmarkierungen siehe gleich
+  \end{itemize}
+
+\subsubsection{Graphen mit gewichteten Kanten}
+  \begin{itemize}
+  \item Beispielgraphen hinmalen und die Studenten kurze und lange
+    Wege suchen lassen
+  \end{itemize}
+
+  \begin{itemize}
+  \item Beispielgraphen hinmalen und die Studenten große Flüsse suchen
+    lassen.
+  \end{itemize}
+
+\subsection{alte (Klausur-)Aufgaben}
+ \begin{itemize}
+  \item Aufgabe aus ÜB7 (WS08/09): Gegeben sei der Graph $G=(V, E)$ mit $V=\{\#0, \#1\}^3$ und $E=\{(xw,
+  wy) \mid x, y \in \{\#0, \#1\} \land w \in \{\#0, \#1\}^2\}$.
+
+   \begin{enumerate}[a)]
+    \item Graphen zeichnen lassen.
+    \item Geben Sie einen Zyklus in $G$ an, der außer dem Anfangs- und
+      Endknoten jeden Knoten von $G$ genau einmal enthält.
+    \item Geben Sie einen geschlossenen Pfad in $G$ an, der jede Kante von $G$
+      genau einmal enthält.
+  \end{enumerate}
+ \item So ziemlich in jeder der letztjährigen Klausuren kam was zu Graphen dran z.B. http://gbi.ira.uka.de/archiv/2010/k-mar11.pdf \\
+  oder http://gbi.ira.uka.de/archiv/2010/k-sep11.pdf. 
+
+ Adjazenz-/Wegematrizen sind allerdings noch nicht bekannt.
+ \end{itemize}
+\end{document}

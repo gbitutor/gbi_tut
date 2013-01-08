@@ -9,7 +9,7 @@
                 \begin{description}
                     \item[$O$-Kalkül] Obere Schranke, die der Algorithmus erreichen, aber nicht überschreiten kann
                     \item[$\Omega$-Kalkül] Untere Schranke und ein "'Mindestaufwand"', den der Algorithmus hat
-					\item[$\Theta$-Kalkül] Schnittmenge der Betrachtung aus $\Omega(n)$ und
+					\item[$\theta$-Kalkül] Schnittmenge der Betrachtung aus $\Omega(n)$ und
 					$O(n)$.\\ Es entsteht eine Art "`Korridor"', den der Algorithmus nie
 					verlässt.
                 \end{description}
@@ -45,7 +45,7 @@
 				$\Omega(g(n)) = \{f (n) \,|$\\$ \exists c \in \mathbb{R}^+, n_0 \in \mathbb{N} \,\forall n > n_0 : 0 \leq c \cdot g(n) \leq f (n)\}$\\
 \vspace{3ex}
 				Asymptotisch scharfe Schranke\\
-				$\Theta(g(n)) = \{f (n) \,|$\\$ \exists c_1, c_2 \in \mathbb{R}^+, n_0 \in \mathbb{N} \,\forall n > n_0 :
+				$\theta(g(n)) = \{f (n) \,|$\\$ \exists c_1, c_2 \in \mathbb{R}^+, n_0 \in \mathbb{N} \,\forall n > n_0 :
 					0 \leq c_1 \cdot g(n) \leq f (n) \leq c_2 \cdot g(n)\}$\\
 		}
 		\begin{block}{\bf Beachte:}
@@ -60,11 +60,11 @@
                 \begin{itemize}
                     \item $f(n) \in O(f(n))$
                     \item $g(n) \in \Omega(g(n))$
-					\item $h(n) \in \Theta(h(n))$
+					\item $h(n) \in \theta(h(n))$
                 \end{itemize}
 			\end{block}
 			\begin{block}{Symmetrie}
-					Hier gilt nur:  $f(n) \in \Theta(g(n)) \Leftrightarrow g(n) \in \Theta(f(n))$
+					Hier gilt nur:  $f(n) \in \theta(g(n)) \Leftrightarrow g(n) \in \theta(f(n))$
 			\end{block}
 			\begin{block}{asymptotisches Wachstum}
 				\begin{itemize}
@@ -77,18 +77,64 @@
 \begin{frame}
 			\frametitle{Beispiel}
 		\begin{block}{\bf Es gilt nicht:}
-		$f(n) \not\in \Theta(g(n)) \Rightarrow g(n) \in O(f(n)) \vee f(n) \in O(g(n))$
+		$f(n) \not\in \theta(g(n)) \Rightarrow g(n) \in O(f(n)) \vee f(n) \in O(g(n))$
 		\end{block}
 
 		\begin{block}{\bf Sucht Gegenbeispiele:}
 		\begin{itemize}\pause
-			\item $|\cos(n)| * n$ und \pause $n$
-			\item $n$ und \pause $f(n)=$ $n$ für gerade, $0$ für ungerade Werte von $n$
+			\item $|\cos(n)| * n^2$ und \pause $n$
+			\item $n$ und \pause $f(n)=$ $n^2$ für gerade, $0$ für ungerade Werte von $n$
 		\end{itemize}
 		\end{block}
 \end{frame}
 
+\section{Master-Theorem}
+\subsection*{}
+\begin{frame}
+  \frametitle{Master-Theorem}
 
+  \begin{block}{Wozu?}
+    Manche Rekursionen passen in einen der drei Fälle des Master-Theorems und lassen sich so mit dem $\theta$-Kalkül abschätzen
+  \end{block}
+  \pause
+  \begin{block}{Vorsicht}
+    nicht jede Rekursion eignet sich für das Master-Theorem!
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Master-Theorem}
+
+  \begin{block}{Definition}
+   Der Algorithmus hat Laufzeit $T(n) = a*T(\frac{n}{b}) + f(n)$ wobei $a, b$ konstant
+    \begin{itemize}
+      \item[Fall 1:] wenn $f(n)  \in O(n^{log_b (a) -\epsilon})$ mit $\epsilon>0$ \\
+      dann $T(n) \in \theta (n^{log_b (a))}$
+      \item[Fall 2:] wenn $f(n)  \in \theta(n^{log_b (a)})$ \\
+      dann $T(n) \in \theta (n^{log_b (a)) * log(n)}$
+      \item[Fall 3:] wenn $f(n)  \in \Omega(n^{log_b (a) +\epsilon})$ mit $\epsilon>0$, und \\
+      $\exists d: 0<d<1$ und für fast alle n gilt $a*f(\frac{n}{b}) \leq d*f(n)$  \\
+      dann $T(n) \in \theta (f(n))$
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Master-Theorem}
+
+  \begin{block}{Beispiel}
+   Quicksort hat die Struktur
+    \begin{itemize}
+    \item wähle Pivot Element und teile damit Liste in zwei Teile
+    \item Quicksort(linker Teil)
+    \item Quicksort(rechter Teil)
+    \end{itemize}
+   
+   Was wären hier $a$, $b$ und $f(n)$? \pause \\ 
+   Trifft einer der drei Fälle zu? Wenn ja welcher? \pause \\ 
+   Fall 2 passt hier. Quicksort liegt damit in $\theta (n\cdot log(n))$
+  \end{block}
+\end{frame}
 
 \section{Endliche Automaten} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Endliche Automaten %%%%%%%%%%%%%%%%%%%%
 \subsection*{}
@@ -102,7 +148,7 @@
   \begin{block}{Was braucht man?}
     \begin{itemize}
       \item endliche Menge $Z$ von Zuständen
-      \item ein Anfangszustand $z_0 \in Z$
+      \item einen Anfangszustand $z_0 \in Z$
       \item ein Eingabealphabet $X$
       \item Zustandsübergangsfunktion $f:Z \times X \rightarrow Z$
       \item ein Ausgabealphabet $Y$
@@ -253,7 +299,7 @@
 	\frametitle{Ihr seid dran...}
  	Entwickelt einen Mealy-Automaten, der...
  	\begin{itemize}
- 	  \item nur ein Zustand $z$ hat und $X=Y=\{a,b\}$, $g(z,a)=b$ und $g(z,b)=ba$ erfüllt
+ 	  \item nur einen Zustand $z$ hat und $X=Y=\{a,b\}$, $g(z,a)=b$ und $g(z,b)=ba$ erfüllt
  	  \only<1-2>{
     \begin{itemize}
     \item wie sieht $w_1=g^{**}(z,a)$ aus?

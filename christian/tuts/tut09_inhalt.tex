@@ -119,12 +119,13 @@
 \begin{frame}
 	\frametitle{Reflexive Transitive Hülle nach Warshall}
 
-	Gegeben sei eine reflexive Relation $\rho$ über einer endlichen Eckenmenge $E=\{0,\dots,n-1\}$.
-	$\sigma^{(k)}$ sei folgende Relation:
+	Gegeben sei eine reflexive Relation $R$ über einer Eckenmenge $V=\{0,\dots,n-1\}$.
 	\begin{multline*}
-		\sigma^{(k)} = \{(i,j)\in E \times E | \exists \text{Weg } i \to e_1 \to \cdots \to e_{l-1} \to j \\
-		\text{ mit } l\le k+2, e_r\in\{0,\ldots,k\} \text{ für } 1\le r\le l-1\}
+		\sigma^{(k)} = \{(i,j)\in V \times V | \exists \text{Weg } i \to e_1 \to \cdots \to e_{l} \to j \\
+		\text{ mit } l\le k+1, e_r\in\{0,\ldots,k\} \text{ für } 1\le r\le l\}
 	\end{multline*}
+	
+	Das entspricht allen Wegen im Graph, die über höchstens $k+1$ {\glqq Zwischenstationen\grqq} bei Knoten aus $\mathbb{G}_{k+1}$ möglich sind.
 
 	\begin{columns}
 	\column{.2\textwidth}
@@ -356,6 +357,57 @@
   \end{block}
 \end{frame}
 
+
+\begin{frame}
+			\frametitle{Aufwandsklassen}
+			\begin{block}{Fallunterscheidung: Aufwandsklassen}
+                \begin{description}
+                    \item[$O$-Kalkül] Obere Schranke, die der Algorithmus erreichen, aber nicht überschreiten kann
+                    \item[$\Omega$-Kalkül] Untere Schranke und ein "'Mindestaufwand"', den der Algorithmus hat
+					\item[$\Theta$-Kalkül] Vereinigung der Betrachtung aus $\Omega(n)$ und $O(n)$.\\
+						Es entsteht eine Art Funktionsbereich, den der Algorithmus nie verlässt.
+                \end{description}
+			\end{block}
+\end{frame}
+
+\begin{frame}
+			\frametitle{Aufwandsklassen}
+		\only<1>{
+				Obere asymptotische Schranke\\
+				$O(g(n)) = \{f(n) \,|$\\$ \exists c \in \mathbb{R}^+, n_0 \in \mathbb{N} \,\forall n > n_0 : 0 \leq f (n) \leq c \cdot g(n)\}$\\
+\vspace{3ex}
+				Untere asymptotische Schranke\\
+				$\Omega(g(n)) = \{f (n) \,|$\\$ \exists c \in \mathbb{R}^+, n_0 \in \mathbb{N} \,\forall n > n_0 : 0 \leq c \cdot g(n) \leq f (n)\}$\\
+\vspace{3ex}
+				Asymptotisch scharfe Schranke\\
+				$\Theta(g(n)) = \{f (n) \,|$\\$ \exists c_1, c_2 \in \mathbb{R}^+, n_0 \in \mathbb{N} \,\forall n > n_0 :
+					0 \leq c_1 \cdot g(n) \leq f (n) \leq c_2 \cdot g(n)\}$\\
+		}
+		\begin{block}{\bf Beachte:}
+		Alle Kalküle geben eine {\bf Menge} von Funktionen an. $f(n) = O(n^2)$ bedeutet also eigentlich $f(n) \in O(n^2)$!
+		\end{block}
+\end{frame}
+
+\begin{frame}
+			\frametitle{Rechenregeln}
+			\begin{block}{Reflexivität}
+                \begin{itemize}
+                    \item $f(n) \in O(f(n))$
+                    \item $g(n) \in \Omega(g(n))$
+					\item $h(n) \in \Theta(h(n))$
+                \end{itemize}
+			\end{block}
+			\begin{block}{Symmetrie}
+					Hier gilt nur:  $f(n) \in \Theta(g(n)) \Leftrightarrow g(n) \in \Theta(f(n))$
+			\end{block}
+			\begin{block}{asymptotisches Wachstum}
+				\begin{itemize}
+                    \item $O(n^2 + n + log(n)) = O(n^2)$
+                    \item $\Omega(n^2 + n + log(n)) = \Omega(n^2) \subset \Omega(log(n))$
+                \end{itemize}
+			\end{block}
+\end{frame}
+
 \subsection*{}
 \begin{frame}
   \frametitle{Logarithmen}
@@ -450,57 +502,6 @@
   \visible<7->{$$ =O(log(n)) $$}
 \end{frame}
 
-
-\begin{frame}
-			\frametitle{Aufwandsklassen}
-			\begin{block}{Fallunterscheidung: Aufwandsklassen}
-                \begin{description}
-                    \item[$O$-Kalkül] Obere Schranke, die der Algorithmus erreichen, aber nicht überschreiten kann
-                    \item[$\Omega$-Kalkül] Untere Schranke und ein "'Mindestaufwand"', den der Algorithmus hat
-					\item[$\Theta$-Kalkül] Vereinigung der Betrachtung aus $\Omega(n)$ und $O(n)$.\\
-						Es entsteht eine Art Funktionsbereich, den der Algorithmus nie verlässt.
-                \end{description}
-			\end{block}
-\end{frame}
-
-
-\begin{frame}
-			\frametitle{Aufwandsklassen}
-		\only<1>{
-				Obere asymptotische Schranke\\
-				$O(g(n)) = \{f(n) \,|$\\$ \exists c \in \mathbb{R}^+, n_0 \in \mathbb{N} \,\forall n > n_0 : 0 \leq f (n) \leq c \cdot g(n)\}$\\
-\vspace{3ex}
-				Untere asymptotische Schranke\\
-				$\Omega(g(n)) = \{f (n) \,|$\\$ \exists c \in \mathbb{R}^+, n_0 \in \mathbb{N} \,\forall n > n_0 : 0 \leq c \cdot g(n) \leq f (n)\}$\\
-\vspace{3ex}
-				Asymptotisch scharfe Schranke\\
-				$\Theta(g(n)) = \{f (n) \,|$\\$ \exists c_1, c_2 \in \mathbb{R}^+, n_0 \in \mathbb{N} \,\forall n > n_0 :
-					0 \leq c_1 \cdot g(n) \leq f (n) \leq c_2 \cdot g(n)\}$\\
-		}
-		\begin{block}{\bf Beachte:}
-		Alle Kalküle geben eine {\bf Menge} von Funktionen an. $f(n) = O(n^2)$ bedeutet also eigentlich $f(n) \in O(n^2)$!
-		\end{block}
-\end{frame}
-
-\begin{frame}
-			\frametitle{Rechenregeln}
-			\begin{block}{Reflexivität}
-                \begin{itemize}
-                    \item $f(n) \in O(f(n))$
-                    \item $g(n) \in \Omega(g(n))$
-					\item $h(n) \in \Theta(h(n))$
-                \end{itemize}
-			\end{block}
-			\begin{block}{Symmetrie}
-					Hier gilt nur:  $f(n) \in \Theta(g(n)) \Leftrightarrow g(n) \in \Theta(f(n))$
-			\end{block}
-			\begin{block}{asymptotisches Wachstum}
-				\begin{itemize}
-                    \item $O(n^2 + n + log(n)) = O(n^2)$
-                    \item $\Omega(n^2 + n + log(n)) = \Omega(n^2) \subset \Omega(log(n))$
-                \end{itemize}
-			\end{block}
-\end{frame}
 
 \begin{frame}
 			\frametitle{Beispiel}

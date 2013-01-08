@@ -1,0 +1,181 @@
+\input{./gbi-macros.tex}
+\documentclass[12pt]{article}
+
+\usepackage{thwmathligs}
+\usepackage{german}
+\usepackage{mdwlist}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage[paper=a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xspace}
+
+\usepackage[amsmath,thmmarks]{ntheorem}
+
+\theoremheaderfont{\bfseries}
+\theoremstyle{margin}
+\usepackage{amsmath}
+\usepackage{checkend}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{picinpar}
+\usepackage[alsoload=binary]{siunitx}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+   \usetikzlibrary{automata}
+   \usetikzlibrary{matrix}
+\usepackage{url}
+
+\usepackage{kbordermatrix}
+
+\usepackage[amsmath,thmmarks]{ntheorem}
+
+\usepackage[blue]{thwregex}
+\usepackage{thwalg}
+\usepackage{thwtextabbrevs}
+
+\def\tightlist{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}\setlength{\parskip}{0pt}}
+\renewcommand{\dh}{d.\,h.\@\xspace}
+
+\theoremheaderfont{\bfseries}
+\theoremstyle{margin}
+
+\newcommand{\thwtheoremindent}{\relax}
+
+\newtheorem{aaaaaa}{aaaaaa}[section]
+\theorembodyfont{\upshape} \newtheorem{definition}[aaaaaa]{\thwtheoremindent Definition.}
+
+\theorembodyfont{\upshape} \newtheorem{lemma}[aaaaaa]{\thwtheoremindent Lemma.}
+\newenvironment{beweis}%
+  {\begin{proofinternal}}%
+  {\endofproof\end{proofinternal}}%
+\newdimen\endofproofsize\endofproofsize=0.5em
+\def\endofproof{~\quad\hglue\hsize minus\hsize
+                  \hbox{\vrule height \endofproofsize width \endofproofsize}\par}
+
+\def\Red#1{\textcolor{darkred}{#1}}
+
+
+\begin {document}
+\setcounter{section}{9}
+
+\section{Endliche Automaten}
+\subsection{Erstes Beispiel: ein Getr\"ankeautomat}
+  \begin{itemize}
+  \item siehe Skript;
+  \item Am Freitag in der Übung wird als weiteres Beispiel die Benutzung von
+    Mealy-Automaten für einfache Codierungs- \bzw Decodierungsaufgaben
+    vorkommen.
+  \end{itemize}
+\subsection{Mealy-Automaten}
+  \begin{itemize}
+  \item Man nehme den Getränkeautomaten und
+    \begin{itemize}
+    \item "`überlege"' sich $f^*((0,\#-), \#{R1O})$ (durch den
+      Zustandsgraphen laufen)
+    \item "`berechne"' $f^*((0,\#-), \#{R1O})$
+    \item analog $f^{**}$
+    \end{itemize}
+  \item Man erarbeite die alternative Definition
+    \begin{eqnarray*}
+      f^{**}(z, \eps) &=& z \\
+      \text{und für alle $x\in X$ und $w\in X^*$ ist\ }
+      f^{**}(z, xw)   &=& z \cdot f^{**}(f(z,x),w) \\
+    \end{eqnarray*}
+  \item Apropos alternative Definition: In der letzten Klausur galt es per Induktion zu zeigen, dass $f^*(z,wx) = \bar{f}^*(z,xw)$.
+      Die Antworten haben mich damals doch etwas traurig gestimmt. Wer nochmal eine Induktion im Tut üben möchte, kann das gerne rechnen lassen.
+  \end{itemize}
+  Man betrachte die folgenden Beispielautomaten:
+  \begin{itemize}
+  \item Getränkautomat: man mache sich klar:
+    \begin{itemize}
+    \item $g^*((0,\#-), \#{R1O})= \#R$
+    \item $g^{**}((0,\#-), \#{R1O})= \#R$
+    \item $g^{**}((0,\#-), \#{R11O})= \#{1R}$
+    \end{itemize}
+  \item nur ein Zustand $z$, $X=Y=\{\#a,\#b\}$
+    und $g(z,\#a)=\#{b}$ und $g(z,\#b)=\#{ba}$
+    \begin{itemize}
+    \item wie sieht $w_1=g^{**}(z,\#a)$ aus?
+    \item $w_2=g^{**}(z,w_1)$, \dots $w_{i+1}=g^{**}(z,w_i)$?
+    \item was passiert mit den Längen?
+    \end{itemize}
+  \item $Z=\Z_5$, $X=\{\#a,\#b\}$, $Y=\{\#0,\#1\}$, bei $\#b$ gleicher
+    Zustand, Ausgabe $\#0$, bei $\#a$ einen Zustand weiter, bei jedem
+    5.~$\#a$ Ausgabe $\#1$, sonst Ausgabe $\#0$. Was tut der Automat?
+  \end{itemize}
+\subsection{Moore-Automaten}
+  \begin{itemize}
+  \item Die Unterschiede zwischen Moore- und Mealy-Automaten sind
+    "`klein"': Abgesehen vom leeren Wort, für das ein Mealy-Automat
+    keine Ausgabe liefern kann, gilt: Man kann zu jedem
+    Moore-Automaten einen Mealy-Automaten konstruieren, so dass das
+    $g^*$ für beide gleich ist. Und die umgekehrte Richtung von Mealy-
+    zu Moore-Automaten funktioniert auch.
+
+  \item Falls jemand fragt: Die erste Richtung von Moore zu Mealy ist
+    ganz einfach: Man "`zieht die Ausgabe aus einem Zustand "`zurück"'
+    zu den Eingaben an den Kanten zu diesem Zustand.
+
+    Die umgekehrte Richtung ist ein bisschen aufwändiger, aber auch
+    kein Hexenwerk; siehe
+    \url{http://de.wikipedia.org/wiki/Mealy-Automat}, Abschnitt
+    \emph{Zusammenhang\_mit\_Moore-Automat}.
+  \end{itemize}
+\subsection{Endliche Akzeptoren}
+\subsubsection{Beispiele formaler Sprachen, die von endlichen Akzeptoren akzeptiert werden k\"onnen}
+  \begin{itemize}
+  \item \textbf{Bitte bitte bitte die akzeptierenden Zustände nur so
+      nennen}, und \emph{nicht} Endzustände. Langjährige Erfahrung
+    zeigt, dass das zu falschen Intuitionen führt.
+  \item Man entwickele einen Akzeptor mit $X=\{\#a,\#b\}$, der alle
+    Wörter akzeptiert, bei denen die Anzahl der $\#a$ durch $5$
+    teilbar ist. (Anzahl der \#b ist also egal.)
+
+    Kreis mit 5 Zuständen; bei jedem \#a eins weiter, bei jedem \#b
+    Schlinge; akzeptieren bei Anfangszustand.
+  \item Man entwickele einen Akzeptor mit $X=\{\#a,\#b\}$, der alle
+    Wörter akzeptiert, in denen nirgends hintereinander zwei \#b
+    vorkommen. Hier "`muss"' man zählen, wieviele \#b unmittelbar
+    hintereinander kamen, aber nur bis $2$:
+
+    \begin{tikzpicture}[shorten >=1pt,node distance=2cm,auto,initial text=,>=stealth]
+      \node[state,initial,accepting]  (q_0)                       {$0$};
+      \node[state,accepting]          (q_1) [right of= q_0] {$1$};
+      \node[state]                    (q_2) [right of= q_1] {$2$};
+      \path[->] (q_0) edge [loop below]      node        {$\#a$} ()
+      edge [bend right] node [swap] {$\#b$} (q_1)
+      (q_1) edge              node        {$\#b$} (q_2)
+      edge [bend right] node [swap] {$\#a$} (q_0)
+      (q_2) edge [loop below] node        {$\#a,\#b$} ()
+      ;
+    \end{tikzpicture}
+  \item Diskussion: einfachste Version von Syntaxanalyse
+  \end{itemize}
+\subsection{Eine formale Sprache, die von keinem endlichen Akzeptor akzeptiert werden kann}
+  \begin{itemize}
+  \item Der Beweis, dass $\{\#a^k\#b^k \mid
+    k\in\N_0\}$ von keinem endlichen Akzeptor erkannt werden kann, vermittelt einem
+    wesentliches über endliche Automaten: Wenn ein
+    hinreichend langes Wort $w$ akzeptiert wird (und das ist
+    garantiert immer der Fall, wenn die Sprache unendlich ist), dann
+    läuft man für ein Teilwort $v$ durch eine Schleife, und dann
+    ändert mehrfaches Durchlaufen der Schleife (\bzw ganz weglassen)
+    nichts am Akzeptierungsverhalten (Pumpinglemma für reguläre
+    Sprachen, das kommt aber erst im dritten Semester).
+  \end{itemize}
+
+\subsection{alte Klausuraufgaben}
+  \begin{itemize}
+   \item Zu Akzeptoren gibt es eigenlich in fast jeder Klausur eine Aufgabe.
+   \item Zu Mealy Automaten habe ich auf die Schnelle Aufgabe 3 gefunden:\\
+    http://gbi.ira.uka.de/archiv/2009/k-mar10.pdf
+  \end{itemize}
+
+\end{document}
