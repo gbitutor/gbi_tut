@@ -1,0 +1,348 @@
+\input{./gbi-macros.tex}
+\documentclass[12pt]{article}
+
+%%\usepackage[blattnr=1,loesung]{thwaufgaben}
+\usepackage{thwtextabbrevs}
+%\usepackage{thwmathabbrevs}
+\usepackage{thwmathligs}
+\usepackage{german}
+\usepackage{mdwlist}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage[paper=a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xspace}
+
+\usepackage[amsmath,thmmarks]{ntheorem}
+
+\theoremheaderfont{\bfseries}
+\theoremstyle{margin}
+\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{bold-extra}
+\usepackage{checkend}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{picinpar}
+\usepackage[alsoload=binary]{siunitx}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+   \usetikzlibrary{automata}
+   \usetikzlibrary{matrix}
+\usepackage{url}
+
+\usepackage{kbordermatrix}
+
+\usepackage[amsmath,thmmarks]{ntheorem}
+
+\usepackage[blue]{thwregex}
+\usepackage{thwalg}
+\usepackage{thwtextabbrevs}
+
+\def\tightlist{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}\setlength{\parskip}{0pt}}
+\renewcommand{\dh}{d.\,h.\@\xspace}
+
+\theoremheaderfont{\bfseries}
+\theoremstyle{margin}
+
+\newcommand{\thwtheoremindent}{\relax}
+
+\newtheorem{aaaaaa}{aaaaaa}[section]
+% \theoremsymbol{\ensuremath{\Diamond}}
+\theorembodyfont{\upshape} \newtheorem{definition}[aaaaaa]{\thwtheoremindent Definition.}
+
+\theorembodyfont{\upshape} \newtheorem{lemma}[aaaaaa]{\thwtheoremindent Lemma.}
+\newenvironment{beweis}%
+  {\begin{proofinternal}}%
+  {\endofproof\end{proofinternal}}%
+\newdimen\endofproofsize\endofproofsize=0.5em
+\def\endofproof{~\quad\hglue\hsize minus\hsize
+                  \hbox{\vrule height \endofproofsize width \endofproofsize}\par}
+
+\def\Red#1{\textcolor{darkred}{#1}}
+
+\begin {document}
+
+
+\bibliography{../skript/gbi}
+
+\setcounter{section}{11}
+
+\section{Turingmaschinen}
+
+
+  \subsubsection*{partielle Funktionen}
+  \begin{itemize}
+  \item ggf.\ noch mal kurz drauf eingehen
+  \item "`wie eine normale Funktion, aber an manchen Stellen evtl.\ nicht definiert"'
+  \end{itemize}
+
+%\section{Turingmaschinen}
+
+\subsection{Bestandteile einer Turingmaschine}
+  \begin{itemize}
+  \item wir betrachten nur die simpelste Variante:
+    \begin{itemize}
+    \item nur ein Kopf
+    \item nur ein Arbeitsband
+    \item keine separaten "`Spezialbänder"' für Eingaben oder Ausgaben
+    \end{itemize}
+  \end{itemize}
+
+  \begin{itemize}
+  \item wir haben die Arbeitsweise auf 3 Funktionen $f$, $g$, $m$
+    aufgeteilt, weil man da einfacher hinschreiben kann, was ein
+    Schritt ist
+    \begin{enumerate}
+    \item Übergang in neuen Zustand
+    \item Feld mit nächstem Symbol beschriften
+    \item Kopf bewegen
+    \end{enumerate}
+  \item weiteres Beispiel:
+    \begin{center}
+      \begin{tabular}{c}
+        \begin{tikzpicture}[shorten >=1pt,initial text=,node distance=2cm,auto,->,>=stealth,baseline=(B.base)]
+          % \node[state,initial]  (S)                       {$S$};
+          \node[state,initial]  (A)          {$A$};
+          % \node (nix) [right of=A] {};
+          \node[state]          (B) [above right of=A] {$B$};
+          \node[state]          (C) [right of=B] {$C$};
+          \node[state]          (E) [below right of=A] {$E$};
+          \node[state]          (D) [right of=E] {$D$};
+          \path[->]
+          % (S) edge              node  {$\9\io\9R$} (A)
+          (A) edge              node  {$\#1\io\#XR$} (B)
+          (B) edge [loop above] node  {$\#1\io\#1R$} ()
+          edge              node  {$\9\io\9R$} (C)
+          (C) edge [loop above] node  {$\#1\io\#1R$} ()
+          edge              node  {$\9\io\#1L$} (D)
+          (D) edge [loop below] node  {$\#1\io\#1L$} ()
+          edge              node  {$\9\io\9L$} (E)
+          (E) edge [loop below] node  {$\#1\io\#1L$} ()
+          edge              node  {$\#X\io\#1R$} (A)
+          ;
+        \end{tikzpicture}
+        \\[5mm]
+        \begin{tabular}[t]{>{$}c<{$}@{\qquad}*{6}{>{$}c<{$}}}
+          \toprule
+          & A       & B      & C       & D       & E \\
+          \midrule
+          \9
+          &         & C,\9,R & D,\#1,L & E,\9,L  &  \\
+          \#1         & B,\#X,R & B,\#1,R& C,\#1,R & D,\#1,L & E,\#1,L \\
+          \#X         &         &        &         &         & A,\#1,R \\
+          \bottomrule
+        \end{tabular}
+      \end{tabular}
+    \end{center}
+    Wenn ich mich nicht vertan habe, kopiert diese TM ein Wort
+    $\#1^k$ auf einem leeren Band, so dass hinterher $\cdots \blank
+    \#1^k \blank \#1^k \blank \cdots$ da steht, falls man auf der
+    ersten \#1 startet.
+  \item Verallgemeinerung fürs Kopieren von Wörtern über $\{\#0,\#1\}$:
+    Man muss sich auf dem Weg nach rechts merken, was mit \#X
+    überschrieben wurde, und man muss auf dem Weg nach rechts und
+    zurück sowohl \#1 als auch \#0 überlaufen.
+  \end{itemize}
+
+\subsubsection{Berechnungen}
+
+  \begin{itemize}
+  \item Wichtig: Darauf eingehen, dass es unendliche Berechnungen
+    gibt --- bei TM genauso wie in Java.
+  \end{itemize}
+
+\subsubsection{Ergebnisse von Turingmaschinen}
+
+  \begin{itemize}
+  \item die Palindrommaschine aus der Vorlesung (ca Folie 32/33) sollte klar sein
+  \item wir beschränken uns weitgehend auf Akzeptoren, aber wer will, kann eine TM besprechen, die eine binär dargestellte
+    Zahl um 1 erhöht:
+
+    \begin{tabular}[t]{>{$}c<{$}@{\qquad}*{4}{>{$}c<{$}}}
+      \toprule
+      & r & c_0 & c_1 & h \\
+      \midrule
+      \#0 & r,\#0,R   & c_0,\#0,L & c_0,\#1,L \\
+      \#1 & r,\#1,R   & c_0,\#1,L & c_1,\#0,L \\
+      \9  & c_1,\9, L & h,\9 ,R   & c_0,\#1,L & \hphantom{C,\#1,L} \\
+      \bottomrule
+    \end{tabular}\\
+
+    \noindent
+
+  \end{itemize}
+
+\subsection{Berechnungskomplexit\"at}
+
+  \begin{itemize}
+  \item Noch mal der Hinweis aus dem Skript: Der Einfachheit halber
+    wollen wir in diesem Abschnitt davon ausgehen, dass wir
+    ausschließlich mit Turingmaschinen zu tun haben, die für jede
+    Eingabe halten.
+
+    In nächsten Abschnitt werden wir dann aber wieder gerade von dem
+    allgemeinen Fall ausgehen, dass eine Turingmaschine für manche
+    Eingaben \emph{nicht} hält.
+  \item Das ist vielleicht etwas verwirrend für die Studenten. Aber
+    der Formalismus für Komplexitätstheorie, bei dem alles für
+    manchmal nicht haltende TM durchgezogen wird, ist auch nicht
+    gerade so toll. Und man muss aufpassen.
+  \item Lieber die Studenten anflehen, sie mögen doch bitte glauben,
+    dass die Annahme des Immer-Haltens ok ist. Wir werden auch in der
+    Vorlesung was dazu sagen.
+  \end{itemize}
+
+\subsubsection{Komplexit\"atsma\ss e}
+
+  \begin{itemize}
+  \item bei Komplexitätsmaßen üblich: \zB bei der Zeitkomplexität
+    Angabe des schlimmsten Falles in Abhängigkeit von der
+    Eingabegröße (und nicht für jede Eingabe einzeln).
+  \item "`Auflösen"' der Rekursion $\fTime(n+2) \leq 2n+1 +
+    \fTime(n-2)$ und Ergebnis $\fTime(n) \in \Oh{n^2}$ ggf.\ klar
+    machen können.
+  \end{itemize}
+
+  \begin{itemize}
+  \item Bitte Zusammenhänge zwischen Zeit- und
+    Raumkomplexität klar machen.
+  \item Um zu sehen, dass man auf linearem Platz exponentielle Zeit
+    verbraten kann:
+    \begin{itemize}
+    \item man baue noch eine TM: auf dem Band steht anfangs eine Folge
+      von Nullen. Aufgabe der TM: Solange auf dem Band nicht eine
+      Folge nur aus Einsen steht, immer wieder die TM von weiter vorne
+      anwenden, die die Zahl um 1 erhöht.
+    \item Wenn anfangs $n$ Nullen auf dem Band stehen, dann wird
+      $2^n-1$ mal die 1.~TM ausgeführt; das macht insgesamt
+      offensichtlich $\geq 2^n$ Schritte.
+    \item Für die, die es genauer machen wollen: \textbf{Achtung:}
+      $\Th{(2^n-1)n} \not\subseteq \Oh{2^n}$, aber natürlich \zB
+      $\Th{(2^n-1)n} \subseteq \Oh{3^n}$.
+    \end{itemize}
+  \end{itemize}
+
+  \begin{itemize}
+  \item \textbf{GANZ WICHTIG:} \emph{Niemals} von der
+    Zeitkomplexität o.\,ä.~eines Problems reden.
+    \begin{itemize}
+    \item Algorithmen haben eine Laufzeit. Probleme nicht.
+    \item \textbf{Achtung:} Der Versuch die Laufzeit eines Problems
+      als die der schnellsten Algorithmen zur Lösung des Problems zu
+      definieren \text{funktioniert nicht}.
+
+      \emph{Es gibt Probleme, für die es keine schnellsten
+        Algorithmen gibt.} Sondern zu jedem Algorithmus für ein
+      solches Problem gibt es einen anderen, der \emph{um mehr als
+        einen konstanten Faktor (!)} schneller ist.
+    \end{itemize}
+  \end{itemize}
+
+\subsubsection{Komplexit\"atsklassen}
+
+  \begin{itemize}
+  \item Aus dem Skript: Wichtig:
+    \begin{itemize}
+    \item Eine Komplexitätsklasse ist eine Menge von Problemen ---
+      und \emph{nicht} von Algorithmen.
+    \item Wir beschränken uns im folgenden wieder auf
+      Entscheidungsprobleme.
+    \end{itemize}
+  \end{itemize}
+
+% \subsection{Unentscheidbare Probleme}
+% 
+%   \begin{itemize}
+%   \item Als erstes noch mal den prizipiellen Unterschied zwischen
+%     "`nur in Zeit $2^{2^{2^n}}$ berechenbar"' und "`überhaupt nicht
+%     berechenbar"' klar machen
+%   \item auch wenn man in der Praxis nie $2^{2^{2^n}}$ Zeit hat.
+%   \end{itemize}
+% 
+% \subsubsection{Codierungen von Turingmaschinen}
+% 
+%  \begin{itemize}
+%   \item Die im Skript beschriebene Codierung ist so gewählt, weil
+%     \begin{itemize}
+%     \item man leicht von einem Wort überprüfen kann, ob es eine TM
+%       codiert, und
+%     \item sie bequem ist, um eine TM zu simulieren, wenn man ihre
+%       Codierung hat.
+%     \end{itemize}
+%   \item Ich habe faulerweise darauf verzichtet, auch noch zu sagen,
+%     wie man bei TM-Akzeptoren die akzeptierenden Zustände
+%     codiert. Man denke sich was bequemes aus.
+%   \item Wer mag, kann ja eine kleine TM codieren.
+%   \end{itemize}
+% 
+%   \begin{itemize}
+%   \item Da ich bei der Unentscheidbarkeit des Halteproblems ohne
+%     universelle TM auskomme, habe ich das Thema nur kurz
+%     angesprochen.
+%   \item Falls ich viel Zeit habe, liefere ich eine Beschreibung
+%     einer universellen TM. Ansonsten:
+%   \item Wer Lust hat, kann sich ja mal für die beschriebene
+%     Codierung eine universelle TM überlegen. Technisch braucht man
+%     nicht viel.
+%   \item Falls im Tutorium Zeit ist oder entsprechende Fragen kommen,
+%     kann man die universelle TM ja mal "`auf hohem Niveau"'
+%     beschreiben.
+%   \end{itemize}
+
+% \subsubsection{Das Halteproblem}
+% 
+%   Diagonalisierung:
+%   \begin{itemize}
+%   \item habe ich relativ allgemein beschreiben, aber eben nur den
+%     Kern.
+%   \item Der Kern sollte gaaaanz klar sein: Die "`verdorbene
+%     Diagonale"' $\overline{d}$ (so nenn ich das immer; wenn Sie einen
+%     besseren Begriff haben \dots) unterscheidet sich von jeder Zeile
+%     der Tabelle.
+%   \item Die Art der Ausnutzung der Idee variiert.
+%     \begin{itemize}
+%     \item Manchmal weiß man, dass die Zeilen \emph{alle} Möglichkeiten
+%       einer gewissen Art umfassen, dann ist also $\overline{d}$ sicher
+%       nicht von der gewissen Art; es gibt also etwas, was nicht von
+%       der gewissen Art ist. (\zB Komplexitätstheorie: es gibt ein
+%       Problem, dass nicht in Zeit $n^2$ o.ä.\ lösbar ist) (aber wie
+%       sich zeigt \zB in Zeit $n^{2+\eps}$, wenn man die Diagonale
+%       vorsichtig genug verdirbt).
+%     \item Manchmal, \zB bei der Überabzählbarkeit von $\R$, ist
+%       $\overline{d}$ Zeuge dafür, dass die Tabelle nie vollständig
+%       sein kann.
+%     \item beim Halteproblem ist es noch ein bisschen anders.
+%     \end{itemize}
+%   \end{itemize}
+% 
+%   Halteproblem:
+%   \begin{itemize}
+%   \item Die Aussage und der Beweis müssen sitzen.
+%   \item Statt konkret über TM rede ich nur noch von Algorithmen. Man
+%     mache sich im Zweifelsfall klar, wie eine TM das jeweils
+%     bewerkstelligen könnte.  Ich wollte hier aber keinen Workshop
+%     über "`TM-Tools"' und "`TM-Libraries"' veranstalten.
+%   \item Ich diskutiere nicht die Tatsache, dass $H$ als formale
+%     Sprache immerhin erkennbar (also wie man auch sagt aufzählbar)
+%     ist. Dafür bräuchte man universelle TM.
+%   \end{itemize}
+% 
+% \subsubsection{Die Busy-Beaver-Funktion}
+% 
+%   \begin{itemize}
+%   \item Aus Zeitgründen müssen wir uns hier aufs Staunen
+%     beschränken. Vielleicht macht das ja den ein oder anderen
+%     neugierig.
+%   \item Wenn ich mich recht erinnere, hat der Wertebereich von
+%     $\bb()$ übrigens die Eigenschaft, dass weder er noch sein
+%     Komplement aufzählbar ist. Also noch schlimmer als $H$ \dots
+%   \end{itemize}
+
+\end{document}
