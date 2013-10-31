@@ -348,13 +348,23 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 \begin{block}{Einfach I}
 \begin{figure}
 	\centering
-		\includegraphics[height=4cm]{src/tut12_einfachI.png}
+           \begin{tikzpicture}[shorten >=1pt,initial text=,node distance=1.5cm,auto,->,>=stealth,baseline=(B.base)]
+             \node[state,initial]  (S)          {$q_1$};
+             % \node (nix) [right of=A] {};
+             \node[state]          (B) [right of=S, node distance=2.5cm] {$q_2$};
+
+             \path[->]
+             %(S) edge              node  {$$\square$\io$\square$R$} (A)
+             (S) edge              node  {$a | b, R$} (B)
+             ;
+           \end{tikzpicture}
+
+
 \end{figure}
-\only<1>{(der Startzustand muss natürlich auch durch einen Pfeil markiert werden, die Markierung fehlt hier)}
 \end{block}
 \pause
  \begin{block}{Bedeutung des Übergangs}
- Ist die TM im Zustand q und liest das Sysmbol a, so überschreit sie dieses a mit b, geht auf dem Bande eine Stelle nach links und wechselt in den Zustand p
+ Ist die TM im Zustand $q_1$ und liest das Sysmbol a, so überschreit sie dieses a mit b, geht auf dem Bande eine Stelle nach rechts und wechselt in den Zustand $q_2$
 \end{block}
 \end{frame}
 
@@ -406,8 +416,11 @@ Eine Turingmaschine befindet sich zu jedem Zeitpunkt in einem \textit{Gesamtzust
 Eine Turing-Maschine akzeptiert eine Eingabe $w$, wenn sie nach Lesen
 von $w$ in einem akzeptierenden Zustand $F \subset Z$ stoppt. \\
 Es gibt Eingaben, für die eine Turing-Maschine unter Umständen niemals
-stoppt, bzw. nur einem nicht akzeptierenden Zustand. \\
-Wann terminiert eine TM?
+stoppt, bzw. nur in einem nicht akzeptierenden Zustand.
+\end{block} \pause
+\begin{block}{Terminierung}
+Wann terminiert eine TM? \\ \pause
+\textbf{Wenn der nächste Schritt nicht mehr definiert ist.}
 \end{block}
 \end{frame}
 
@@ -438,11 +451,32 @@ Wann terminiert eine TM?
 	Gebt eine Turingmaschine an die alle Wörter aus $\{0,1\}^*$ erkennt, die mit einer Eins beginnen
 	\end{block}
   \only<2->{
-\begin{block}{Lösung (die Markierung des Startzustands fehlt)}
-\begin{figure}
+\begin{block}{Lösung (nicht minimal)}
 	\centering
-		\includegraphics[width=\textwidth]{src/tut12_einfachII.png}
-\end{figure}
+           \begin{tikzpicture}[shorten >=1pt,initial text=,node distance=2.5cm,auto,->,>=stealth,baseline=(C.base)]
+             \node[state,initial]  (S)          {$S$};
+             % \node (nix) [right of=A] {};
+             \node[state]          (B) [above right of=S] {$q_1$}; %
+             \node[state, accepting]   (C) [below right of=S] {$q_2$};
+
+
+             \path[->]
+             %(S) edge              node  {$$\square$\io$\square$R$} (A)
+             (S) edge [loop below] node  {$\square | \square, R$} ()
+             edge   [bend above]           node  {$0 | 0, R$} (B)
+             edge    [bend below] node  {$1 | 1, R$} (C)
+%             edge              node  {$\square | 1 L$} (D)
+%             (D) edge [loop below] node  {$ 1 | 1 L$} ()
+%             edge              node  {$\square | \square L$} (E)
+%             (E) edge [loop below] node  {$ 1 | 1 L$} ()
+%             edge              node  {$ X | 1 R$} (S)
+             % (B) edge              node        {$\square$\io$\square$R$} (B)
+             % edge [loop right] node        {$1$\io$1$R$} ()
+             % (B) edge [loop right] node {$\square$\io$1$L$} ()
+             % edge  node [pos=0.3]       {$1$\io$1$L$} (A)
+             ;
+           \end{tikzpicture}
+
 
 
 \end{block}}\end{frame}
