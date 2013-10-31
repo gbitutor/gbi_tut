@@ -1,5 +1,7 @@
+
 \RequirePackage{fix-cm}
 \documentclass[compress]{beamer}
+
 \setbeamertemplate{navigation symbols}{}
 \date{\presentationdate}
 
@@ -16,13 +18,14 @@
 %\FooterAuthorfraction{0.2}
 %\FooterTitlefraction{0.3}
 %\FooterInstfraction{0.5}
-\usetheme[footline=title,compress]{KIT}
+%\usetheme[footline=title,compress]{KIT}
+\usetheme{KIT}
 
-
-\usepackage{ae}
-\usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
-\usepackage[utf8]{inputenc}
+\usepackage{fontspec} %for luatex to get ß right?
+%\usepackage{ae} %deactivated for luatex
+%\usepackage[T1]{fontenc} %deativated for luatex
+%\usepackage[utf8]{inputenc} %deactivated for LuaLatex
 \usepackage{tikz}
 \usepackage{colortbl}
 \usepackage{url}
